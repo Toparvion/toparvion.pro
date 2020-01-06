@@ -1,0 +1,65 @@
+---
+# Display name
+name: Владимир Плизга
+
+# Username (this should match the folder name)
+authors:
+- toparvion
+
+# Is this the primary user of the site?
+superuser: true
+
+# Role/position
+role: Инженер-программист
+
+# Organizations/Affiliations
+organizations:
+- name: ЦФТ
+  url: "http://www.cft.ru/"
+
+# Short bio (displayed in user profile at end of posts)
+bio: ~~~My research interests include distributed robotics, mobile computing and programmable matter.
+
+interests:
+- Backend разработка
+- Прикладная криптография
+- Open Source Software
+
+education:
+  courses:
+  - course: Курс по слайдам и выступлениям
+    institution: Учебный центр ЦФТ, Новосибирск
+    year: 2019
+  - course: Курс English Upper-Intermediate
+    institution: Языковая школа Present School, Новосибирск
+    year: 2010
+  - course: Специалитет "Информатика и вычислительная техника"
+    institution: Новосибирский Государственный Технический Университет, АВТФ
+    year: 2010
+
+# Social/Academic Networking
+# For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
+#   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
+#   form "mailto:your-email@example.com" or "#contact" for contact widget.
+social:
+- icon: envelope
+  icon_pack: fas
+  link: '#contact'  # For a direct email link, use "mailto:test@example.org".
+- icon: twitter
+  icon_pack: fab
+  link: https://twitter.com/toparvion
+- icon: github
+  icon_pack: fab
+  link: https://github.com/toparvion
+
+# Enter email to display Gravatar (if Gravatar enabled in Config)
+email: ""
+
+# Organizational groups that you belong to (for People widget)
+#   Set this to `[]` or comment out if you are not using People widget.
+# user_groups:
+# - Researchers
+# - Visitors
+---
+
+Владимир со школьной скамьи болеет программированием и с тех пор успел покодировать на многом: от советских программируемых калькуляторов до промышленных SCADA-систем на заводах. Но последние несколько лет погружен в разработку бэкенда интернет-банков и сопутствующих сервисов в ЦФТ, где активно топит за микросервисы и прочие модные штуки. Кроме этого, регулярно заморачивается идеями оптимизации сложных задач разработки/тестирования серверного ПО, вынашивает для них решения на пробежках и в бассейне, а затем воплощает их в жизнь, бессовестно испытывая на собственных коллегах.
