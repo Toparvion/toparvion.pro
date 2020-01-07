@@ -3,7 +3,7 @@ title: "AppCDS for Spring Boot applications: first contact"
 subtitle: ""
 summary: "AppCDS seems a promising and easy performance optimization for Spring Boot microservices. But the reality is not so simple…"
 authors: ["toparvion"]
-tags: ["appcds", "spring-boot", "jvm", "microservices", "long-read", "english"]
+tags: ["appcds", "spring-boot", "jvm", "microservices", "long-read", "in-english"]
 categories: ["Performance"]
 date: 2019-10-23T08:42:27+07:00
 lastmod: 2020-01-07T08:42:27+07:00
@@ -513,3 +513,7 @@ In this article, I’ve tried to share with you my experience in using Spring Bo
 * We’ve also [observed](#results-analysis) the same changes from the Metaspace perspective and it turned out that the used part of this region is **almost 5 times smaller** with AppCDS than without it.
 
 Of course, such results do not allow AppCDS to pretend to be a “killer feature” for such a use case. However, its application field is obviously not limited to Spring Boot microservices. I assume there are lots of other use cases with more resource-intensive applications where AppCDS may prove itself effectively. Besides, I’d like to remind that we haven’t observed the AppCDS use case for multiple *different* Spring Boot applications. I tried to do it in my job project and found some interesting side effects. But this is a completely different topic…
+
+{{% alert note %}}
+This article was initially [published](https://medium.com/@toparvion/appcds-for-spring-boot-applications-first-contact-6216db6a4194) on Medium.
+{{% /alert %}}
