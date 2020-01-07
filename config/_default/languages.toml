@@ -10,6 +10,10 @@
   copyright = "&copy; Vladimir Plizga {year}"
   [en.params]
     description = "Vladimir Plizga's personal professional web page"
+    #   Examples: "Mon, Jan 2, 2006" or "2006-01-02"
+    date_format = "Jan 2, 2006"
+    #   Examples: "3:04 pm" or "15:04"
+    time_format = "3:04 PM"
 
 # Uncomment the lines below to configure your website in a second language.
 [ru]
@@ -19,7 +23,7 @@
   copyright = "&copy; Владимир Плизг&aacute; {year}"
   [ru.params]
     description = "Профессиональная страница Владимира Плизги"
- # [[zh.menu.main]]
-   # name = "Wo"
-   # url = "#about"
-   # weight = 1
+    #   Examples: "Mon, Jan 2, 2006" or "2006-01-02"
+    date_format = "02 January 2006"
+    #   Examples: "3:04 pm" or "15:04"
+    time_format = "15:04"
