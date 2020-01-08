@@ -9,7 +9,7 @@
   weight = 10
 
 [[main]]
-  name = "Заметки"
+  name = "Статьи"
   url = "#posts"
   weight = 20
 
@@ -24,7 +24,7 @@
   weight = 35
 
 [[main]]
-  name = "Статьи"
+  name = "Публикации"
   url = "#featured"
   weight = 40
 

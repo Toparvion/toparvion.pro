@@ -18,21 +18,15 @@ organizations:
   url: "http://www.cft.ru/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: ~~~My research interests include distributed robotics, mobile computing and programmable matter.
+bio: Делать быстро - значит, делать не торопясь, но без остановок.
 
 interests:
 - Backend разработка
-- Прикладная криптография
 - Open Source Software
+- Прикладная криптография
 
 education:
   courses:
-  - course: Курс по слайдам и выступлениям
-    institution: Учебный центр ЦФТ, Новосибирск
-    year: 2019
-  - course: Курс English Upper-Intermediate
-    institution: Языковая школа Present School, Новосибирск
-    year: 2010
   - course: Специалитет "Информатика и вычислительная техника"
     institution: Новосибирский Государственный Технический Университет, АВТФ
     year: 2010
