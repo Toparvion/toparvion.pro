@@ -30,7 +30,7 @@ projects: ["appcds"]
 
 The idea behind AppCDS is to “share” once loaded classes between JVM instances on the same host. It seems that it should be fit for microservices, especially for Spring Boot “broilers” that have thousands of library classes, because the JVM would not need to load (parse and verify) those classes on every start of every instance, and those classes would not duplicate in memory. Consequently, the startup should become faster and memory footprint should be smaller. Sounds great, doesn’t it?
 
-That’s right. But if you're used to not believing street banners but checked facts and measures, then welcome aboard! Let’s find out what it’s like truly…
+That’s right. But if you're used to not believing street banners but checked facts and measures, then welcome aboard[^1]! Let’s find out what it’s like truly…
 
 ---
 
@@ -514,6 +514,6 @@ In this article, I’ve tried to share with you my experience in using Spring Bo
 
 Of course, such results do not allow AppCDS to pretend to be a “killer feature” for such a use case. However, its application field is obviously not limited to Spring Boot microservices. I assume there are lots of other use cases with more resource-intensive applications where AppCDS may prove itself effectively. Besides, I’d like to remind that we haven’t observed the AppCDS use case for multiple *different* Spring Boot applications. I tried to do it in my job project and found some interesting side effects. But this is a completely different topic…
 
-{{% alert note %}}
-This article was initially [published](https://medium.com/@toparvion/appcds-for-spring-boot-applications-first-contact-6216db6a4194) on Medium.
-{{% /alert %}}
+&nbsp;
+
+[^1]: *This article was initially [published](https://medium.com/@toparvion/appcds-for-spring-boot-applications-first-contact-6216db6a4194) on Medium.*

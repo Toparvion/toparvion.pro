@@ -6,7 +6,7 @@ active = true  # Activate this widget? true/false
 weight = 30  # Order that this section will appear.
 
 title = "Знания и навыки"
-subtitle = ""
+subtitle = "Эти инструменты составляют мою профессию сегодня"
 
 # Showcase personal skills or business features.
 # Add/remove as many `[[feature]]` blocks below as you like.
@@ -16,7 +16,7 @@ subtitle = ""
   icon = "java"
   icon_pack = "fab"
   name = "Java&trade;"
-  description = "Standard Edition (server-side)"
+  description = "Standard Edition (1.8, 11+)"
   
 [[feature]]
   icon = "leaf"

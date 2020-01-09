@@ -25,6 +25,7 @@ date_format = "2006"
   location = "Новосибирск, Россия"
   date_start = "2016-08-23"
   date_end = ""
+  description = "Spring Boot, Spring Cloud, K8s"
   # description = """
   # Области ответственности:
   
@@ -40,7 +41,7 @@ date_format = "2006"
   location = "Новосибирск, Россия"
   date_start = "2014-06-23"
   date_end = "2016-08-23"
-  description = ""
+  description = "Play! Framework (v1.x), ElasticSearch"
 
 [[experience]]
   title = "Старший инженер-программист"
@@ -49,7 +50,7 @@ date_format = "2006"
   location = "Новосибирск, Россия"
   date_start = "2012-10-23"
   date_end = "2014-06-23"
-  description = ""
+  description = "Spring WebMVC, Hibernate"
 
 [[experience]]
   title = "Инженер-программист"
@@ -58,7 +59,7 @@ date_format = "2006"
   location = "Новосибирск, Россия"
   date_start = "2011-10-23"
   date_end = "2012-10-23"
-  description = ""
+  description = "Apache Wicket, Apache Tomcat"
 
 [[experience]]
   title = "Техник-конструктор"
@@ -67,5 +68,5 @@ date_format = "2006"
   location = "Новосибирск, Россия"
   date_start = "2009-02-23"
   date_end = "2010-05-23"
-  description = "Совмещал с учёбой. Программировал системы управления промышленными станками."
+  description = "C, Assembler (AVR), IEC 61131-3, ЧПУ"
 +++

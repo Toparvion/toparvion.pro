@@ -41,11 +41,11 @@ date_format = "Jan 2006"
 [[item]]
   organization = "Языковая школа Present School"
   organization_url = "https://vk.com/presentschool"
-  title = "English Upper-Intermediate Course"
+  title = "English Upper-Intermediate"
   url = ""
   certificate_url = ""
   date_start = "2007-10-01"
   date_end = "2010-06-01"
-  description = "Теория с русскоговорящими преподавателями и практика с носителями языка"
+  description = "Курс теории с русскоговорящими преподавателями и практики с носителями языка"
 
 +++

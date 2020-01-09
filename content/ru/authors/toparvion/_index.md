@@ -18,7 +18,7 @@ organizations:
   url: "http://www.cft.ru/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: Делать быстро - значит, делать не торопясь, но без остановок.
+bio: Люблю создавать программы, полезные людям
 
 interests:
 - Backend разработка
