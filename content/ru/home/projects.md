@@ -6,7 +6,7 @@ active = true  # Activate this widget? true/false
 weight = 65  # Order that this section will appear.
 
 title = "Проекты"
-subtitle = "Самостоятельные разработки"
+subtitle = "Личные разработки"
 
 [content]
   # Page type to display. E.g. project.
@@ -81,4 +81,5 @@ subtitle = "Самостоятельные разработки"
 
  # CSS class.
  css_class = ""
+
 +++

@@ -1,5 +1,5 @@
 ---
-title: Recent & Upcoming Talks
+title: Недавние и будущие доклады
 
 # View.
 #   1 = List
