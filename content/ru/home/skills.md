@@ -6,7 +6,7 @@ active = true  # Activate this widget? true/false
 weight = 30  # Order that this section will appear.
 
 title = "Знания и навыки"
-subtitle = "Эти инструменты составляют мою профессию сегодня"
+subtitle = "Что составляет мою профессию сегодня"
 
 # Showcase personal skills or business features.
 # Add/remove as many `[[feature]]` blocks below as you like.
