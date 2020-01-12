@@ -2,8 +2,8 @@
 title: jMint
 summary: Java-агент для внедрения тестовых поведений в приложения
 tags:
-- Тестирование
-- Отладка
+- тестирование
+- отладка
 date: "2016-08-01T00:00:00Z"
 weight: 20
 
@@ -11,6 +11,6 @@ weight: 20
 external_link: https://toparvion.github.io/jmint/
 
 image:
-  caption: Мятка
+  caption: "Листик мяты"
   focal_point: Smart
 ---

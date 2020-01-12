@@ -1,5 +1,5 @@
 ---
-title: Posts
+title: Мои статьи
 
 # View.
 #   1 = List

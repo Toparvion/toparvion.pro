@@ -27,19 +27,19 @@ subtitle = "Личные разработки"
 
   [[content.filter_button]]
    name = "Отладка"
-   tag = "Отладка"
+   tag = "отладка"
 
   [[content.filter_button]]
    name = "Тестирование"
-   tag = "Тестирование"
+   tag = "тестирование"
 
   [[content.filter_button]]
    name = "Безопасность"
-   tag = "Криптография"
+   tag = "криптография"
 
    [[content.filter_button]]
     name = "Производительность"
-    tag = "Производительность"
+    tag = "производительность"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
