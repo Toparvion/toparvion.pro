@@ -8,9 +8,15 @@ date: "2019-11-08T00:00:00Z"
 weight: 30
 
 # Optional external URL for project (replaces project detail page).
-external_link: https://github.com/Toparvion/jcudos
+external_link: ""
 
 image:
   caption: ""
   focal_point: Smart
+
+links:
+  - icon: github
+    icon_pack: fab
+    name: Проект на GitHub
+    url: https://github.com/Toparvion/jcudos
 ---

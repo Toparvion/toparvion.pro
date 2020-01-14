@@ -54,7 +54,7 @@ image:
 #   name: Подписаться
 #   url: https://twitter.com/georgecushen
 url_code: "https://github.com/Toparvion/jmint"
-url_pdf: "https://assets.ctfassets.net/oxjq45e8ilak/NQcJjl348CgYs2iKqw0wC/f59db221f97a1cd8b92335710952e505/______________________________Side_Effect_Injection_____________________________________________________1___1_.pdf"
+url_pdf: ""   # локальный файл будет обнаружен автоматически
 url_slides: ""
 url_video: "https://youtu.be/5gEyr-25rfE"
 

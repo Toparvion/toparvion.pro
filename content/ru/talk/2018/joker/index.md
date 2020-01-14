@@ -60,7 +60,7 @@ image:
 #   name: Подписаться
 #   url: https://twitter.com/georgecushen
 url_code: "https://github.com/Toparvion/joker-2018-samples"
-url_pdf: "https://assets.ctfassets.net/oxjq45e8ilak/5DuTVbUv4cwCIoMocUoK2q/14aac11f2bd37e0fef8cec673bc832cb/Vladimir_Plizga_Spring_Boot_2_what_they_do_not_write_in_release_notes.pdf"
+url_pdf: ""   # локальный файл будет обнаружен автоматически
 url_slides: "https://speakerdeck.com/toparvion/spring-boot-2-chiegho-nie-pishut-v-release-notes"
 url_video: "https://youtu.be/8jNXZXdb3no"
 

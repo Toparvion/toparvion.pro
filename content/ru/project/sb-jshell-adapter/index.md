@@ -9,9 +9,15 @@ date: "2019-04-02T00:00:00Z"
 weight: 40
 
 # Optional external URL for project (replaces project detail page).
-external_link: https://github.com/Toparvion/springboot-jshell-adapter
+external_link: ""
 
 image:
   caption: ""
   focal_point: Smart
+
+links:
+  - icon: github
+    icon_pack: fab
+    name: Проект на GitHub
+    url: https://github.com/Toparvion/springboot-jshell-adapter
 ---

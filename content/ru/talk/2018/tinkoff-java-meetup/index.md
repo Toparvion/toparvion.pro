@@ -11,7 +11,7 @@ address:
   # postcode: '196140'
   country: Россия
 
-summary: Вводный доклад о Spring Integration с наглядным примером применения
+summary: Вводный доклад о Spring Integration с примером на PostgreSQL и Telegram
 abstract: |
   В этом минидокладе вкратце разберем пример message-driven [приложения](https://github.com/Toparvion/sprintegration) на **Spring Integration**, точнее, на его высокоуровневом языке **Java DSL**. Посмотрим, какие фишки и грабли таит такой подход, и прикинем, насколько он жизнеспособен в условиях изменчивых бизнес-требований.
 

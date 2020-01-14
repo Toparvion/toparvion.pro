@@ -57,7 +57,7 @@ image:
 #   name: Подписаться
 #   url: https://twitter.com/georgecushen
 url_code: "https://github.com/Toparvion/jpoint-2019-materials"
-url_pdf: "https://assets.ctfassets.net/oxjq45e8ilak/4YJwPsTIYjaBYsfZjZdsu6/77167737917f94faa9e2ed370f421063/Vladimir_Plizga_Perevod_Spring_Boot-mikroservisov_s_Java_8_na_11_chto_mozhet_poyti_ne_tak.pdf"
+url_pdf: ""   # локальный файл будет обнаружен автоматически
 url_slides: "https://speakerdeck.com/toparvion/pierievod-spring-boot-mikrosiervisov-s-java-8-na-11-chto-mozhiet-poiti-nie-tak"
 url_video: "https://youtu.be/fmLW7VkSuN8?list=PLVe-2wcL84b94ehIDEskAMbQKDzt5JZNS"
 

@@ -18,7 +18,7 @@ organizations:
   url: "http://www.cft.ru/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: Люблю создавать программы, полезные людям
+bio: "Любимая технология: здравый смысл"
 
 interests:
 - Backend разработка

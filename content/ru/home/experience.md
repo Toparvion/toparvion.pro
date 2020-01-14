@@ -25,7 +25,7 @@ date_format = "2006"
   location = "Новосибирск, Россия"
   date_start = "2016-08-23"
   date_end = ""
-  description = "Инструменты: Spring Boot, Spring Cloud, K8s и другие"
+  description = "Инструменты: Spring Boot, Spring Cloud, Docker/Kubernetes и другие"
   # description = """
   # Области ответственности:
 
