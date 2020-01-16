@@ -11,7 +11,7 @@ address:
   # postcode: '196140'
   country: Россия
 
-summary: Иммерсивный доклад в библиотеке Университета Иннополиса
+summary: Вечерний иммерсивный доклад в библиотеке Университета Иннополиса
 abstract: |
   Со своим новым циклом релизов Java балует нас версиями каждые полгода, но мало кто в enterprise-мире торопится на них переходить. Однако 11-ая версия Java стала исключением — благодаря сразу нескольким фишкам, многие захотели на нее перейти. И всё бы ничего, вот только если у вас парк микросервисов на Spring Boot, это обновление может стать чуть более «занимательным», чем просто перещёлкнуть версию…
 
@@ -57,7 +57,7 @@ image:
 url_code: "https://github.com/Toparvion/jpoint-2019-materials"
 url_pdf: ""
 url_slides: "https://speakerdeck.com/toparvion/pierievod-spring-boot-mikrosiervisov-s-java-8-na-11-chto-mozhiet-poiti-nie-tak"
-url_video: "https://www.youtube.com/playlist?list=PLgZXqi5nH1m2EfbrLLqnvg9rY1doSi4ko"
+url_video: "https://youtu.be/dGYm9_S80pk"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.

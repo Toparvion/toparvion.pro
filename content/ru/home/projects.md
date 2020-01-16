@@ -6,7 +6,7 @@ active = true  # Activate this widget? true/false
 weight = 65  # Order that this section will appear.
 
 title = "Проекты"
-subtitle = "Собственного приготовления"
+subtitle = "Различные инструменты собственного приготовления"
 
 [content]
   # Page type to display. E.g. project.
