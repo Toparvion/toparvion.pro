@@ -23,7 +23,9 @@ image:
 #   Simply enter your project's folder or file name without extension.
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
-projects: ["appcds"]
+projects:
+- jcudos
+
 ---
 
 **Application Class Data Sharing (AppCDS)** – фича JVM для ускорения запуска и экономии памяти. [Появившись](https://docs.oracle.com/javase/1.5.0/docs/guide/vm/class-data-sharing.html) в HotSpot в зачаточном виде ещё в JDK 1.5 (2004 г.), она долгое время [оставалась](https://simonis.github.io/JBreak2018/CDS/cds.xhtml#/3) весьма ограниченной, да ещё и отчасти коммерческой. Лишь только с OpenJDK 10 (2018 г.) её [сделали](http://openjdk.java.net/jeps/310) доступной простым смертным, заодно расширив область применения. А недавно [вышедшая](https://habr.com/ru/company/jugru/blog/467789/) Java 13 попыталась сделать это применение более простым.
