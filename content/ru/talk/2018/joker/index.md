@@ -54,11 +54,9 @@ image:
   caption: 'Во время доклада'
   focal_point: Smart
 
-# links:
-# - icon: twitter
-#   icon_pack: fab
-#   name: Подписаться
-#   url: https://twitter.com/georgecushen
+links:
+- name: Текст
+  url: https://habr.com/ru/company/jugru/blog/439796/
 url_code: "https://github.com/Toparvion/joker-2018-samples"
 url_pdf: ""   # локальный файл будет обнаружен автоматически
 url_slides: "https://speakerdeck.com/toparvion/spring-boot-2-chiegho-nie-pishut-v-release-notes"
