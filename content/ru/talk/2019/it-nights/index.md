@@ -77,3 +77,6 @@ projects:
 # Enable math on this page?
 math: false
 ---
+{{% alert note %}}
+Это повтор [доклада](/talk/2019/jpoint/) с конференции JPoint'19.
+{{% /alert %}}
