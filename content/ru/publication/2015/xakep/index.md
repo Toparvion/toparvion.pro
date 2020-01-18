@@ -16,7 +16,7 @@ publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
 publication: "[В журнале Хакер](https://xakep.ru/2015/08/14/log-almighty/)"
-publication_short: "Продолжение [статьи](https://habr.com/ru/post/254205/) на Хабре"
+publication_short: ""
 
 abstract: |
   Совершая платеж в Интернет-магазине или ином финансовом сервисе, ты наверняка инициируешь SSL-соединение где-то на серверной стороне с участием какого-нибудь Java-приложения. А теперь представь: что, если тебе нужно исследовать это соединение? В силу бизнес-ценности его нельзя сделать открытым даже в тестовом окружении. Устроить [MITM](https://ru.wikipedia.org/wiki/%D0%A7%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA_%D0%BF%D0%BE%D1%81%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5) с помощью [Fiddler](https://en.wikipedia.org/wiki/Fiddler_%28software%29)’а не даст привязка к настоящим сертификатам, и даже если ты раздобудешь приватный ключ сервера, успех не гарантирован.
