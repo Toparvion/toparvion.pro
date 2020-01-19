@@ -5,8 +5,8 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 50  # Order that this section will appear.
 
-title = "Доп. курсы"
-subtitle = ""
+title = "Пройденные обучения"
+subtitle = "Смежные с&nbsp;профессией"
 
 # Date format
 #   Refer to https://sourcethemes.com/academic/docs/customization/#date-format
@@ -37,7 +37,7 @@ date_format = "Jan 2006"
   date_start = "2018-11-03"
   date_end = ""
   description = "Курс по ораторскому мастерству, аргументации, коммуникациям"
-  
+
 [[item]]
   organization = "Языковая школа Present School"
   organization_url = "https://vk.com/presentschool"

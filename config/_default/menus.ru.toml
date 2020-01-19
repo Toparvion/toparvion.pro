@@ -20,7 +20,7 @@
 
 [[main]]
   name = "Доклады"
-  url = "#talks"
+  url = "#featured"
   weight = 40
 
 [[main]]

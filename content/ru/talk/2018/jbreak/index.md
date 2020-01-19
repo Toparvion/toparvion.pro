@@ -42,7 +42,7 @@ tags:
   - java-агент
 
 # Is this a featured talk? (true/false)
-featured: true
+featured: false
 
 image:
   caption: 'Во время доклада'
