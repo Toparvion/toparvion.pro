@@ -9,7 +9,7 @@
   # title = "Engineering notes"
   copyright = "&copy; Vladimir Plizga {year}"
   [en.params]
-    description = "Vladimir Plizga's personal professional web page"
+    description = "Personal professional web page"
     #   Examples: "Mon, Jan 2, 2006" or "2006-01-02"
     date_format = "Jan 2, 2006"
     #   Examples: "3:04 pm" or "15:04"
@@ -22,7 +22,7 @@
   # title = "Инженерные заметки"
   copyright = "&copy; Владимир Плизг&aacute; {year}"
   [ru.params]
-    description = "Профессиональная страница Владимира Плизги"
+    description = "Личная профессиональная страница"
     #   Examples: "Mon, Jan 2, 2006" or "2006-01-02"
     date_format = "02 January 2006"
     #   Examples: "3:04 pm" or "15:04"
