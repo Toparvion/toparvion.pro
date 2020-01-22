@@ -24,6 +24,6 @@
   [ru.params]
     description = "Личная профессиональная страница"
     #   Examples: "Mon, Jan 2, 2006" or "2006-01-02"
-    date_format = "02 January 2006"
+    date_format = "02.01.2006"
     #   Examples: "3:04 pm" or "15:04"
     time_format = "15:04"

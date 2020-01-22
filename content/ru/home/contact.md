@@ -6,7 +6,7 @@ active = true  # Activate this widget? true/false
 weight = 130  # Order that this section will appear.
 
 title = "Контакты"
-subtitle = "В&nbsp;том числе для&nbsp;сообщений об&nbsp;ошибках на сайте"
+# subtitle = "В&nbsp;том числе для&nbsp;сообщений об&nbsp;ошибках на сайте"
 
 # Automatically link email and phone?
 autolink = false
@@ -18,3 +18,5 @@ autolink = false
 email_form = 0
 
 +++
+Для вопросов и предложений по материалам сайта, а также для сообщений о
+замеченных ошибках (но не для вакансий):
