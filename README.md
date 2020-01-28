@@ -1,4 +1,4 @@
-[![Netlify Status](img/badge-success.svg)](https://app.netlify.com/sites/toparvion/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e8981a40-8df0-4dde-98f1-03253feef840/deploy-status)](https://app.netlify.com/sites/toparvion/deploys)
 
 # Toparvion.Pro
 
@@ -10,7 +10,7 @@ The pages are built with powerful and fast [Hugo](https://gohugo.io/) static sit
 
 The building facilities and hosting are provided by rich and convenient [Netlify](https://www.netlify.com/) platform.
 
-The domain is registered in [RuCenter](https://www.nic.ru/) registrar.
+The domain is registered at [RuCenter](https://www.nic.ru/) registrar.
 
 ## Feedback
 
