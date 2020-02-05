@@ -1,11 +1,11 @@
 ---
 title: "Грабли и плюшки обновления Spring Boot микросервисов с Java 8 на 11"
 event: Inno Java Meetup
-event_url: ""
+event_url: "https://community-z.com/events/astana-jkug-meetup-12"
 
-location: Astana IT University, коворкинг
+location: Astana IT University
 address:
-  # street: Станционная, 104
+  street: ул. Туркистан
   city: Нур-Султан
   # region: CA
   # postcode: '196140'
@@ -20,8 +20,8 @@ abstract: |
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2020-02-08T17:00:00Z"
-date_end: "2019-02-08T17:40:00Z"
+date: "2020-02-08T16:30:00Z"
+date_end: "2012-02-08T17:30:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
@@ -76,5 +76,5 @@ projects: []
 math: false
 ---
 {{% alert note %}}
-Это сокращенная версия [доклада](/talk/2019/jpoint/) на конференции JPoint'19.
+Это сокращенная версия [доклада](/talk/2019/jpoint/) с конференции JPoint'19.
 {{% /alert %}}
