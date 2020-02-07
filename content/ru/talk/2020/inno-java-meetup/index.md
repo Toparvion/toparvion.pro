@@ -55,7 +55,7 @@ image:
 #   url: https://twitter.com/georgecushen
 url_code: "https://github.com/Toparvion/jpoint-2019-materials"
 url_pdf: ""
-url_slides: ""
+url_slides: "https://speakerdeck.com/toparvion/pierievod-spring-boot-mikrosiervisov-s-java-8-na-11-chto-mozhiet-poiti-nie-tak"
 url_video: ""
 
 # Markdown Slides (optional).
