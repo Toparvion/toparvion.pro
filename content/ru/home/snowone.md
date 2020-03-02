@@ -46,7 +46,8 @@ hero_media = "snow-one-logo.png"
   label = "Twitter"
 
 +++
-От имени программного комитета я приглашаю вас на сибирскую
-community-driven Java конференцию **SnowOne**!
-* Новосибирск, Академгородок
-* 29 февраля 2020 года
+От имени программного комитета я&nbsp;говорю ***&laquo;Спасибо!&raquo;*** всем участникам сибирской
+community-driven Java конференции **SnowOne** (2020)!
+
+Увидимся на митапах [JUGNsk](https://www.meetup.com/ru-RU/JUGNsk/)  
+и конференции SnowOne 2021!
