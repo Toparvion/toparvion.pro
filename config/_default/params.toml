@@ -37,7 +37,7 @@ site_type = "Person"
 
 # Local business type (optional)
 # If you entered "LocalBusiness" above, choose the type of business from https://schema.org/LocalBusiness#subtypes
-local_business_type = ""
+# local_business_type = ""
 
 # Organization name (optional)
 # Enter an organization or project name. Defaults to the site title from `config.toml`.
@@ -143,6 +143,8 @@ address_format = "ru"
 
 # Get user avatars from Gravatar.com? (true/false)
 gravatar = false
+# Shape for avatar images. Options: circle, square.
+shape = "circle"
 
 # Main menu alignment (l = left, c = center, r = right) and logo options.
 main_menu = {align = "l", show_logo = true}
