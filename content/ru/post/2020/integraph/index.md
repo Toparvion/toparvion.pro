@@ -13,7 +13,7 @@ categories:
 date: 2020-04-14T08:31:05+07:00
 lastmod: 2020-04-14T08:31:05+07:00
 featured: false
-draft: true
+draft: false
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
@@ -33,7 +33,7 @@ projects: []
 
 Фреймворк Spring Integration [умеет](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph) отдавать текущее состояние всех [EIP](https://www.enterpriseintegrationpatterns.com/)-компонентов и их связей в виде JSON-графа. Это кажется очень удобным для изучения и отладки, но увы, ни один из нагугливаемых инструментов (коих всего-то [раз](https://github.com/spring-projects/spring-flo/tree/angular-1.x/samples/spring-flo-si) /[два](https://ordina-jworks.github.io/architecture/2018/01/27/Visualizing-your-Spring-Integration-components-and-flows.html)) не даёт достаточной гибкости для визуализации и анализа такого графа. В этой заметке я покажу, как решить эту проблему путем импорта графа в графовую СУБД [Neo4j](https://neo4j.com/), где такая гибкость стоит на первом месте.
 
-### Короче (tl;dr)
+### Короче (tl;dr;)
 
 Если некогда/не охота вникать, то вот что надо сделать:
 
@@ -47,7 +47,7 @@ projects: []
 Есть 2 не взаимоисключающих способа:
 
 1. Если используется модуль `spring-integration-http` (или `spring-integration-webflux`), то граф можно получить, дёрнув [Integration Graph Controller](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph-controller).
-1. Если используется модуль `spring-integration-core` **вместе** со Spring Boot Actuator, то граф можно получить через его endpoint под названием [integrationgraph](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/htmlsingle/#production-ready-endpoints) (который [по умолчанию](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/htmlsingle/#production-ready-endpoints-exposing-endpoints) не доступен через web).
+1. Если используется модуль `spring-integration-core` **вместе** со Spring Boot Actuator, то граф можно получить через его endpoint под названием [integrationgraph](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/production-ready-features.html#production-ready-endpoints) (который [по умолчанию](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints) не доступен через web).
 
 В обоих случаях ответ будет выглядеть примерно так:
 
@@ -87,13 +87,13 @@ projects: []
 :point_up: *Каналы в терминах EIP **не** являются связями в графе!*  
 Вместо этого они представлены такими же узлами, как например, адаптеры и фильтры, разве что их `componentType` обычно заканчивается словом *channel*.
 
-Подробнее модель графа описана в [документации](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph) на Spring Integration.
+Подробнее модель графа описана в [этом разделе](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph) документации на Spring Integration.
 
 #### На всякий случай
 
 Прежде чем дёргать граф прямо из Neo4j, настоятельно рекомендую получить его чем-то попроще, например, обычным браузером, перейдя по ссылке [http://localhost:8080/actuator/integrationgraph](http://localhost:8080/actuator/integrationgraph) (для случая со Spring Boot Actuator). Если ответ не похож на приведенный выше JSON, то нет смысла двигаться дальше, нужно разобраться здесь.
 
-Зачастую проблема заключается либо в ограничениях [CORS](https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing), либо в недоступности отдающего граф компонента. Если приложение на Spring Boot и развернуто локально, то обе проблемы можно решить добавлением в его настройки следующих [строк](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/htmlsingle/#production-ready-endpoints-cors):
+Чаще всего проблема либо в ограничениях [CORS](https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing), либо в недоступности отдающего граф компонента. Если приложение на Spring Boot и развернуто локально, то обе проблемы можно решить добавлением в его настройки следующих [строк](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/production-ready-features.html#production-ready-endpoints-cors):
 
 ```yaml
 management:
@@ -108,4 +108,37 @@ management:
 
 *(только не надо делать так на production :pray: )*
 
-А если приложение на чистом Spring Integration, то см. подсказки в [документации](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph-controller).
+А если приложение на чистом Spring Integration, то см. подсказки на [этой странице](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph-controller) документации.
+
+### Как импортировать граф в Neo4j
+
+#### Входные требования
+
+Чтобы залить граф в Neo4j, нам понадобится 2 вещи:
+
+1. Собственно **СУБД Neo4j** (неожиданно, правда?)
+   Подойдёт любая бесплатная поставка:
+
+   - Настольная [Neo4j Desktop](https://neo4j.com/download-center/#desktop)
+   - Серверная [Neo4j Community Server](https://neo4j.com/download-center/#community)
+   - Облачная песочница [Neo4j Sandbox](https://neo4j.com/sandbox/)
+     *Не требует инсталляции*
+
+1. Библиотека полезных Cypher-процедур **APOC**
+
+   Это де-факто стандартная библиотека от разработчиков Neo4j, поэтому её можно найти и поставить прямо с их [официального сайта](https://neo4j.com/docs/labs/apoc/current/introduction/#installation), а в облачной песочнице она уже предустановлена.
+
+При написании статьи использовалась Neo4j версии **4.0.1**, но поскольку на внутренности СУБД мы здесь не полагаемся, всё должно работать и на других версиях.[^1] При установке библиотеки APOC важно, чтобы первые 2 цифры её версии совпадали с такими же цифрами у самой Neo4j.
+
+[^1]: В облачной песочнице на 16.04.20 использовалась Neo4j версии 3.5.11, для которой некоторые процедуры APOC имели отличия в сигнатурах от версии 4.0. Подробнее об этом см. ниже.  
+
+
+
+---
+
+- [ ] Особенности развертывания в облачной песочнице упомянуты:
+  - Версия 3.5.11
+  - Недоступность загрузки с `localhost`. Альтернатива:
+    https://deploy-preview-1--toparvion.netlify.app/export/analog.json
+  - Урезанная сигнатура методов `merge`
+- [ ] Стиль оформления выложен и учтён в тексте
