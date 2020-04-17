@@ -78,10 +78,10 @@ projects: []
 }
 ```
 
-На верхнем уровне ответа всегда есть 3 поля:
+На верхнем уровне ответа всегда только 3 поля:
 
 - Объект `contentDescriptor` – общий описатель графа; поле `name` в нём берется из имени приложения (свойство `spring.application.name`). 
-- Массив `nodes` содержит описания узлов графа – собственно EIP-компонентов, бины которых и составляют интеграционный конвейер. Наряду с именем `name`, типом `componentType` и идентификатором `nodeId`, в него также могут входить метрики и другие данные, но нас они интересовать не будут.
+- Массив `nodes` содержит описания узлов графа – собственно EIP-компонентов, бины которых и составляют интеграционный конвейер. Наряду с именем `name`, типом `componentType` и идентификатором `nodeId`, в него также могут входить метрики и другие данные, но нас они не интересуют.
 - Массив `links` описывает рёбра графа, т.е. связи между EIP-компонентами. Поля `from` и `to` указывают на значения `nodeId` исходящего и входящего узлов соответственно. А поле `type` содержит тип связи, коих всего 5: `input`, `output`, `route`, `error`, `discard`.
 
 :point_up: *Каналы в терминах EIP **не** являются связями в графе!*  
@@ -93,7 +93,7 @@ projects: []
 
 Прежде чем дёргать граф прямо из Neo4j, настоятельно рекомендую получить его чем-то попроще, например, обычным браузером, перейдя по ссылке [http://localhost:8080/actuator/integrationgraph](http://localhost:8080/actuator/integrationgraph) (для случая со Spring Boot Actuator). Если ответ не похож на приведенный выше JSON, то нет смысла двигаться дальше, нужно разобраться здесь.
 
-Чаще всего проблема либо в ограничениях [CORS](https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing), либо в недоступности отдающего граф компонента. Если приложение на Spring Boot и развернуто локально, то обе проблемы можно решить добавлением в его настройки следующих [строк](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/production-ready-features.html#production-ready-endpoints-cors):
+Чаще всего проблема либо в ограничениях [CORS](https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing), либо в недоступности отдающего граф компонента. Если приложение на Spring Boot (+Actuator) и развернуто локально, то обе проблемы можно решить добавлением в его настройки следующих [строк](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/production-ready-features.html#production-ready-endpoints-cors):
 
 ```yaml
 management:
@@ -116,29 +116,70 @@ management:
 
 Чтобы залить граф в Neo4j, нам понадобится 2 вещи:
 
-1. Собственно **СУБД Neo4j** (неожиданно, правда?)
+1. Собственно **СУБД Neo4j** *(неожиданно, правда?)*  
    Подойдёт любая бесплатная поставка:
 
    - Настольная [Neo4j Desktop](https://neo4j.com/download-center/#desktop)
    - Серверная [Neo4j Community Server](https://neo4j.com/download-center/#community)
-   - Облачная песочница [Neo4j Sandbox](https://neo4j.com/sandbox/)
+   - Облачная песочница [Neo4j Sandbox](https://neo4j.com/sandbox/)  
      *Не требует инсталляции*
 
 1. Библиотека полезных Cypher-процедур **APOC**
 
-   Это де-факто стандартная библиотека от разработчиков Neo4j, поэтому её можно найти и поставить прямо с их [официального сайта](https://neo4j.com/docs/labs/apoc/current/introduction/#installation), а в облачной песочнице она уже предустановлена.
+   Это де-факто стандартная библиотека от разработчиков Neo4j, поэтому её можно найти и поставить прямо с их [официального сайта](https://neo4j.com/docs/labs/apoc/current/introduction/#installation). В облачной песочнице Neo4j Sandbox она уже предустановлена.
 
 При написании статьи использовалась Neo4j версии **4.0.1**, но поскольку на внутренности СУБД мы здесь не полагаемся, всё должно работать и на других версиях.[^1] При установке библиотеки APOC важно, чтобы первые 2 цифры её версии совпадали с такими же цифрами у самой Neo4j.
 
-[^1]: В облачной песочнице на 16.04.20 использовалась Neo4j версии 3.5.11, для которой некоторые процедуры APOC имели отличия в сигнатурах от версии 4.0. Подробнее об этом см. ниже.  
+#### Подход 1: прямая визуализация
+
+Поскольку граф Spring Integration, судя по его JSON-модели, содержит всё необходимое для визуализации, можно просто взять его “как есть” (узлы – к узлам, связи – к связям, свойства – к свойствам) и залить в графовую СУБД. Из всех свойств узлов мы возьмём только основные: `nodeId`, `nodeName` и `componentType`. Они поставляются базовым классом `org.springframework.integration.graph.IntegrationNode`, поэтому (наверно) должны присутствовать у всех без исключения узлов.
+
+Основная идея в том, чтобы прямо из Neo4j сказать что-то вроде: 
+
+> *Возьми JSON вот по **этому** URL, обойди вот **такие** его поля и разложи их данные по вот **таким** вершинам и рёбрам вот с **такими** свойствами.*
+
+На языке Cypher это распоряжение может выглядеть примерно так:[^2]
+
+```cypher
+WITH "http://localhost:8083/actuator/integrationgraph" AS url
+CALL apoc.load.json(url) YIELD value	// (1)
+WITH value AS json, value.contentDescriptor AS jsonDescriptor
+// descriptor (2)    
+MERGE (descriptor:Descriptor {name: jsonDescriptor.name}) 
+    ON CREATE SET 
+    descriptor.providerVersion = jsonDescriptor.providerVersion, 
+    descriptor.providerFormatVersion = jsonDescriptor.providerFormatVersion,
+    descriptor.provider = jsonDescriptor.provider
+// nodes (3)
+WITH json, descriptor
+UNWIND json.nodes AS jsonNode
+MERGE (node:Node {nodeId: jsonNode.nodeId})
+    ON CREATE SET
+    node.componentType = jsonNode.componentType,
+    node.name = jsonNode.name
+// links (4)
+WITH json, descriptor, node 
+UNWIND json.links AS jsonLink
+MATCH (a:Node {nodeId: jsonLink.from}), (b:Node {nodeId: jsonLink.to})
+MERGE (a)-[:Link {type: jsonLink.type}]->(b)
+// result (5)
+RETURN descriptor, node
+```
+
+
+
+
 
 
 
 ---
 
 - [ ] Особенности развертывания в облачной песочнице упомянуты:
-  - Версия 3.5.11
+  - ~~Версия 3.5.11~~
   - Недоступность загрузки с `localhost`. Альтернатива:
     https://deploy-preview-1--toparvion.netlify.app/export/analog.json
   - Урезанная сигнатура методов `merge`
 - [ ] Стиль оформления выложен и учтён в тексте
+
+[^1]: В облачной песочнице на дату 16.04.20 использовалась Neo4j версии 3.5.11, для которой некоторые процедуры APOC имели отличия в сигнатурах от версии 4.0. Подробнее об этом см. ниже. 
+[^2]: Если вставить этот запрос в облачную песочницу Neo4j Sandbox, он не выполнится, потому что для удалённого сервера Neo4j адрес `localhost` указывает на него самого, а не на эту машину. Чтобы всё-таки проверить запрос в песочнице, придётся либо развернуть своё Spring Integration приложение с доступным извне адресом, либо воспользоваться моим [примером](export/analog.json) готового JSON-графа от приложения [АнаЛог](/project/analog).  
