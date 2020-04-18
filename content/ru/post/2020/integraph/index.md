@@ -132,41 +132,67 @@ management:
 
 #### Подход 1: прямая визуализация
 
-Поскольку граф Spring Integration, судя по его JSON-модели, содержит всё необходимое для визуализации, можно просто взять его “как есть” (узлы – к узлам, связи – к связям, свойства – к свойствам) и залить в графовую СУБД. Из всех свойств узлов мы возьмём только основные: `nodeId`, `nodeName` и `componentType`. Они поставляются базовым классом `org.springframework.integration.graph.IntegrationNode`, поэтому (наверно) должны присутствовать у всех без исключения узлов.
+Поскольку граф Spring Integration, судя по его JSON-модели, содержит всё необходимое для визуализации, можно просто взять его “как есть” (узлы – к узлам, связи – к связям, свойства – к свойствам) и залить в графовую СУБД. Из всех свойств узлов мы возьмём только основные: `nodeId`, `nodeName` и `componentType`. Они поставляются базовым классом `org.springframework.integration.graph.IntegrationNode`, поэтому должны присутствовать у всех без исключения узлов (но это не точно).
 
-Основная идея в том, чтобы прямо из Neo4j сказать что-то вроде: 
+Теперь основная идея сводится к тому, чтобы прямо из Neo4j сказать что-то вроде: 
 
 > *Возьми JSON вот по **этому** URL, обойди вот **такие** его поля и разложи их данные по вот **таким** вершинам и рёбрам вот с **такими** свойствами.*
 
 На языке Cypher это распоряжение может выглядеть примерно так:[^2]
 
 ```cypher
-WITH "http://localhost:8083/actuator/integrationgraph" AS url
-CALL apoc.load.json(url) YIELD value	// (1)
+// (1) load JSON from URL:
+WITH "http://localhost:8080/actuator/integrationgraph" AS url
+CALL apoc.load.json(url) YIELD value	  
 WITH value AS json, value.contentDescriptor AS jsonDescriptor
-// descriptor (2)    
+// (2) descriptor:
 MERGE (descriptor:Descriptor {name: jsonDescriptor.name}) 
     ON CREATE SET 
     descriptor.providerVersion = jsonDescriptor.providerVersion, 
     descriptor.providerFormatVersion = jsonDescriptor.providerFormatVersion,
     descriptor.provider = jsonDescriptor.provider
-// nodes (3)
+// (3) nodes:
 WITH json, descriptor
 UNWIND json.nodes AS jsonNode
 MERGE (node:Node {nodeId: jsonNode.nodeId})
     ON CREATE SET
     node.componentType = jsonNode.componentType,
     node.name = jsonNode.name
-// links (4)
+// (4) links:
 WITH json, descriptor, node 
 UNWIND json.links AS jsonLink
 MATCH (a:Node {nodeId: jsonLink.from}), (b:Node {nodeId: jsonLink.to})
-MERGE (a)-[:Link {type: jsonLink.type}]->(b)
-// result (5)
-RETURN descriptor, node
+MERGE (a)-[link:Link {type: jsonLink.type}]->(b)
+// (5) result:
+RETURN descriptor, node, link
 ```
 
+Не вдаваясь в пересказ [синтаксиса](https://neo4j.com/docs/cypher-refcard/4.0/) языка Cypher, обозначу основные части этого запроса (по цифрам в комментариях):
 
+1. С помощью APOC-процедуры `apoc.load.json(url)` мы загружаем JSON-граф целиком и для краткости и наглядности переименовываем его корень в `json`, а объект с дескриптором – в `jsonDescriptor`.
+1. Теперь создаём в графе отдельный узел с меткой `Descriptor`, дословно перекладывая в его свойства данные из объекта `jsonDescriptor`.  
+   :information_source: Здесь и далее используется именно операция `MERGE`, чтобы запрос можно было выполнять многократно по мере роста графа, не порождая дубликаты. Если это не важно, `MERGE` можно заменить на `CREATE`.
+1. Обходим узлы JSON-графа (массив `nodes`) операцией `UNWIND` и для каждого из них создаём в целевом графе узел с меткой `Node`, попутно перекладывая свойства `name` и `componentType`.
+1. Тоже самое проделываем из со связями (массив `links`), но перед созданием ребра с меткой `Link` отыскиваем соединяемые вершины отдельной операцией `MATCH`, чтобы не порождать дубликаты этих вершин.
+1. В результат работы запроса включаем всё, что тут понасоздавали: узлы, связи и дескриптор. 
+
+Если выполнить этот запрос в [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) на примере [вот такого](export/analog.json) JSON-графа, то он будет визуализирован примерно так:
+
+{{< figure src="export/analog-1.png" title=":mag: ​Результат выполнения запроса на примере приложения АнаЛ&oacute;г" lightbox="true" >}}
+
+В целом, результат достигнут: EIP-компоненты превращены в узлы графа, между ними проставлены связи с нужными направлениями, а если поводить курсором по элементам графа в Neo4j Browser, то в нижней части панели будут отображаться всякие дополнительные свойства, которые мы перекладывали в Cypher-запросе:
+
+![Дополнительные свойства узла](export/neo4j-browser-statusbar.png)
+
+И даже “разобщенность” элементов графа (наличие множества остовов) в этом примере не является ошибкой импорта, так как это особенность анализируемого приложения.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 
 
@@ -182,4 +208,4 @@ RETURN descriptor, node
 - [ ] Стиль оформления выложен и учтён в тексте
 
 [^1]: В облачной песочнице на дату 16.04.20 использовалась Neo4j версии 3.5.11, для которой некоторые процедуры APOC имели отличия в сигнатурах от версии 4.0. Подробнее об этом см. ниже. 
-[^2]: Если вставить этот запрос в облачную песочницу Neo4j Sandbox, он не выполнится, потому что для удалённого сервера Neo4j адрес `localhost` указывает на него самого, а не на эту машину. Чтобы всё-таки проверить запрос в песочнице, придётся либо развернуть своё Spring Integration приложение с доступным извне адресом, либо воспользоваться моим [примером](export/analog.json) готового JSON-графа от приложения [АнаЛог](/project/analog).  
+[^2]: Если Neo4j развёрнута на удалённом сервере или в Sandbox’е, то этот запрос не выполнится, т.к. `localhost` для неё будет другим. Придётся либо обеспечить свой JSON-граф внешним адресом, либо хотя бы взять [готовый пример](export/analog.json) графа от приложения [АнаЛ&oacute;г](/project/analog).
