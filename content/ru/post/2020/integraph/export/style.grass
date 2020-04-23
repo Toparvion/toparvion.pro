@@ -107,7 +107,7 @@ node.<other> {
 }
 node.Node {
   defaultCaption: "<id>";
-  caption: "{name}";
+  caption: "{componentType}";
 }
 relationship.DISCARD {
   color: #F16667;

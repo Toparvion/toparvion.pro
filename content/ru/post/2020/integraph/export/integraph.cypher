@@ -33,6 +33,6 @@ WITH json, descriptor, node
 UNWIND json.links AS jsonLink
 MATCH (a:Node {nodeId: jsonLink.from}), (b:Node {nodeId: jsonLink.to})
 CALL apoc.merge.relationship(a, toUpper(jsonLink.type), {}, {}, b, {}) YIELD rel
-// (5) result
+// (5) result:
 MATCH (n:Node)<-[:DESCRIBES]-(descriptor)
 RETURN n
