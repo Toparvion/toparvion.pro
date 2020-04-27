@@ -5,10 +5,7 @@ event_url: https://meetup.tinkoff.ru/event/java-meetup/
 
 location: Новосибирск, БЦ Кронос
 address:
-  street: ул. Советсткая, 5
-  # city: Санкт-Петербург
-  # region: CA
-  # postcode: '196140'
+  street: ул. Советская, 5
   country: Россия
 
 summary: Вводный доклад о Spring Integration с примером на PostgreSQL и Telegram
