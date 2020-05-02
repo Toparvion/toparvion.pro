@@ -46,7 +46,7 @@ hero_media = "snow-one-logo.png"
   label = "Twitter"
 
 +++
-От имени программного комитета я&nbsp;говорю ***&laquo;Спасибо!&raquo;*** всем участникам первой сибирской community-driven Java&nbsp;конференции **SnowOne**!
+Как&nbsp;участник программного комитета я&nbsp;говорю ***&laquo;Спасибо!&raquo;*** всем, кто был на&nbsp;первой сибирской community-driven Java&nbsp;конференции **SnowOne**!
 
 Увидимся на митапах [JUGNsk](https://www.meetup.com/ru-RU/JUGNsk/)  
 и конференции SnowOne 2021!
