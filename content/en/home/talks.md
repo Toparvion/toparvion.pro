@@ -5,11 +5,11 @@
 
 widget = "blank"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = false  # Activate this widget? true/false
-weight = 140  # Order that this section will appear.
+active = true  # Activate this widget? true/false
+weight = 70  # Order that this section will appear.
 
-title = "Контакты"
-subtitle = ""
+title = "Talks"
+subtitle = "Past & forthcoming"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
@@ -36,7 +36,7 @@ subtitle = ""
   # image_parallax = true  # Use a fun parallax-like fixed background effect? true/false
 
   # Text color (true=light or false=dark).
-  text_color_light = true
+  # text_color_light = true
 
 [design.spacing]
   # Customize the section spacing. Order is top, right, bottom, left.
@@ -50,8 +50,10 @@ subtitle = ""
  css_class = ""
 +++
 
-Сюда можно направлять вопросы и предложения по материалам сайта, а также
-замеченные ошибки (но не предложения о вакансиях):
-- Почта `toparvion[at]gmx[dot]com`
-- Twitter [`@toparvion`](https://twitter.com/toparvion)
-- LinkedIn [`Toparvion`](https://www.linkedin.com/in/toparvion/)
+{{% alert info %}}
+
+Over the last few years I gave several talks on various Java-related events including [Joker](https://jokerconf.com/en/) and [JPoint](https://jpoint.ru/en/) conferences. Because all of them were in&nbsp;Russian, they are listed on the [corresponding page](/talk).
+
+{{% /alert %}}
+
+![On my talk, JPoint 2020 conference](/img/jpoint.jpg)

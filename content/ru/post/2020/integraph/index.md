@@ -1,16 +1,17 @@
 ---
-title: "How to visualize Spring Integration graph with Neo4j?"
-subtitle: "Building a bridge from Enterprise Java to graph databases"
-summary: "Building a bridge from Enterprise Java world to graph databases world"
+title: "Как визуализировать граф Spring Integration в Neo4j?"
+subtitle: "Строим мост из мира Enterprise Java в мир графовых БД"
+summary: "Строим мост из мира Enterprise Java в мир графовых БД"
 authors:
   - toparvion
 tags:
   - spring-integration
   - neo4j
   - spring-boot
+  - отладка
 categories:
   - Graphs
-date: 2020-04-29T07:49:05+07:00
+date: 2020-04-14T08:31:05+07:00
 lastmod: 2020-04-27T08:05:05+07:00
 featured: false
 draft: false
@@ -33,45 +34,45 @@ projects: []
 gallery_item:
 - album: examples
   image: example-0.png
-  caption: Graph with 32 nodes and 27 links
+  caption: Граф на 32 узла и 27 связей
 - album: examples
   image: example-1.png
-  caption: Graph with 37 nodes and 41 links
+  caption: Граф на 37 узлов и 41 связь
 - album: examples
   image: example-2.png
-  caption: Graph with 57 nodes and 54 links
+  caption: Граф на 57 узлов и 54 связи
 - album: examples
   image: example-3.png
-  caption: Graph with 350 nodes and 332 links
-
+  caption: Граф на 350 узлов и 332 связи
 
 ---
 
-Spring Integration framework is able to [represent](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph) current state of all [EIP](https://www.enterpriseintegrationpatterns.com/) components and their relations in the form of JSON graph. It seems useful for learning and debugging but unfortunately none of googlable tools (which are just [1st](https://github.com/spring-projects/spring-flo/tree/angular-1.x/samples/spring-flo-si) and [2nd](https://ordina-jworks.github.io/architecture/2018/01/27/Visualizing-your-Spring-Integration-components-and-flows.html)) gives enough flexibility for visualization and analysis of such a graph. In this article I’ll tell you how to solve the problem by importing the graph into Neo4j graph database  where such flexibility is the first class citizen.
+Фреймворк Spring Integration [умеет](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph) отдавать текущее состояние всех [EIP](https://www.enterpriseintegrationpatterns.com/)-компонентов и их связей в виде JSON-графа. Это кажется очень удобным для изучения и отладки, но увы, ни один из нагугливаемых инструментов (коих всего-то [раз](https://github.com/spring-projects/spring-flo/tree/angular-1.x/samples/spring-flo-si) /[два](https://ordina-jworks.github.io/architecture/2018/01/27/Visualizing-your-Spring-Integration-components-and-flows.html)) не даёт достаточной гибкости для визуализации и анализа такого графа. В этой статье я покажу, как решить эту проблему путем импорта графа в графовую СУБД [Neo4j](https://neo4j.com/), где такая гибкость стоит на первом месте.
 
-### TL;DR (for the impatient)
+### Короче (tl;dr)
 
-Short story long, all you need to do is:
+Если некогда/не охота вникать, то вот что надо сделать:
 
-1. Provide graph [output](#obtaining-json-graph-description) in JSON format from a known URL;
-1. Execute [this](#the-importing-script) Cypher script in Neo4j Browser (pasting the URL).
+1. Обеспечить [отдачу](#как-получить-описание-графа-в-json) графа в виде JSON по известному URL.
+1. Выполнить [этот](#расширенный-запрос) Cypher-запрос в Neo4j Browser, подставив туда URL.
+1. Профит 😋
 
-Hope this would be enough. If not, welcome the rest of the article.
+Ну, а если просто так не завелось или стали интересны подробности, то добро пожаловать дальше.
 
 {{% alert info %}}
 
-The following material supposes you have a basic notion of Neo4j graph database and its Cypher query language. But if not, it’s OK – there are links to explaining sources along the text.
+Статья рассчитана на тех, кто знаком с основами графовой СУБД Neo4j и её языка запросов Cypher. Но если нет, не беда – в тексте есть ссылки на поясняющие источники.
 
 {{% /alert %}}
 
-### Obtaining JSON graph description
+### Как получить описание графа в JSON?
 
-There are 2 not mutually exclusive ways:
+Есть 2 не взаимоисключающих способа:
 
-1. If using `sping-integration-http` (or `spring-integration-webflux`) module, then the graph can be obtained from [Integration Graph Controller](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph-controller).
-1. If using `spring-integration-core` **together with** Spring Boot Actuator, then the graph can be obtained from Actuator’s [integrationgraph](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/production-ready-features.html#production-ready-endpoints) endpoint (which is not available from web [by default](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)).
+1. Если используется модуль `spring-integration-http` (или `spring-integration-webflux`), то граф можно получить, дёрнув [Integration Graph Controller](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph-controller).
+1. Если используется модуль `spring-integration-core` **вместе** со Spring Boot Actuator, то граф можно получить через его endpoint под названием [integrationgraph](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/production-ready-features.html#production-ready-endpoints) (который [по умолчанию](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints) не доступен через web).
 
-In both cases the response would look like:
+В обоих случаях ответ будет выглядеть примерно так:
 
 ```json
 {
@@ -100,22 +101,28 @@ In both cases the response would look like:
 }
 ```
 
-There are always 3 fields on the top level: single object named `contentDescriptor` and two arrays `nodes` and `links` for vertices and edges accordingly. The idea behind this representation is quite straightforward: `from` and `to` fields of every `links` array element refer to `nodeId` field of certain `nodes` array elements. The graph’s model is described in detail in [corresponding chapter](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph) of Spring Integration documentation.
+На верхнем уровне ответа всегда только 3 поля:
 
-{{< icon name="exclamation-triangle" pack="fas" >}} *Note that **channels** (in terms of EIP) **are not edges** in the graph.*  
-Instead, they are just vertices much like adapters, filters, etc, though their `componentType` values usually end with *“channel”*.
+- Объект `contentDescriptor` – общий описатель графа; поле `name` в нём берется из имени приложения (свойство `spring.application.name`).
+- Массив `nodes` содержит описания вершин графа – собственно EIP-компонентов, бины которых и составляют интеграционный конвейер. Наряду с именем `name`, типом `componentType` и идентификатором `nodeId`, в него также могут входить метрики и другие данные, но нас они не интересуют.
+- Массив `links` описывает рёбра графа, т.е. связи между EIP-компонентами. Пол*я* `from` и `to` указывают на значения `nodeId` исходящей и входящей вершины соответственно. А поле `type` содержит тип связи, их всего 5: `input`, `output`, `route`, `error`, `discard`.
+
+{{< icon name="exclamation-triangle" pack="fas" >}} *Каналы (в терминах EIP) **не** являются рёбрами в графе!*  
+Вместо этого они представлены такими же вершинами, как например, адаптеры и фильтры, разве что их `componentType` обычно заканчивается словом *channel*.
+
+Подробнее модель графа описана в [этом разделе](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph) документации на Spring Integration.
 
 {{% alert info %}}
 
-Hereinafter, we’ll use terms “vertices” and “nodes” as well as “edges” and “links” interchangeably to make a closer reference to the domain. No semantic difference is hidden here.
+Далее по тексту вершины графа будут часто называться “узлами”, а рёбра – “связями”, чтобы более явно ссылаться на предметную область: массивы  `nodes` и `links` соответственно. Смысловых отличий в этих терминах нет.
 
 {{% /alert %}}
 
-#### Just in case
+#### На всякий случай
 
-Before fetching the graph right from Neo4j database, I’d recommend you to do it from something simpler, say, from your web browser by means of navigating to [http://localhost:8080/actuator/integrationgraph](http://localhost:8080/actuator/integrationgraph) (in case of Spring Boot Actuator). If the response is not similar to the JSON shown above, then there’s no sense to proceed, we must solve the problem right here.
+Прежде чем дёргать граф прямо из Neo4j, настоятельно рекомендую получить его чем-то попроще, например, обычным браузером, перейдя по ссылке [http://localhost:8080/actuator/integrationgraph](http://localhost:8080/actuator/integrationgraph) (для случая со Spring Boot Actuator). Если ответ не похож на приведенный выше JSON, то нет смысла двигаться дальше, нужно разобраться здесь.
 
-Usually the problem is either in the [CORS](https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing) restrictions or in unavailability of the graph producing component. If you have a locally deployed application on Spring Boot Actuator, then both reasons can be eliminated by adding the [following lines](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/production-ready-features.html#production-ready-endpoints-cors) into the application configuration:
+Чаще всего проблема либо в ограничениях [CORS](https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing), либо в недоступности отдающего граф компонента. Если приложение на Spring Boot (+Actuator) и развернуто локально, то обе проблемы можно решить добавлением в его настройки следующих [строк](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/html/production-ready-features.html#production-ready-endpoints-cors):
 
 ```yaml
 management:
@@ -128,136 +135,179 @@ management:
         allowed-methods: '*'
 ```
 
-*(but please don’t do that in production! :pray:)*
+*(только не надо делать так на production! :pray: )*
 
-And if your application uses pure Spring Integration, see [this page](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph-controller) of the documentation.
+А если приложение на чистом Spring Integration, то см. подсказки на [этой странице](https://docs.spring.io/spring-integration/docs/5.2.5.RELEASE/reference/html/system-management.html#integration-graph-controller) документации.
 
-### How to import the graph into Neo4j?
+### Как импортировать граф в Neo4j
 
-#### Prerequisites
+#### Входные требования
 
-To upload the graph into the graph database we need just 2 things:
+Чтобы залить граф в Neo4j, нам понадобится 2 вещи:
 
-1. **Neo4j** DBMS itself *(unexpectedly, isn’t it?)*  
-   Any free distribution is suitable:
-   - [Neo4j Desktop](https://neo4j.com/download-center/#desktop)
-   - [Neo4j Community Server](https://neo4j.com/download-center/#community)
-   - [Neo4j Sandbox](https://neo4j.com/sandbox/)  
-     *No installation required*
-1. **APOC** – a set of useful Cypher procedures   
-   This is de-facto standard library from Neo4j authors so that you can find and install it right from the [official site](https://neo4j.com/docs/labs/apoc/current/introduction/#installation). Cloud-hosted Neo4j Sandbox already has the library pre-installed.
+1. Собственно **СУБД Neo4j** *(неожиданно, правда?)*  
+   Подойдёт любая бесплатная поставка:
 
-This article is using Neo4j version **4.0.1**. But since we don’t rely on any database internals here, everything should work on other versions as well[^2]. If installing APOC manually, please ensure that its first 2 digits of the version (e.g. 4.0) are equal to the same digits of Neo4j itself.
+   - Настольная [Neo4j Desktop](https://neo4j.com/download-center/#desktop)
+   - Серверная [Neo4j Community Server](https://neo4j.com/download-center/#community)
+   - Облачная песочница [Neo4j Sandbox](https://neo4j.com/sandbox/)  
+     *Не требует инсталляции*
 
-#### Visualization concerns
+1. Библиотека полезных Cypher-процедур **APOC**
 
-Since the JSON provided by Spring Integration contains all the info required for visualization, we could have taken it “as is” (`nodes` to vertices, `links` to edges, nested fields to properties) and translate into the Cypher script to produce exactly the same graph in Neo4j. Then, if we execute the script on [this](export/analog.json) example in [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/), the result might look like:
+   Это де-факто стандартная библиотека от разработчиков Neo4j, поэтому её можно найти и поставить прямо с их [официального сайта](https://neo4j.com/docs/labs/apoc/current/introduction/#installation). В облачной песочнице Neo4j Sandbox она уже предустановлена.
 
-![Straightforward visualization](img/analog-1.png)
+При написании статьи использовалась Neo4j версии **4.0.1**, но поскольку на внутренности СУБД мы здесь не полагаемся, всё должно работать и на других версиях.[^1] При установке библиотеки APOC важно, чтобы первые 2 цифры её версии совпадали с такими же цифрами у самой Neo4j.
 
-That’s not bad but far not perfect because:
+#### Подход 1: прямая визуализация
 
-- Almost all nodes are rendered with the same color and size so that there is no sense in their visual appearance. Also, many node names start with the same prefix (e.g. `agentR`) so that we have to hover on every node to see its full name in the status bar of the result panel.
-- All the edges have the same `Link` label which is not informative at all. The real type of the link is hidden in the edge’s `type` property.
-- There is no relations between the descriptor and the nodes it describes.
+Поскольку граф Spring Integration, судя по его JSON-модели, содержит всё необходимое для визуализации, можно просто взять его “как есть” и залить в графовую СУБД: узлы – к вершинам, связи – к рёбрам, свойства – к свойствам. Из всех свойств узлов мы возьмём только основные: `nodeId`, `nodeName` и `componentType`. Они поставляются базовым классом `org.springframework.integration.graph.IntegrationNode`, поэтому должны присутствовать у всех без исключения узлов (но это не точно).
 
-With these observations in mind, we can make our nodes and links more informative by providing them with visual distinction depending on their type. For this, we can leverage Neo4j Browser’s support of Graph Style Sheets ([**GraSS**](https://neo4j.com/developer/neo4j-browser/#browser-styling-adv)) – CSS-like files describing color, sizes (but not shapes) and other visual properties of graph vertices and edges. There is an [example](export/style.grass) of such a file for Spring Integration graphs.
+Теперь основная идея сводится к тому, чтобы прямо из Neo4j сказать что-то вроде:
 
-However, it’s not a trivial task because those visual properties in GraSS files are bound to nodes’ labels and links’ types but not to the properties of either. Since we have the same node label and the same link type for all graph elements, we can’t use distinct styling. Of course, we should use different labels for nodes (depending on their `componentType` field) and different types for links (depending on their `type` field) to overcome the restriction, but it is not trivial as well. The thing is, “out-of-the-box” Cypher language does not allow to generate neither vertex labels nor edge types dynamically, e.g. those values must be specified before the script is executed. It’s a bad news because we get to know our nodes and links just after the JSON loading which is a part of out Cypher script. A good news, however, is that APOC library has the `apoc.merge.node` and `apoc.merge.relationship` [procedures](https://neo4j.com/docs/labs/apoc/current/graph-updates/data-creation/)[^1] that can create/update nodes and links taking the labels (types) as variables:
+> *Возьми JSON вот по этому URL, обойди вот такие его поля и разложи их данные по вот таким вершинам и рёбрам вот с такими свойствами.*
 
->  `apoc.merge.node` – merge **nodes with dynamic labels**, with support for setting properties ON CREATE or ON MATCH 
->
->  `apoc.merge.relationship` – merge **relationship with dynamic type**, with support for setting properties ON CREATE or ON MATCH[^2]
+На языке [Cypher](https://neo4j.com/developer/cypher-query-language/) это распоряжение может выглядеть примерно так:[^2]
 
-Sounds great, doesn’t it? Yes, in general. But speaking of nodes we should be careful: there shouldn’t be too much distinct labels as it can make the graph a variegated mess of different-sized circles.  To prevent it, we’ll provide our script with a filter stage that will “collapse” similar EIP-types to a general form, for example, all channels varieties to a single `channel` label. This can be achieved with the Cypher `CASE` [expression](https://neo4j.com/docs/cypher-manual/4.0/syntax/expressions/#query-syntax-case).
+```cypher
+// (1) load JSON from URL:
+WITH "http://localhost:8080/actuator/integrationgraph" AS url
+CALL apoc.load.json(url) YIELD value	  
+WITH value AS json, value.contentDescriptor AS jsonDescriptor
+// (2) descriptor:
+MERGE (descriptor:Descriptor {name: jsonDescriptor.name})
+    ON CREATE SET
+    descriptor.providerVersion = jsonDescriptor.providerVersion,
+    descriptor.providerFormatVersion = jsonDescriptor.providerFormatVersion,
+    descriptor.provider = jsonDescriptor.provider
+// (3) nodes:
+WITH json, descriptor
+UNWIND json.nodes AS jsonNode
+MERGE (node:Node {nodeId: jsonNode.nodeId})
+    ON CREATE SET
+    node.componentType = jsonNode.componentType,
+    node.name = jsonNode.name
+// (4) links:
+WITH json, descriptor, node
+UNWIND json.links AS jsonLink
+MATCH (a:Node {nodeId: jsonLink.from}), (b:Node {nodeId: jsonLink.to})
+MERGE (a)-[link:Link {type: jsonLink.type}]->(b)
+// (5) result:
+RETURN descriptor, node, link
+```
 
-At last, in our new script we’ll connect the descriptor node with all other nodes to make it easy to understand which graph elements it describes. This will also allow us to store multiple graphs in the same database independently.
+Не вдаваясь в пересказ [синтаксиса](https://neo4j.com/docs/cypher-refcard/4.0/) языка Cypher, обозначу основные части этого запроса (по цифрам в комментариях):
 
-#### The importing script
+1. С помощью [APOC-процедуры](https://neo4j.com/docs/labs/apoc/current/import/load-json/) `apoc.load.json(url)` мы загружаем JSON-граф целиком в память и ради краткости и наглядности переименовываем его корень в `json`, а объект с дескриптором – в `jsonDescriptor`.
+1. Теперь создаём в графе отдельную вершину с меткой `Descriptor`, дословно перекладывая в её свойства данные из объекта `jsonDescriptor`.  
+   {{< icon name="info-circle" pack="fas" >}} Здесь и далее используется именно [команда](https://neo4j.com/docs/cypher-manual/4.0/clauses/merge/) `MERGE`, чтобы запрос можно было выполнять многократно по мере роста графа, не порождая ошибки и дубликаты. Если это не важно, `MERGE` можно заменить на `CREATE`.
+1. Обходим узлы JSON-графа (массив `nodes`) операцией `UNWIND` и для каждого из них создаём в целевом графе вершину с меткой `Node`, попутно перекладывая свойства `name` и `componentType`.
+1. Тоже самое проделываем из со связями (массив `links`), но перед созданием ребра с меткой `Link` отыскиваем соединяемые вершины отдельной операцией `MATCH`, чтобы не порождать дубликаты этих вершин.
+1. В результат работы запроса включаем всё, что тут понасоздавали: узлы, связи и дескриптор.
 
-So, if we translate the above into Cypher language, the result may look like:[^3]
+Если выполнить этот запрос в [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) на примере [вот такого](export/analog.json) JSON-графа, то он будет визуализирован примерно так:
+
+{{< figure src="img/analog-1.png" title=":mag: ​Результат выполнения запроса на примере приложения АнаЛ&oacute;г" lightbox="true" >}}
+
+В общем-то, цель достигнута: EIP-компоненты превращены в вершины графа, между вершинами проведены рёбра в нужных направлениях, а если поводить курсором по элементам графа в Neo4j Browser, то в нижней части панели будут отображаться всякие дополнительные свойства, которые мы перекладывали в Cypher-запросе:
+
+![Дополнительные свойства узла](img/neo4j-browser-statusbar.png)
+
+И даже “разобщенность” графа (наличие множества остовов) в этом примере не является ошибкой импорта, это особенность анализируемого приложения. Казалось бы, всё ОК.
+
+Однако на практике быстро выясняется, что такое представление графа не очень удобно:
+
+* Плохо видно, какой именно EIP-компонент скрывается за каждым узлом, потому что все узлы имеют одинаковый цвет и размер, а имена обрезаны и зачастую содержат только префикс имени, который у многих узлов совпадает, например, `serverR...` Можно, конечно, наводить курсор на каждый узел и видеть его имя целиком в строке статуса, но это так себе решение.
+* Трудно понять назначение связей, потому что все они имеют одинаковый неинформативный тип `Link`, а реальный тип хранится в свойстве `type`. И это не изъян написанного запроса, а ограничение языка Cypher, в котором “из коробки” нельзя генерировать типы рёбёр и метки вершин динамически.
+* Дескриптор никак не связан с остальными элементами графа, поэтому нельзя понять, к какому приложению относится тот или иной узел, равно как и наоборот – нельзя понять, какие узлы и связи описывает тот или иной дескриптор.
+
+Если такие недостатки не смущают, то дальше можно не читать, а если дух прагматика всё же взбунтовался, то нам понадобится…
+
+#### Подход 2: визуализация с предобработкой
+
+Чтобы граф стал более информативным, нам нужно возложить часть смысловой нагрузки на внешний вид его узлов: форму, размер, цвет. Но если форма в Neo4j Browser не под нашем контролем (там только круги, для других форм нужны [сторонние](https://neo4j.com/developer/tools-graph-visualization/) визуализаторы), то размер и цвет мы вполне можем поменять за счёт применения стилей в формате [**GraSS**](https://neo4j.com/developer/neo4j-browser/#browser-styling-adv) (Graph Style Sheet), поддерживаемых Neo4j Browser’ом. Пример такого стиля [прилагается](export/style.grass) к этой статье, а чтобы его применить, нужно выполнить команду `:style` и перетащить скачанный файл стиля на открывшуюся панель (заштрихованная область):
+
+{{< figure src="img/style-panel.png" title="Выделенная оранжевым кнопка сбрасывает стиль в умолчательный" lightbox="true" >}}
+
+Но это ещё не всё.  Стили в Neo4j Browser привязываются не к свойствам узлов, а к их меткам, однако у нас сейчас все узлы (кроме описателя) имеют одну и ту же метку `Node`. И даже безотносительно к тонкостям Neo4j Browser, в графовых СУБД часто рекомендуется привязывать метки узлов к ролям, выполняемым моделируемыми ими сущностями. В нашем случае под понятие “роли” лучше всего подпадает тип EIP-компонента: канал, адаптер, фильтр и т.п. Но поскольку набор этих типов, как правило, заранее не известен, наш Cypher-запрос должен будет как-то “на лету” выводить их и превращать в метки узлов. К сожалению, язык Cypher “из коробки” такого делать не позволяет: для него метки – нечто сродни именам таблиц в реляционных БД, поэтому сгенерировать имя метки прямо по ходу выполнения запроса нельзя. Здесь нам снова пригодится библиотека APOC. В ней есть [процедура](https://neo4j.com/docs/labs/apoc/current/graph-updates/data-creation/) `apoc.merge.node`, которая умеет создавать/обновлять узлы, принимая их метки в виде переменных:
+
+> merge **nodes with dynamic labels**, with support for setting properties ON CREATE or ON MATCH
+
+Здесь важно не перестараться: типов может быть много, и если каждому типу будет отведен свой цвет/размер, то мы рискуем попасть в другую крайность – граф взрослого, богатого логикой приложения будет выглядеть как пёстрая мешанина разнородных кружочков. Чтобы этого избежать, мы добавим в Cypher-запрос дополнительный шаг своеобразной фильтрации типов узлов, которая будет “схлопывать” схожие типы в один, например, все разновидности каналов сведёт к одному типу `channel`. Это можно сделать при помощи [выражения](https://neo4j.com/docs/cypher-manual/4.0/syntax/expressions/#query-syntax-case) `CASE`.
+
+То же касается и связей: во-первых, хорошо бы сделать их разными по цвету в зависимости от типа, во-вторых, для динамического выведения типа из обрабатываемого JSON-документа нам понадобится не встроенная в Cypher команда `MERGE`, а её аналог из библиотеки APOC – [процедура](https://neo4j.com/docs/labs/apoc/current/graph-updates/data-creation/) `apoc.merge.relationship`:[^1]
+
+> merge **relationship with dynamic type**, with support for setting properties ON CREATE or ON MATCH
+
+ Кроме того, нужно как-то “привязать” описатель графа к остальным элементам, чтобы можно было, с одной стороны, легко выяснить, какие элементы графа он описывает, а с другой – легко добыть мета информацию о любом элементе графа, не дублируя её в самом элементе. Плюс к тому, у нас должна быть возможность хранить несколько графов в одной БД так, чтобы они не путались, и каждый можно было вывести просто по имени приложения. Все эти хотелки легко удовлетворятся, если ввести в граф “искусственную” связь между описателем и каждым узлом его графа. Назовём эту связь `DESCRIBES` и оставим без каких-либо свойств.
+
+##### Расширенный запрос
+
+Итак, с учётом перечисленных пожеланий, наш прежний запрос может быть расширен примерно до такого:[^2]
 
 ```cypher
 // (1) load JSON from URL:
 WITH "http://localhost:8080/actuator/integrationgraph" AS url
 CALL apoc.load.json(url) YIELD value
 WITH value AS json, value.contentDescriptor AS jsonDesc
-// (2) descriptor: 
+// (2) descriptor:
 MERGE (descriptor:Descriptor {name: jsonDesc.name})
   ON CREATE SET
-    descriptor.providerVersion = jsonDesc.providerVersion, 
+    descriptor.providerVersion = jsonDesc.providerVersion,
     descriptor.providerFormatVersion = jsonDesc.providerFormatVersion,
     descriptor.provider = jsonDesc.provider,
     descriptor.updated = localdatetime()
-  ON MATCH SET 
+  ON MATCH SET
     descriptor.updated = localdatetime()
 // (3) nodes:
 WITH json, descriptor
 UNWIND json.nodes AS jsonNode
 CALL apoc.merge.node(
-  /*labels*/ ['Node', 
+  /*labels*/ ['Node',
     CASE
       WHEN jsonNode.componentType IS NULL THEN "<unknown>"
-      WHEN toLower(jsonNode.componentType) ENDS WITH "channel" THEN "channel" 
-      WHEN toLower(jsonNode.componentType) ENDS WITH "adapter" THEN "adapter" 
+      WHEN toLower(jsonNode.componentType) ENDS WITH "channel" THEN "channel"
+      WHEN toLower(jsonNode.componentType) ENDS WITH "adapter" THEN "adapter"
       WHEN jsonNode.componentType CONTAINS '$' THEN "<other>"
-      ELSE jsonNode.componentType 
-    END], 
-  /*identProps*/   {nodeId: jsonNode.nodeId, appName: descriptor.name}, 
+      ELSE jsonNode.componentType
+    END],
+  /*identProps*/   {nodeId: jsonNode.nodeId},
   /*onCreateProps*/{name: jsonNode.name, componentType: jsonNode.componentType},
   /*onMatchProps*/ {}
 ) YIELD node
 MERGE (descriptor)-[:DESCRIBES]->(node)
 // (4) links:
-WITH json, descriptor, node 
+WITH json, descriptor, node
 UNWIND json.links AS jsonLink
-MATCH (a:Node {nodeId: jsonLink.from})<-[:DESCRIBES]-(descriptor)-[:DESCRIBES]->(b:Node {nodeId: jsonLink.to})
+MATCH (a:Node {nodeId: jsonLink.from}), (b:Node {nodeId: jsonLink.to})
 CALL apoc.merge.relationship(a, toUpper(jsonLink.type), {}, {}, b, {}) YIELD rel
 // (5) result:
-RETURN descriptor
+MATCH (n:Node)<-[:DESCRIBES]-(descriptor)
+RETURN n
 ```
 
-Skipping the details of [Cypher syntax](https://neo4j.com/docs/cypher-refcard/4.0/), let’s review the parts of this script following their numbers in comments:
+{{< icon name="download" pack="fas" >}} *[Открыть запрос файлом](export/integraph.cypher)*
 
-1. First we use `apoc.load.json(url)` [procedure](https://neo4j.com/docs/labs/apoc/current/import/load-json/) from APOC library to fetch raw JSON right from inside the script. Here we also introduce a couple of aliases by means of `WITH` clause for brevity.
+Несмотря на выросший объём, запрос по-прежнему состоит из тех же 5 частей (по номерам в комментариях):
 
-1. Create or update `Descriptor` node from corresponding JSON object and literally transfer all the properties. Additionally set `updated` property to save the timestamp of the last modification (just for convenience).
+1. Загружаем JSON в память и вводим алиасы для удобства и краткости;
+1. Создаём/обновляем дескриптор как раньше, только для удобства снабжаем его меткой с текущими датой и временем;
+1. Создаём/обновляем каждый узел, безусловно присваивая ему метку `Node` (чтобы между узлами всё же осталось что-то общее), а также приделываем вторую метку со значением:
 
-1. Create/update each node assigning 2 labels: the first one with `Node` value (just to keep something in common between all nodes) and the second one with value chosen as:
+   - `unknown`, если у данного узла вообще не указан тип (что, конечно, дичь, но иногда бывает, например, у компонента `UnzipTransformer`);
+   - `channel`, если полное название типа заканчивается на слово *channel*, например: `ExecutorSubscribableChannel`;
+   - `adapter`, если заканчивается на *adapter*, например, `inbound-channel-adapter`;
+   - `<other>`, если в названии типа встречается знак `$`, обозначающий анонимный класс с динамическим (бесполезным для нас) именем, например, `ServerConfig$$Lambda$994/0x00000008010fd440`;
+   - сам тип, если ни одно из условий выше не выполнено, например, `"componentType": "gateway"`.
+     При этом оригинальное имя типа всё же сохраняем в свойстве `componentType` на всякий случай. Здесь же по задумке выше связываем дескриптор с каждым узлом связью типа `DESCRIBES`.
+- Создаём/обновляем связи, на сей раз выбирая тип на основе поля `type` из JSON-графа и приводя его к верхнему регистру для соответствия лучшим практикам графовых БД.
+- Формируем чистовую выборку результирующих элементов, опираясь на “искусственную” связь с дескриптором и неявно полагаясь на то, что в настройках Neo4j Browser выставлен флаг *Connect result nodes*, и он сам соединит нам получившиеся узлы.
 
-   - `unknown`, if corresponding JSON node has no `componentType` field (which is abnormal but still happens e.g. with `UnzipTransformer` EIP component);
-   - `channel`, if the full component type value ends with “*channel*” like `ExecutorSubscribableChannel`;
-   - `adapter`, if it ends with “*adapter*” like  `inbound-channel-adapter`;
-   - `<other>`, if the type contains `$` character which denotes anonymous class with dynamic (thus useless for us) name like `ServerConfig$$Lambda$994/0x00000008010fd440`;
-   - the value of `componentType` field itself, if none of the conditions above is matched.
+После выполнения такого запроса и применения упомянутого выше [стиля](export/style.grass) граф будет выглядеть примерно так:
 
-   Note that we also keep the original value of each component type in the like-named property in order to support searching through the graph by exact matching. Here we also connect the descriptor to each newly created node.
+{{< figure src="img/analog-2.png" title=":mag: Результат выполнения доработанного запроса" lightbox="true" >}}
 
-1. Create/update links choosing the type from the JSON’s `type` field and casting it to upper case as the best practices [recommend](https://neo4j.com/docs/cypher-manual/4.0/syntax/naming/#_recommendations).  
-   Note that when `MATCH`ing nodes to connect, we also specify their relations to the descriptor. This is needed just to prevent the mess when storing multiple graphs in the same database. Otherwise, these relations can be omitted. 
-
-1. Return the descriptor as the result of the whole script.   
-   Of course, it might be better to return the graph at whole but for some reason it made the script execution substantially slower in all my tests. A subject to research.
-
-Depending on the Spring Integration graph size, the execution of the script can took a significant time (couple of dozens of seconds on my developer machine for a graph with 350+ nodes and 330+ links, see it [below](#additional-examples)). It heavily depends on RAM volume available to Neo4j. You can tune it with built-in `bin/neo4j-admin memrec` command.
-
-Remember that we should also apply the styling by dragging a GraSS file (e.g. [this one](export/style.grass)) to Neo4j Browser’s panel opened with `:style` command. 
-
-#### Graph visualization
-
-When all is said and done, we can finally ask Neo4j Browser to build the visual representation of our graph. In case of a single graph it can be as simple as `MATCH (a) RETURN a` query. But in the general case it would be better to consciously select all the nodes and links that have relations to a particular descriptor defined by the application name, e.g.: 
-
-```cypher
-WITH "analog" AS appName
-MATCH (:Descriptor {name: appName})-[:DESCRIBES]->(n:Node)-[l*0..1]-(:Node)
-RETURN n, l
-```
-
-For the same [sample graph](export/analog.json) the result may look like:
-
-{{< figure src="img/analog-2.png" title=":mag: The styled and pre-processed graph version" lightbox="true" >}}
-
-Note that apart from colors and sizes this graph version employs `componentType` property as node names instead of `name` property. This makes nodes more readable (because types are usually shorter than names) but requires the graph user to hover on each node to find out its full name. This can be changed with `Node` label visual properties either from Neo4j Browser UI or from GraSS file:
+Помимо цветов и размеров, в этой версии графа изменились подписи на узлах и связях. Для связей мы задали подписи сами в Cypher-запросе (см. п.4 выше), а подпись узлов задана через файл стилей оформления [style.grass](export/style.grass), в котором сказано использовать поле `componentType` в качестве подписи для всех узлов с меткой `Node`. Это удобно в тех случаях, когда читателю схемы не сильно важны имена компонентов и он готов смотреть их в строке статуса при наведении курсора на каждый узел. А если это не так, то в том же GraSS-файле нужно вернуть использование имени EIP-компонента в качестве подписи узла:
 
 ```scss
 node.Node {
@@ -266,29 +316,62 @@ node.Node {
 }
 ```
 
-If node names are changed back to `name` property, then the user should also look at the colors legend which is at the top of Neo4j Browser’s result panel:
+Тогда для понимания цветовых обозначений читателю придётся поглядывать на верхнюю часть панели с графом в Neo4j Browser – там есть легенда:
 
-{{< figure src="img/colors-legend.png" title="Configurable colors for node types" lightbox="true" >}}
+{{< figure src="img/colors-legend.png" title="Настраиваемые цветовые обозначения типов узлов в графе" lightbox="true" >}}
 
-Now that we’ve enhanced the visual representation of the graph, it should become easy and fun to work with it. If still not, then this is probably a matter of Neo4j Browser capabilities rather than graph representation itself. Fortunately, there are several alternative [visualization tools](https://neo4j.com/developer/tools-graph-visualization/) compatible with Neo4j graph storage.
+Работать с графом в таком виде теперь должно стать гораздо проще и приятнее. Но даже если нет, скорее всего, дело лишь в интерфейсе Neo4j Browser, а не в самих данных. В таком случае рекомендую взглянуть на [другие инструменты](https://neo4j.com/developer/tools-graph-visualization/) визуализации графов.
 
-#### Additional examples
+### Особенности
 
-Being carefully applied, Neo4j can become a valuable helper for graph visualization of Spring Integration applications. This is especially useful when it comes to some complicated and/or confused graphs like I had an occasion to meet:
+Пока в нашей БД всего один граф, вывести его можно даже простейшим запросом типа `MATCH (a) RETURN a`, но из-за искусственной связи дескриптора с каждым узлом граф будет выглядеть запутанным. Поэтому лучше вывести его не целиком, а так, чтобы в результат попали все узлы, относящиеся к данному дескриптору, но не он сам. А сам дескриптор проще всего найти по имени приложения (поле `name`):
+
+```cypher
+WITH "analog" AS appName
+MATCH (:Descriptor {name: appName})-[:DESCRIBES]->(n:Node)-[l*0..1]-(:Node)
+RETURN n, l
+```
+
+Этот запрос находит все узлы, в которые есть входящие связи от дескриптора, а также все ближайшие связи этих узлов (допуская отсутствие таких связей). Подобный подход заодно позволяет выбрать граф только одного приложения в случае, если их в БД уже несколько.
+
+{{% alert warning %}}
+Если в импортируемых графах есть узлы с одинаковыми `nodeId` (что не редкость), то приведенный выше [запрос](#расширенный-запрос) может **насоздавать лишних связей** между ними!  
+(см. команду `MATCH` в части "`(4) links`")
+
+{{% /alert %}}
+
+Чтобы этого избежать, нужно либо снабдить каждый узел дополнительным отличительным свойством (хотя это подход в духе реляционных СУБД), либо в сам&oacute;м запросе учесть наличие связи с нужным дескриптором.
+
+Вывести таблицу с дескрипторами имеющихся графов можно вот так:
+
+```cypher
+MATCH (d:Descriptor)
+RETURN d.name as Application,
+       d.providerVersion as SpringIntegration,
+       d.updated as LastUpdated
+```
+
+При импорте развесистых графов не стоит экономить на памяти для Neo4j: импорт на обычной рабочей машине и так может длиться десятками секунд, а если ещё сервер будет замирать в ожидании сборки мусора, то это может совсем затянуться или кончиться так:
+
+![OOM при импорта](img/oom.png)
+
+По умолчанию Neo4j не особо стесняется в потреблении памяти, поэтому наткнуться на такую ошибку непросто. Но если хочется найти компромисс между потреблением и производительностью, то в поставке Neo4j есть отличная утилита `bin/neo4j-admin`, которая при помощи команды `memrec` умеет подсказывать, какой и сколько памяти нужно прописать в конфигурации, чтобы жить хорошо.
+
+### Примеры
+
+Будучи правильно поставленной на службу, Neo4j может стать ценным помощником в визуализации графов приложений на Spring Integration. Это особенно ценно, когда эти графы не тривиальны и запутаны, как например те, с которыми мне доводилось встречаться:
 
 {{< gallery album="examples" >}}
 
-### Past & Future
+### Резюме и перспективы
 
-In this article we have learned how to [obtain](#obtaining-json-graph-description) a graph of EIP-components of Spring Integration application in JSON format. We’ve also defined [prerequisites](#prerequisites) for Neo4j DBMS to use. Then we’ve [outlined](#visualization-concerns) some concerns around the visualization. It helped us to compose a [Cypher script](#the-importing-script) for importing the graph into Neo4j database. With this script in hand, we have used Neo4j Browser to [query and visualize](#graph-visualization) the graph in different ways. At last, we’ve seen some [examples](#additional-examples) of graphs built with the script.
+В этой статье мы разобрались, [как получить](#как-получить-описание-графа-в-json) JSON-представление текущего состояния графа EIP-компонентов приложения на Spring Integration. Определились с [требованиями](#входные-требования) к СУБД Neo4j для заливки графа в неё. [Составили](#подход-1-прямая-визуализация) запрос на языке Cypher для визуализации такого графа “как есть” и поняли, что работать с ним не очень удобно. Тогда [применили](#подход-2-визуализация-с-предобработкой) кастомное оформление и [расширили](#расширенный-запрос) запрос предобработкой узлов и связей. И хотя запрос не стал совершенным (в силу ряда [особенностей](#особенности)), он вполне справляется со своей основной задачей (что видно по [примерам](#примеры)) и может послужить основой для написания более мощного Cypher-скрипта, оптимизированного под конкретные цели.
 
-While the script shown in this article is far not perfect from many points of view, it can still serve as a starting point for building more sophisticated scripts ideally-suited for particular tasks. It is also important to realize that visualization is not the only reason of importing the graph into Neo4j. There are plenty of tasks that can be solved by leveraging [graph algorithms](https://neo4j.com/docs/graph-data-science/current/), for example: find longest/shortest link chains, reveal unreachable parts, detect most dependent/important components (aka “bottle necks”), determine excess points, etc.
+Мы применяли только один инструмент визуализации – встроенный [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/). Он удобен для быстрого старта, но не всемогущ; к счастью, есть [альтернативы](https://neo4j.com/developer/tools-graph-visualization/). Также важно понимать, что визуализация – далеко не единственная ценность импорта в графовую БД. С помощью языка Cypher и различных [библиотек](https://neo4j.com/docs/graph-data-science/current/) можно извлекать из графа много полезной информации для разработчика, тестировщика или аналитика. Например, узнать число компонентов по типам/свойствам/связям, найти самую длинную/короткую цепочку связей, выявить недостижимые участки, обнаружить избыточные/паразитные узлы и/или связи, определить наиболее зависимые/востребованные компоненты и т.п.
 
-{{< icon name="share-alt" pack="fas" >}} I would be glad to hear from you about any experience around Spring Integration and Neo4j collaboration. Please feel free to leave comments below and/or share the article with others to make it really helpful :+1:
+{{< icon name="share-alt" pack="fas" >}} Если у тебя, дорогой читатель, есть вопросы/замечания/уточнения по этой теме, то добро пожаловать в комментарии под статьёй – я с удовольствием на них отвечу. Также буду благодарен, если ты поделишься статьёй с другими (share-ссылки чуть ниже) – так она с большей вероятностью станет для кого-то действительно полезной :+1:
 
 &nbsp;
 
-[^1]: Hereinafter, we use `MERGE` [clause](https://neo4j.com/docs/cypher-manual/4.0/clauses/merge/) and procedures to make the script idempotent, i.e. repeatable without errors and duplicates. If it’s not required, `CREATE` [clause](https://neo4j.com/docs/cypher-manual/4.0/clauses/create/) procedures can be used instead.
-[^2]: APOC procedures like `apoc.merge.(relationship|node)` in their **3.x** version (which is used in Neo4j Sandbox on April’20) do not support `onMatchProps` argument. Therefore it should be removed from the examples given here.
-[^3]: When executed on a remote Neo4j instance (e.g. in cloud Sandbox), the script will fail because of another meaning of `localhost` there. In this case you should either provide an external URL for the JSON graph source or (at least) use the URL of this [example](export/analog.json) taken from my [AnaLog](/project/analog) application.
-
+[^1]: В APOC-процедурах `apoc.merge.(relationship|node)` версии **3.x** (как например, в Neo4j Sandbox на апрель 2020) не поддерживается последний параметр `onMatchProps`, поэтому его нужно стирать из здешних примеров. Также при работе в Sandbox нужно учитывать примечание 2 (ниже).
+[^2]: Если Neo4j развёрнута на удалённом сервере или в Sandbox’е, то этот запрос не выполнится, т.к. `localhost` для неё будет другим. Придётся либо обеспечить свой JSON-граф внешним адресом, либо хотя бы подставить адрес [готового примера](export/analog.json) графа от приложения [АнаЛ&oacute;г](/project/analog).
