@@ -19,7 +19,7 @@ date_format = "2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
-  title = "Senior software developer (TechLead)"
+  title = "Principal software engineer (TechLead)"
   company = "CFT"
   company_url = "http://eng.cft.ru/"
   location = "Novosibirsk, Russia"
@@ -35,7 +35,7 @@ date_format = "2006"
   # """
 
 [[experience]]
-  title = "Upper-middle software developer"
+  title = "Senior software engineer"
   company = "CFT"
   company_url = "http://eng.cft.ru/"
   location = "Novosibirsk, Russia"
@@ -44,7 +44,7 @@ date_format = "2006"
   description = "Tooling: Play Framework (v1.x), ElasticSearch and others"
 
 [[experience]]
-  title = "Middle software developer"
+  title = "Middle software engineer"
   company = "CFT"
   company_url = "http://eng.cft.ru/"
   location = "Novosibirsk, Russia"
@@ -53,7 +53,7 @@ date_format = "2006"
   description = "Tooling: Spring WebMVC, Hibernate and others"
 
 [[experience]]
-  title = "Junior software developer"
+  title = "Junior software engineer"
   company = "CFT"
   company_url = "http://eng.cft.ru/"
   location = "Novosibirsk, Russia"

@@ -26,8 +26,8 @@ image:
 ---
 
 {{% alert info %}}
-The project is not finished yet.
-Please [let me know](/en/#contact) if you want to try it and I'll help you.
-You can find its source on the [project GitHub page](https://github.com/Toparvion/jcudos).
+The project is not finished yet.  
+Please [let me know](/en/#contact) if you want to try it and I'll help you.  
+You can find its source code on the [project GitHub page](https://github.com/Toparvion/jcudos).
 
 {{% /alert %}}

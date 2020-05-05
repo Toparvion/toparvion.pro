@@ -4,6 +4,8 @@ summary: A web application for viewing various logs in real time
 tags:
 - testing
 - logs
+- spring-integration
+- spring-boot
 date: "2017-12-22T00:00:00Z"
 weight: 10
 

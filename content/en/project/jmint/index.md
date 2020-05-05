@@ -18,7 +18,7 @@ image:
 links:
  - icon: github
    icon_pack: fab
-   name: Go to GitHub
+   name: GitHub
    url: https://github.com/Toparvion/jmint
 ---
 
