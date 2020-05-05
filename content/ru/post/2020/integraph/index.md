@@ -2,12 +2,13 @@
 title: "Как визуализировать граф Spring Integration в Neo4j?"
 subtitle: "Строим мост из мира Enterprise Java в мир графовых БД"
 summary: "Строим мост из мира Enterprise Java в мир графовых БД"
-authors: 
+authors:
   - toparvion
 tags:
   - spring-integration
   - neo4j
   - spring-boot
+  - отладка
 categories:
   - Graphs
 date: 2020-04-14T08:31:05+07:00
@@ -102,7 +103,7 @@ gallery_item:
 
 На верхнем уровне ответа всегда только 3 поля:
 
-- Объект `contentDescriptor` – общий описатель графа; поле `name` в нём берется из имени приложения (свойство `spring.application.name`). 
+- Объект `contentDescriptor` – общий описатель графа; поле `name` в нём берется из имени приложения (свойство `spring.application.name`).
 - Массив `nodes` содержит описания вершин графа – собственно EIP-компонентов, бины которых и составляют интеграционный конвейер. Наряду с именем `name`, типом `componentType` и идентификатором `nodeId`, в него также могут входить метрики и другие данные, но нас они не интересуют.
 - Массив `links` описывает рёбра графа, т.е. связи между EIP-компонентами. Пол*я* `from` и `to` указывают на значения `nodeId` исходящей и входящей вершины соответственно. А поле `type` содержит тип связи, их всего 5: `input`, `output`, `route`, `error`, `discard`.
 
@@ -162,7 +163,7 @@ management:
 
 Поскольку граф Spring Integration, судя по его JSON-модели, содержит всё необходимое для визуализации, можно просто взять его “как есть” и залить в графовую СУБД: узлы – к вершинам, связи – к рёбрам, свойства – к свойствам. Из всех свойств узлов мы возьмём только основные: `nodeId`, `nodeName` и `componentType`. Они поставляются базовым классом `org.springframework.integration.graph.IntegrationNode`, поэтому должны присутствовать у всех без исключения узлов (но это не точно).
 
-Теперь основная идея сводится к тому, чтобы прямо из Neo4j сказать что-то вроде: 
+Теперь основная идея сводится к тому, чтобы прямо из Neo4j сказать что-то вроде:
 
 > *Возьми JSON вот по этому URL, обойди вот такие его поля и разложи их данные по вот таким вершинам и рёбрам вот с такими свойствами.*
 
@@ -174,9 +175,9 @@ WITH "http://localhost:8080/actuator/integrationgraph" AS url
 CALL apoc.load.json(url) YIELD value	  
 WITH value AS json, value.contentDescriptor AS jsonDescriptor
 // (2) descriptor:
-MERGE (descriptor:Descriptor {name: jsonDescriptor.name}) 
-    ON CREATE SET 
-    descriptor.providerVersion = jsonDescriptor.providerVersion, 
+MERGE (descriptor:Descriptor {name: jsonDescriptor.name})
+    ON CREATE SET
+    descriptor.providerVersion = jsonDescriptor.providerVersion,
     descriptor.providerFormatVersion = jsonDescriptor.providerFormatVersion,
     descriptor.provider = jsonDescriptor.provider
 // (3) nodes:
@@ -187,7 +188,7 @@ MERGE (node:Node {nodeId: jsonNode.nodeId})
     node.componentType = jsonNode.componentType,
     node.name = jsonNode.name
 // (4) links:
-WITH json, descriptor, node 
+WITH json, descriptor, node
 UNWIND json.links AS jsonLink
 MATCH (a:Node {nodeId: jsonLink.from}), (b:Node {nodeId: jsonLink.to})
 MERGE (a)-[link:Link {type: jsonLink.type}]->(b)
@@ -202,7 +203,7 @@ RETURN descriptor, node, link
    {{< icon name="info-circle" pack="fas" >}} Здесь и далее используется именно [команда](https://neo4j.com/docs/cypher-manual/4.0/clauses/merge/) `MERGE`, чтобы запрос можно было выполнять многократно по мере роста графа, не порождая ошибки и дубликаты. Если это не важно, `MERGE` можно заменить на `CREATE`.
 1. Обходим узлы JSON-графа (массив `nodes`) операцией `UNWIND` и для каждого из них создаём в целевом графе вершину с меткой `Node`, попутно перекладывая свойства `name` и `componentType`.
 1. Тоже самое проделываем из со связями (массив `links`), но перед созданием ребра с меткой `Link` отыскиваем соединяемые вершины отдельной операцией `MATCH`, чтобы не порождать дубликаты этих вершин.
-1. В результат работы запроса включаем всё, что тут понасоздавали: узлы, связи и дескриптор. 
+1. В результат работы запроса включаем всё, что тут понасоздавали: узлы, связи и дескриптор.
 
 Если выполнить этот запрос в [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) на примере [вот такого](export/analog.json) JSON-графа, то он будет визуализирован примерно так:
 
@@ -217,7 +218,7 @@ RETURN descriptor, node, link
 Однако на практике быстро выясняется, что такое представление графа не очень удобно:
 
 * Плохо видно, какой именно EIP-компонент скрывается за каждым узлом, потому что все узлы имеют одинаковый цвет и размер, а имена обрезаны и зачастую содержат только префикс имени, который у многих узлов совпадает, например, `serverR...` Можно, конечно, наводить курсор на каждый узел и видеть его имя целиком в строке статуса, но это так себе решение.
-* Трудно понять назначение связей, потому что все они имеют одинаковый неинформативный тип `Link`, а реальный тип хранится в свойстве `type`. И это не изъян написанного запроса, а ограничение языка Cypher, в котором “из коробки” нельзя генерировать типы рёбёр и метки вершин динамически. 
+* Трудно понять назначение связей, потому что все они имеют одинаковый неинформативный тип `Link`, а реальный тип хранится в свойстве `type`. И это не изъян написанного запроса, а ограничение языка Cypher, в котором “из коробки” нельзя генерировать типы рёбёр и метки вершин динамически.
 * Дескриптор никак не связан с остальными элементами графа, поэтому нельзя понять, к какому приложению относится тот или иной узел, равно как и наоборот – нельзя понять, какие узлы и связи описывает тот или иной дескриптор.
 
 Если такие недостатки не смущают, то дальше можно не читать, а если дух прагматика всё же взбунтовался, то нам понадобится…
@@ -230,7 +231,7 @@ RETURN descriptor, node, link
 
 Но это ещё не всё.  Стили в Neo4j Browser привязываются не к свойствам узлов, а к их меткам, однако у нас сейчас все узлы (кроме описателя) имеют одну и ту же метку `Node`. И даже безотносительно к тонкостям Neo4j Browser, в графовых СУБД часто рекомендуется привязывать метки узлов к ролям, выполняемым моделируемыми ими сущностями. В нашем случае под понятие “роли” лучше всего подпадает тип EIP-компонента: канал, адаптер, фильтр и т.п. Но поскольку набор этих типов, как правило, заранее не известен, наш Cypher-запрос должен будет как-то “на лету” выводить их и превращать в метки узлов. К сожалению, язык Cypher “из коробки” такого делать не позволяет: для него метки – нечто сродни именам таблиц в реляционных БД, поэтому сгенерировать имя метки прямо по ходу выполнения запроса нельзя. Здесь нам снова пригодится библиотека APOC. В ней есть [процедура](https://neo4j.com/docs/labs/apoc/current/graph-updates/data-creation/) `apoc.merge.node`, которая умеет создавать/обновлять узлы, принимая их метки в виде переменных:
 
-> merge **nodes with dynamic labels**, with support for setting properties ON CREATE or ON MATCH 
+> merge **nodes with dynamic labels**, with support for setting properties ON CREATE or ON MATCH
 
 Здесь важно не перестараться: типов может быть много, и если каждому типу будет отведен свой цвет/размер, то мы рискуем попасть в другую крайность – граф взрослого, богатого логикой приложения будет выглядеть как пёстрая мешанина разнородных кружочков. Чтобы этого избежать, мы добавим в Cypher-запрос дополнительный шаг своеобразной фильтрации типов узлов, которая будет “схлопывать” схожие типы в один, например, все разновидности каналов сведёт к одному типу `channel`. Это можно сделать при помощи [выражения](https://neo4j.com/docs/cypher-manual/4.0/syntax/expressions/#query-syntax-case) `CASE`.
 
@@ -249,34 +250,34 @@ RETURN descriptor, node, link
 WITH "http://localhost:8080/actuator/integrationgraph" AS url
 CALL apoc.load.json(url) YIELD value
 WITH value AS json, value.contentDescriptor AS jsonDesc
-// (2) descriptor: 
+// (2) descriptor:
 MERGE (descriptor:Descriptor {name: jsonDesc.name})
   ON CREATE SET
-    descriptor.providerVersion = jsonDesc.providerVersion, 
+    descriptor.providerVersion = jsonDesc.providerVersion,
     descriptor.providerFormatVersion = jsonDesc.providerFormatVersion,
     descriptor.provider = jsonDesc.provider,
     descriptor.updated = localdatetime()
-  ON MATCH SET 
+  ON MATCH SET
     descriptor.updated = localdatetime()
 // (3) nodes:
 WITH json, descriptor
 UNWIND json.nodes AS jsonNode
 CALL apoc.merge.node(
-  /*labels*/ ['Node', 
+  /*labels*/ ['Node',
     CASE
       WHEN jsonNode.componentType IS NULL THEN "<unknown>"
-      WHEN toLower(jsonNode.componentType) ENDS WITH "channel" THEN "channel" 
-      WHEN toLower(jsonNode.componentType) ENDS WITH "adapter" THEN "adapter" 
+      WHEN toLower(jsonNode.componentType) ENDS WITH "channel" THEN "channel"
+      WHEN toLower(jsonNode.componentType) ENDS WITH "adapter" THEN "adapter"
       WHEN jsonNode.componentType CONTAINS '$' THEN "<other>"
-      ELSE jsonNode.componentType 
-    END], 
-  /*identProps*/   {nodeId: jsonNode.nodeId}, 
+      ELSE jsonNode.componentType
+    END],
+  /*identProps*/   {nodeId: jsonNode.nodeId},
   /*onCreateProps*/{name: jsonNode.name, componentType: jsonNode.componentType},
   /*onMatchProps*/ {}
 ) YIELD node
 MERGE (descriptor)-[:DESCRIBES]->(node)
 // (4) links:
-WITH json, descriptor, node 
+WITH json, descriptor, node
 UNWIND json.links AS jsonLink
 MATCH (a:Node {nodeId: jsonLink.from}), (b:Node {nodeId: jsonLink.to})
 CALL apoc.merge.relationship(a, toUpper(jsonLink.type), {}, {}, b, {}) YIELD rel
@@ -306,7 +307,7 @@ RETURN n
 
 {{< figure src="img/analog-2.png" title=":mag: Результат выполнения доработанного запроса" lightbox="true" >}}
 
-Помимо цветов и размеров, в этой версии графа изменились подписи на узлах и связях. Для связей мы задали подписи сами в Cypher-запросе (см. п.4 выше), а подпись узлов задана через файл стилей оформления [style.grass](export/style.grass), в котором сказано использовать поле `componentType` в качестве подписи для всех узлов с меткой `Node`. Это удобно в тех случаях, когда читателю схемы не сильно важны имена компонентов и он готов смотреть их в строке статуса при наведении курсора на каждый узел. А если это не так, то в том же GraSS-файле нужно вернуть использование имени EIP-компонента в качестве подписи узла: 
+Помимо цветов и размеров, в этой версии графа изменились подписи на узлах и связях. Для связей мы задали подписи сами в Cypher-запросе (см. п.4 выше), а подпись узлов задана через файл стилей оформления [style.grass](export/style.grass), в котором сказано использовать поле `componentType` в качестве подписи для всех узлов с меткой `Node`. Это удобно в тех случаях, когда читателю схемы не сильно важны имена компонентов и он готов смотреть их в строке статуса при наведении курсора на каждый узел. А если это не так, то в том же GraSS-файле нужно вернуть использование имени EIP-компонента в качестве подписи узла:
 
 ```scss
 node.Node {
@@ -345,8 +346,8 @@ RETURN n, l
 
 ```cypher
 MATCH (d:Descriptor)
-RETURN d.name as Application, 
-       d.providerVersion as SpringIntegration, 
+RETURN d.name as Application,
+       d.providerVersion as SpringIntegration,
        d.updated as LastUpdated
 ```
 
@@ -374,4 +375,3 @@ RETURN d.name as Application,
 
 [^1]: В APOC-процедурах `apoc.merge.(relationship|node)` версии **3.x** (как например, в Neo4j Sandbox на апрель 2020) не поддерживается последний параметр `onMatchProps`, поэтому его нужно стирать из здешних примеров. Также при работе в Sandbox нужно учитывать примечание 2 (ниже).
 [^2]: Если Neo4j развёрнута на удалённом сервере или в Sandbox’е, то этот запрос не выполнится, т.к. `localhost` для неё будет другим. Придётся либо обеспечить свой JSON-граф внешним адресом, либо хотя бы подставить адрес [готового примера](export/analog.json) графа от приложения [АнаЛ&oacute;г](/project/analog).
-
