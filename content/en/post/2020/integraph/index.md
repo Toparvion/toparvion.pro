@@ -1,13 +1,14 @@
 ---
 title: "How to visualize a Spring Integration graph with Neo4j?"
-subtitle: "Building a bridge from Enterprise Java to graph databases"
-summary: "Building a bridge from Enterprise Java world to graph databases world"
+subtitle: "Building a bridge from enterprise Java to graph databases"
+summary: "Building a bridge from enterprise Java world to graph databases world"
 authors:
   - toparvion
 tags:
   - spring-integration
   - neo4j
-  - spring-boot
+  - visualization
+  - how-to
 categories:
   - Graphs
 date: 2020-04-29T07:49:05+07:00
@@ -30,11 +31,11 @@ image:
 #   Otherwise, set `projects = []`.
 projects: []
 
-# links:
-#   - icon: github
-#     icon_pack: fab
-#     name: GitHub
-#     url: https://github.com/Toparvion/springboot-jshell-adapter
+links:
+  - icon: medium
+    icon_pack: fab
+    name: Read on Medium
+    url: https://medium.com/@toparvion/how-to-visualize-a-spring-integration-graph-with-neo4j-61927ba5bb5a
 
 gallery_item:
 - album: examples
@@ -220,6 +221,8 @@ CALL apoc.merge.relationship(a, toUpper(jsonLink.type), {}, {}, b, {}) YIELD rel
 // (5) result:
 RETURN descriptor
 ```
+
+{{< icon name="download" pack="fas" >}} *[Open the script as file](export/integraph.cypher)*
 
 Skipping the details of [Cypher syntax](https://neo4j.com/docs/cypher-refcard/4.0/), let’s review the parts of this script following their numbers in comments:
 

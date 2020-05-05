@@ -1,5 +1,6 @@
 ---
 title: My publications
+subtitle: On other various resources
 
 # View.
 #   1 = List

@@ -36,6 +36,8 @@ featured: false
 
 links:
 - name: "Medium"
+  icon: medium
+  icon_pack: fab
   url: "https://medium.com/@toparvion/appcds-for-spring-boot-applications-first-contact-6216db6a4194"
 url_pdf: ''
 url_code: ''
