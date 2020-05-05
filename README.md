@@ -4,7 +4,7 @@
 
 This repository contains source code of my personal professional web page and blog &mdash; https://toparvion.pro
 
-The content is maintained mostly in Russian so far. However, English translation for the major pages is also planned for a future release.
+The content is maintained mostly in Russian as it is the author’s primary language. English translation for major site pages is also [provided](https://toparvion.pro/en/).
 
 The pages are built with powerful and fast [Hugo](https://gohugo.io/) static site generator. The site’s structure and style are created with beautiful and capable [Academic theme](https://sourcethemes.com/academic/).
 
