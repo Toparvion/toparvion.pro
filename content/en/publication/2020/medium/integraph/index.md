@@ -15,7 +15,7 @@ publishDate: "2019-05-05T00:00:00Z"
 publication_types: ["0"]
 
 # Publication name and optional abbreviated publication name.
-publication: "[On Medium](https://medium.com/@toparvion/how-to-visualize-a-spring-integration-graph-with-neo4j-61927ba5bb5a)"
+publication: "[On Medium](https://medium.com/@toparvion/how-to-visualize-a-spring-integration-graph-with-neo4j-61927ba5bb5a?source=friends_link&sk=35ce8c20b150bdaad2eb238f1cb3bbaf)"
 publication_short: ""
 
 abstract: |
@@ -36,7 +36,7 @@ links:
 - name: "Medium"
   icon: medium
   icon_pack: fab
-  url: "https://medium.com/@toparvion/how-to-visualize-a-spring-integration-graph-with-neo4j-61927ba5bb5a"
+  url: "https://medium.com/@toparvion/how-to-visualize-a-spring-integration-graph-with-neo4j-61927ba5bb5a?source=friends_link&sk=35ce8c20b150bdaad2eb238f1cb3bbaf"
 url_pdf: ''
 url_code: ''
 url_dataset: ''

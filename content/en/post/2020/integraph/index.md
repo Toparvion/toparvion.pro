@@ -35,7 +35,7 @@ links:
   - icon: medium
     icon_pack: fab
     name: Read on Medium
-    url: https://medium.com/@toparvion/how-to-visualize-a-spring-integration-graph-with-neo4j-61927ba5bb5a
+    url: https://medium.com/@toparvion/how-to-visualize-a-spring-integration-graph-with-neo4j-61927ba5bb5a?source=friends_link&sk=35ce8c20b150bdaad2eb238f1cb3bbaf
 
 gallery_item:
 - album: examples
