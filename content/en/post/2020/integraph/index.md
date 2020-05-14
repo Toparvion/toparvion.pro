@@ -35,7 +35,7 @@ links:
   - icon: medium
     icon_pack: fab
     name: Read on Medium
-    url: https://medium.com/@toparvion/how-to-visualize-a-spring-integration-graph-with-neo4j-61927ba5bb5a
+    url: https://medium.com/@toparvion/how-to-visualize-a-spring-integration-graph-with-neo4j-61927ba5bb5a?source=friends_link&sk=35ce8c20b150bdaad2eb238f1cb3bbaf
 
 gallery_item:
 - album: examples
@@ -144,12 +144,12 @@ And if your application uses pure Spring Integration, see [this page](https://do
 
 To upload the graph into the graph database we need just 2 things:
 
-1. **Neo4j** DBMS itself *(unexpectedly, isn’t it?)*
+1. **Neo4j** DBMS itself *(unexpectedly, isn’t it?)*  
    Any free distribution is suitable:
    - Developer-friendly [Neo4j Desktop](https://neo4j.com/download-center/#desktop)
    - Nothing-extra [Neo4j Community Server](https://neo4j.com/download-center/#community)
    - For-the-lazy [Neo4j Sandbox](https://neo4j.com/sandbox/)  *(no installation required)*
-1. **APOC** – a set of useful Cypher procedures
+1. **APOC** – a set of useful Cypher procedures  
    This is de-facto standard library from Neo4j authors so that you can find and install it right from the [official site](https://neo4j.com/docs/labs/apoc/current/introduction/#installation). Cloud-hosted Neo4j Sandbox already has the library pre-installed.
 
 This article is using Neo4j version **4.0.1**. But since we don’t rely on any database internals here, everything should work on other versions as well.[^1] If installing APOC manually, please ensure that its first 2 digits of the version (e.g. 4.0) are equal to the same digits of Neo4j itself.
@@ -166,7 +166,7 @@ That’s not bad but far from perfect because:
 - All the edges have the same `Link` label which is not informative at all. The real type of the link is hidden in the edge’s `type` property.
 - There is no relation between the descriptor and the nodes it describes.
 
-With these observations in mind, we can make our nodes and links more informative by providing them with visual distinction, depending on their type. For this, we can leverage the Neo4j Browser’s support of Graph Style Sheets ([**GraSS**](https://neo4j.com/developer/neo4j-browser/#browser-styling-adv)) – CSS-like files describing color, size (but not shape) and other visual properties of graph vertices and edges. This article comes with an [example](export/style.grass) of such a file for Spring Integration graphs.
+With these observations in mind, we can make our nodes and links more informative by providing them with visual distinction, depending on their type. For this, we can leverage the Neo4j Browser’s support of Graph Style Sheets ([GraSS](https://neo4j.com/developer/neo4j-browser/#browser-styling-adv)) – CSS-like files describing color, size (but not shape) and other visual properties of graph vertices and edges. This article comes with an [example](export/style.grass) of such a file for Spring Integration graphs.
 
 However, it’s not a trivial task because those visual properties in GraSS files are bound to nodes’ labels and links’ types but not to the properties of either. Since we now have the same node label and the same link type for all graph elements, we can’t use distinct styling. Of course, we should use different labels for nodes (depending on their `componentType` field) and different types for links (depending on their `type` field) to overcome the restriction, but it is not trivial either. The thing is, “out-of-the-box” Cypher language does not allow to generate neither vertex labels nor edge types dynamically, e.g. those values must be specified before the script is executed. It’s bad news because we get to know our nodes and links just after the JSON gets loaded which is a part of our Cypher script. The good news, however, is that the APOC library has `apoc.merge.node` and `apoc.merge.relationship` [procedures](https://neo4j.com/docs/labs/apoc/current/graph-updates/data-creation/)[^2] that can create/update nodes and links by taking the labels (types) as variables:
 
@@ -240,10 +240,10 @@ Skipping the details of [Cypher syntax](https://neo4j.com/docs/cypher-refcard/4.
 
    Note that we also keep the original value of each component type in the like-named property in order to support searching through the graph by exact matching. Here we also connect the descriptor to each newly created node.
 
-1. Create/update links choosing the type from the JSON’s `type` field and casting it to upper case as the best practices [recommended](https://neo4j.com/docs/cypher-manual/4.0/syntax/naming/#_recommendations).
+1. Create/update links choosing the type from the JSON’s `type` field and casting it to upper case as the best practices [recommended](https://neo4j.com/docs/cypher-manual/4.0/syntax/naming/#_recommendations).  
    Note that when `MATCH`ing nodes to connect, we also specify their relations to the descriptor. This is needed just to prevent the mess when storing multiple graphs in the same database. Otherwise, these relations (as well as `appName` property of nodes) can be omitted.
 
-1. Return the descriptor as the result of the whole script.
+1. Return the descriptor as the result of the whole script.  
    Of course, it might be better to return the graph at whole but for some reason it made the script execution substantially slower in all of my tests. A subject to research.
 
 Depending on the Spring Integration graph size, the execution of the script can take significant time (couple of dozens of seconds on my developer machine for a graph with 350+ nodes and 330+ links, see it [below](#additional-examples)). It heavily depends on RAM volume available to Neo4j. You can tune it with built-in `bin/neo4j-admin memrec` command.
