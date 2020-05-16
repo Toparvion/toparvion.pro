@@ -23,7 +23,7 @@ CALL apoc.merge.node(
       WHEN jsonNode.componentType CONTAINS '$' THEN "<other>"
       ELSE jsonNode.componentType
     END],
-  /*identProps*/   {nodeId: jsonNode.nodeId},
+  /*identProps*/   {nodeId: jsonNode.nodeId, appName: descriptor.name},
   /*onCreateProps*/{name: jsonNode.name, componentType: jsonNode.componentType},
   /*onMatchProps*/ {}
 ) YIELD node
@@ -31,8 +31,7 @@ MERGE (descriptor)-[:DESCRIBES]->(node)
 // (4) links:
 WITH json, descriptor, node
 UNWIND json.links AS jsonLink
-MATCH (a:Node {nodeId: jsonLink.from}), (b:Node {nodeId: jsonLink.to})
+MATCH (a:Node {nodeId: jsonLink.from})<-[:DESCRIBES]-(descriptor)-[:DESCRIBES]->(b:Node {nodeId: jsonLink.to})
 CALL apoc.merge.relationship(a, toUpper(jsonLink.type), {}, {}, b, {}) YIELD rel
 // (5) result:
-MATCH (n:Node)<-[:DESCRIBES]-(descriptor)
-RETURN n
+RETURN descriptor

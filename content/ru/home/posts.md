@@ -36,7 +36,7 @@ subtitle = "На этом сайте"
   #   2 = Compact
   #   3 = Card
   #   4 = Citation (publication only)
-  view = 3
+  view = 2
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -65,3 +65,5 @@ subtitle = "На этом сайте"
  # CSS class.
  css_class = ""
 +++
+
+{{< icon name="info-circle" pack="fas" >}} *Публикации на других ресурсах приведены [здесь](/publication/).*
