@@ -6,10 +6,10 @@
 widget = "blank"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 70  # Order that this section will appear.
+weight = 35  # Order that this section will appear.
 
-title = "Talks"
-subtitle = "Past & forthcoming"
+title = ""
+subtitle = ""
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
@@ -25,8 +25,8 @@ subtitle = "Past & forthcoming"
   # color = "navy"
 
   # Background gradient.
-  #gradient_start = "DarkGreen"
-  #gradient_end = "ForestGreen"
+  # gradient_start = "DarkGreen"
+  # gradient_end = "ForestGreen"
 
   # Background image.
   # image = "image.jpg"  # Name of image in `static/img/`.
@@ -36,11 +36,11 @@ subtitle = "Past & forthcoming"
   # image_parallax = true  # Use a fun parallax-like fixed background effect? true/false
 
   # Text color (true=light or false=dark).
-  # text_color_light = true
+  text_color_light = false
 
 [design.spacing]
   # Customize the section spacing. Order is top, right, bottom, left.
-  padding = ["20px", "0", "20px", "0"]
+  padding = ["20px", "0", "0", "0"]
 
 [advanced]
  # Custom CSS.
@@ -49,11 +49,4 @@ subtitle = "Past & forthcoming"
  # CSS class.
  css_class = ""
 +++
-
-{{% alert info %}}
-
-Over the last few years I gave several talks on various Java-related events including [Joker](https://jokerconf.com/en/) and [JPoint](https://jpoint.ru/en/) conferences. Because all of them used Russian language, they are listed on the [corresponding page](/talk).
-
-{{% /alert %}}
-
-![On my talk, JPoint 2020 conference](/img/jpoint.jpg)
+ {{< icon name="info-circle" pack="fas" >}} *These and other articles are also available [in Russian](/post/).*

@@ -36,7 +36,7 @@ subtitle = "Published on this site"
   #   2 = Compact
   #   3 = Card
   #   4 = Citation (publication only)
-  view = 3
+  view = 2
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -58,6 +58,10 @@ subtitle = "Published on this site"
   # Text color (true=light or false=dark).
   # text_color_light = true
 
+[design.spacing]
+  # Customize the section spacing. Order is top, right, bottom, left.
+  padding = ["110px", "0", "0", "0"]
+
 [advanced]
  # Custom CSS.
  css_style = ""
@@ -66,5 +70,3 @@ subtitle = "Published on this site"
  css_class = ""
 
 +++
-
- {{< icon name="info-circle" pack="fas" >}} *These and other articles are also available [in Russian](/post/).*

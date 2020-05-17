@@ -1,42 +1,19 @@
 +++
-# A Recent Publications section created with the Pages widget.
-# This section displays recent blog posts from `content/publication/`.
+# A Demo section created with the Blank widget.
+# Any elements can be added in the body: https://sourcethemes.com/academic/docs/writing-markdown-latex/
+# Add more sections by duplicating this file and customizing to your requirements.
 
-widget = "pages"  # See https://sourcethemes.com/academic/docs/page-builder/
+widget = "blank"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = false  # Activate this widget? true/false
-weight = 100  # Order that this section will appear.
+active = true  # Activate this widget? true/false
+weight = 95  # Order that this section will appear.
 
-title = "Публикации"
-subtitle = "На других ресурсах"
-
-[content]
-  # Page type to display. E.g. post, talk, or publication.
-  page_type = "publication"
-
-  # Choose how much pages you would like to display (0 = all pages)
-  count = 5
-
-  # Choose how many pages you would like to offset by
-  offset = 0
-
-  # Page order. Descending (desc) or ascending (asc) date.
-  order = "desc"
-
-  # Filter posts by a taxonomy term.
-  [content.filters]
-    tag = ""
-    category = ""
-    publication_type = ""
-    exclude_featured = false
+title = ""
+subtitle = ""
 
 [design]
-  # Toggle between the various page layout types.
-  #   1 = List
-  #   2 = Compact
-  #   3 = Card
-  #   4 = Citation (publication only)
-  view = 2
+  # Choose how many columns the section has. Valid values: 1 or 2.
+  columns = "2"
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -48,15 +25,22 @@ subtitle = "На других ресурсах"
   # color = "navy"
 
   # Background gradient.
-  # gradient_start = "DeepSkyBlue"
-  # gradient_end = "SkyBlue"
+  # gradient_start = "DarkGreen"
+  # gradient_end = "ForestGreen"
 
   # Background image.
-  # image = "background.jpg"  # Name of image in `static/img/`.
+  # image = "image.jpg"  # Name of image in `static/img/`.
   # image_darken = 0.6  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
+  # image_size = "cover"  #  Options are `cover` (default), `contain`, or `actual` size.
+  # image_position = "center"  # Options include `left`, `center` (default), or `right`.
+  # image_parallax = true  # Use a fun parallax-like fixed background effect? true/false
 
   # Text color (true=light or false=dark).
-  # text_color_light = true
+  text_color_light = false
+
+[design.spacing]
+  # Customize the section spacing. Order is top, right, bottom, left.
+  padding = ["20px", "0", "0", "0"]
 
 [advanced]
  # Custom CSS.
@@ -65,3 +49,4 @@ subtitle = "На других ресурсах"
  # CSS class.
  css_class = ""
 +++
+{{< icon name="info-circle" pack="fas" >}} *Публикации на других ресурсах приведены [здесь](/publication/).*

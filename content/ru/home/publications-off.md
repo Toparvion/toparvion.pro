@@ -1,18 +1,18 @@
 +++
-# A Recent Blog Posts section created with the Pages widget.
-# This section displays recent blog posts from `content/post/`.
+# A Recent Publications section created with the Pages widget.
+# This section displays recent blog posts from `content/publication/`.
 
 widget = "pages"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = true  # Activate this widget? true/false
-weight = 90  # Order that this section will appear.
+active = false  # Activate this widget? true/false
+weight = 100  # Order that this section will appear.
 
-title = "Статьи"
-subtitle = "На этом сайте"
+title = "Публикации"
+subtitle = "На других ресурсах"
 
 [content]
   # Page type to display. E.g. post, talk, or publication.
-  page_type = "post"
+  page_type = "publication"
 
   # Choose how much pages you would like to display (0 = all pages)
   count = 5
@@ -57,10 +57,6 @@ subtitle = "На этом сайте"
 
   # Text color (true=light or false=dark).
   # text_color_light = true
-
-[design.spacing]
-  # Customize the section spacing. Order is top, right, bottom, left.
-  padding = ["110px", "0", "0", "0"]
 
 [advanced]
  # Custom CSS.
