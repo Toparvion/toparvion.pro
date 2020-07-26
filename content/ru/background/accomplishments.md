@@ -21,6 +21,16 @@ date_format = "01.2006"
 [[item]]
   organization = "Учебный центр ЦФТ"
   organization_url = ""
+  title = "Одна идея &mdash; один слайд"
+  url = ""
+  certificate_url = ""
+  date_start = "2020-07-07"
+  date_end = ""
+  description = "Курс по проектированию содержательных слайдов"
+
+[[item]]
+  organization = "Учебный центр ЦФТ"
+  organization_url = ""
   title = "Архитектура слайдов"
   url = ""
   certificate_url = ""
