@@ -56,4 +56,4 @@ Over the last few years I gave several talks on various Java-related events incl
 
 {{% /callout %}}
 
-![On my talk, JPoint 2020 conference](/img/jpoint.jpg)
+![On my talk, JPoint 2020 conference](/media/jpoint.jpg)

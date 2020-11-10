@@ -5,7 +5,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 75  # Order that this section will appear.
 
-title = "Сообщество"
+title = "Community"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
 hero_media = "snow-one-logo.png"
@@ -37,8 +37,8 @@ hero_media = "snow-one-logo.png"
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
 [cta]
-  url = "https://snowone.ru/"
-  label = "Сайт конференции"
+  url = "https://snowone.ru/en"
+  label = "Conference site"
   icon_pack = "far"
   icon = "snowflake"
 [cta_alt]
@@ -46,7 +46,7 @@ hero_media = "snow-one-logo.png"
   label = "Twitter"
 
 +++
-От имени программного комитета я&nbsp;приглашаю вас на вторую сибирскую
-community-driven Java конференцию **SnowOne**!
-* Новосибирск, Академгородок (online)
-* 27 февраля 2021 года
+On behalf of the program commitee<br/>I&nbsp;invite you
+to the second Siberian community-driven Java conference **SnowOne**!
+* Novosibirsk, Academgorodok (online)
+* February 27, 2021
