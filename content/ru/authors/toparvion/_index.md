@@ -1,6 +1,6 @@
 ---
 # Display name
-name: Владимир Плизга
+title: Владимир Плизга
 
 # Username (this should match the folder name)
 authors:

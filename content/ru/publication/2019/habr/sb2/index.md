@@ -65,6 +65,6 @@ projects: []
 #   Otherwise, set `slides: ""`.
 # slides: example
 ---
-{{% alert note %}}
+{{% callout note %}}
 Большое спасибо команде [JUG.Ru](https://jugru.org/#team) за проделанную ими огромную работу по превращению видеозаписи моего доклада в текст!
-{{% /alert %}}
+{{% /callout %}}

@@ -22,8 +22,8 @@ links:
    url: https://github.com/Toparvion/jmint
 ---
 
-{{% alert info %}}
+{{% callout info %}}
 
 Please see the [project site](https://toparvion.github.io/jmint/) for description and details.
 
-{{% /alert %}}
+{{% /callout %}}

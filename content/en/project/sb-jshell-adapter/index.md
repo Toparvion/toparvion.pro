@@ -23,8 +23,8 @@ image:
 #     url: https://github.com/Toparvion/springboot-jshell-adapter
 ---
 
-{{% alert info %}}
+{{% callout info %}}
 
 Please see the [project page](https://github.com/Toparvion/springboot-jshell-adapter) on GitHub for description and details.
 
-{{% /alert %}}
+{{% /callout %}}

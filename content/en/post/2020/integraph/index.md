@@ -64,11 +64,11 @@ Short story long, all you need to do is:
 
 Hope this would be enough. If not, welcome the rest of the article.
 
-{{% alert info %}}
+{{% callout info %}}
 
 The following content supposes you are familiar with the Spring ecosystem and have a basic notion of the Neo4j graph database and its Cypher query language. But if there’s no such notion, it’s OK – there are links to the explaining resources along the text.
 
-{{% /alert %}}
+{{% /callout %}}
 
 ### Obtaining the graph as JSON
 
@@ -111,11 +111,11 @@ There are always 3 fields on the top level: a single object named `contentDescri
 {{< icon name="exclamation-triangle" pack="fas" >}} *Note that **channels** (in terms of EIP) **are not edges** in the graph.*
 Instead, they are just vertices much like adapters, filters, etc, though their `componentType` values usually end with *“channel”* suffix.
 
-{{% alert info %}}
+{{% callout info %}}
 
 Hereinafter, we’ll use terms “vertices” and “nodes” as well as “edges” and “links” interchangeably to make a closer reference to the domain. No semantic difference is hidden here.
 
-{{% /alert %}}
+{{% /callout %}}
 
 #### Just in case
 

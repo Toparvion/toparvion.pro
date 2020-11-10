@@ -68,6 +68,6 @@ projects:
 #   Otherwise, set `slides: ""`.
 # slides: example
 ---
-{{% alert info %}}
+{{% callout info %}}
 Эта статья является расширением и продолжением предыдущей [статьи на Хабре](/publication/2015/habr/).
-{{% /alert %}}
+{{% /callout %}}

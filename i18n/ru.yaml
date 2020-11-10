@@ -128,3 +128,9 @@
   translation: Понятно
 - id: cookie_learn
   translation: Узнать больше
+- id: theme_light
+  translation: Светлая
+- id: theme_dark
+  translation: Тёмная
+- id: theme_auto
+  translation: Авто

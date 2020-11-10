@@ -77,6 +77,6 @@ projects:
 # Enable math on this page?
 math: false
 ---
-{{% alert note %}}
+{{% callout note %}}
 Это полностью переработанная версия [доклада](/talk/2018/jbreak/) с&nbsp;конференции JBreak'18.
-{{% /alert %}}
+{{% /callout %}}

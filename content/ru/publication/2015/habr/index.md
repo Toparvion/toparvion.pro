@@ -67,6 +67,6 @@ projects: []
 #   Otherwise, set `slides: ""`.
 # slides: example
 ---
-{{% alert info %}}
+{{% callout info %}}
 Эта статья имеет расширение и продолжение в виде [статьи в журнале Хакер](/publication/2015/xakep/).
-{{% /alert %}}
+{{% /callout %}}

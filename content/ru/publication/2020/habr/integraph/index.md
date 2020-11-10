@@ -64,6 +64,6 @@ projects: []
 #   Otherwise, set `slides: ""`.
 # slides: example
 ---
-{{% alert note %}}
+{{% callout note %}}
 Эта статья была изначально опубликована [здесь](/post/2020/integraph/).
-{{% /alert %}}
+{{% /callout %}}

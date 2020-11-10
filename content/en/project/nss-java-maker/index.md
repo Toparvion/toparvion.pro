@@ -22,14 +22,14 @@ image:
 # url_code: "https://github.com/Toparvion/nss-java-maker"
 ---
 
-{{% alert info %}}
+{{% callout info %}}
 
 Please see the [project page](https://github.com/Toparvion/nss-java-maker) on GitHub for description and details.
 
-{{% /alert %}}
+{{% /callout %}}
 
-{{% alert warning %}}
+{{% callout warning %}}
 
 The tool was developed and tested in 2015. Therefore it can have compatibility issues with contemporary versions of Wireshark and/or Java.
 
-{{% /alert %}}
+{{% /callout %}}

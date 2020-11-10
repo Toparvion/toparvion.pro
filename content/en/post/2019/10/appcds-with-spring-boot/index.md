@@ -362,9 +362,9 @@ Let’s look at them a little closer:
 
 **Resume**
 
-{{% alert note %}}
+{{% callout note %}}
 CDS potential of a non-trivial application cannot reach 100%.
-{{% /alert %}}
+{{% /callout %}}
 
 Of course, we can aspire to this ideal value but let’s rather look at the benefits of the existing result. For this purpose, we need to make one more test.
 

@@ -13,9 +13,9 @@ image:
   caption: ""
   focal_point: Smart
 ---
-{{% alert info %}}
+{{% callout info %}}
 
 The work on this project was stopped during the testing.   
 Neither source code nor the results were published.  
 If you have an interest in this topic or this tool, please [let me know](/en/#contact).
-{{% /alert %}}
+{{% /callout %}}

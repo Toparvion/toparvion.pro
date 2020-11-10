@@ -75,6 +75,6 @@ projects: []
 # Enable math on this page?
 math: false
 ---
-{{% alert note %}}
+{{% callout note %}}
 Это сокращенная версия [доклада](/talk/2019/jpoint/) на конференции JPoint'19.
-{{% /alert %}}
+{{% /callout %}}

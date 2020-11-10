@@ -70,6 +70,6 @@ projects:
 #   Otherwise, set `slides: ""`.
 # slides: example
 ---
-{{% alert note %}}
+{{% callout note %}}
 This article was also [published](/en/post/2019/10/appcds-with-spring-boot/) on this site to improve its appearance. There is also [Russian translation](/post/2019/10/appcds-with-spring-boot/) of the article.
-{{% /alert %}}
+{{% /callout %}}
