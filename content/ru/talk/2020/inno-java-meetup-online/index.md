@@ -3,7 +3,7 @@ title: "Инъекция тестовых поведений: как выйти 
 event: Java Meetup Innopolis
 event_url: "https://innopolis.timepad.ru/event/1382976/"
 
-location: г. Иннополис (онлайн)
+location: Иннополис (онлайн)
 # address:
   # street: ул. Туркистан
   # city: Нур-Султан
