@@ -52,7 +52,7 @@ image:
 #   url: https://twitter.com/georgecushen
 url_code: "https://github.com/Toparvion/fat-jar-sample"
 url_pdf: ""
-url_slides: ""
+url_slides: "https://speakerdeck.com/toparvion/spring-boot-fat-jar-tonkiie-chasti-tolstogho-artiefakta"
 url_video: ""
 
 # Markdown Slides (optional).
