@@ -19,6 +19,16 @@ date_format = "01.2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[item]]
+  organization = "Языковая школа SkyEng"
+  organization_url = "https://skyeng.ru/"
+  title = "English Upper-Intermediate Course"
+  url = ""
+  certificate_url = ""
+  date_start = "2020-10-01"
+  date_end = ""
+  description = "Общий курс разговорного английского"
+
+[[item]]
   organization = "Учебный центр ЦФТ"
   organization_url = ""
   title = "Одна идея &mdash; один слайд"

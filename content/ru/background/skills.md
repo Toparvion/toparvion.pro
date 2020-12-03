@@ -22,7 +22,7 @@ subtitle = "Что составляет мою профессию сегодня
   icon = "leaf"
   icon_pack = "fas"
   name = "Spring"
-  description = "Framework, Boot, Integration"  
+  description = "Boot, Cloud, Integration"  
 
 [[feature]]
   icon = "microchip"
