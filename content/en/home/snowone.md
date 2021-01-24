@@ -49,4 +49,4 @@ hero_media = "snow-one-logo.png"
 On behalf of the program commitee<br/>I&nbsp;invite you
 to the second Siberian community-driven Java conference **SnowOne**!
 * Novosibirsk, Academgorodok (online)
-* February 27, 2021
+* February 26-27, 2021

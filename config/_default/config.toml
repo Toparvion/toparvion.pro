@@ -68,6 +68,7 @@ highlight_superuser = false
    tags = "/tag/:slug/"
    categories = "/category/:slug/"
    publication_types = "/publication-type/:slug/"
+   event = "/talk/:slug/"
 
 # end of Wowchemy 5.0 news
 

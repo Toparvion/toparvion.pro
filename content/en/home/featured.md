@@ -13,7 +13,7 @@ subtitle = "From my ego's point of view"
 
 [content]
   # Page type to display. E.g. post, talk, or publication.
-  page_type = "talk"
+  page_type = "event"
 
   # Choose how much pages you would like to display (0 = all pages)
   count = 0
