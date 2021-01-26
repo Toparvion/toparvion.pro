@@ -76,5 +76,5 @@ projects: []
 math: false
 ---
 {{% callout note %}}
-Это сокращенная версия [доклада](/talk/2019/jpoint/) на конференции JPoint'19.
+Это сокращенная версия [доклада](/event/2019/jpoint/) на конференции JPoint'19.
 {{% /callout %}}

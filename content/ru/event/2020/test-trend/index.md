@@ -83,5 +83,5 @@ projects:
 math: false
 ---
 {{% callout note %}}
-Это адаптированное повторение [доклада](/talk/2020/inno-java-meetup-online/) с&nbsp;онлайн-митапа по&nbsp;Java в&nbsp;Иннополисе.
+Это адаптированное повторение [доклада](/event/2020/inno-java-meetup-online/) с&nbsp;онлайн-митапа по&nbsp;Java в&nbsp;Иннополисе.
 {{% /callout %}}

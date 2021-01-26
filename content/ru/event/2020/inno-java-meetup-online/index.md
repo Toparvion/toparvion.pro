@@ -78,5 +78,5 @@ projects:
 math: false
 ---
 {{% callout note %}}
-Это полностью переработанная версия [доклада](/talk/2018/jbreak/) с&nbsp;конференции JBreak'18.
+Это полностью переработанная версия [доклада](/event/2018/jbreak/) с&nbsp;конференции JBreak'18.
 {{% /callout %}}
