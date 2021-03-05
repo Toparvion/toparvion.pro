@@ -16,7 +16,7 @@ function TheLogin() {
 
 var password = 'пра3дник';
 
-if (this.document.login.pass.value == password) {
+if (this.document.login.pass.value.toLowerCase() == password) {
   location.href="correct.html";
 }
 else {
