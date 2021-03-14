@@ -183,10 +183,11 @@ plugins_js  = ["cypher.min"]
 ############################
 [comments]
   # Comment provider:
-  #   0: Disabled
-  #   1: Disqus (https://disqus.com)
-  #   2: Commento (https://commento.io)
-  engine = 1
+  #   ""
+  #   Disqus (https://disqus.com)
+  #   Commento (https://commento.io)
+  provider = ""
+  # provider = "disqus"   # disabled until Wowchemy 5.1 where this is fixed
 
   # Which page types are commentable?
   commentable = {page = true, post = true, docs = true, project = true, publication = true, talk = true}
@@ -206,12 +207,12 @@ plugins_js  = ["cypher.min"]
 ############################
 [search]
   # Search provider:
-  #   0: No search engine
-  #   1: Academic (built-in)
-  #   2: Algolia (https://www.algolia.com)
-  engine = 1
+  #   ""
+  #   Wowchemy (built-in)
+  #   Algolia (https://www.algolia.com)
+  provider = "wowchemy"
 
-  # Configuration of Algolia search engine.
+  # Configuration of Algolia search provider.
   # Paste the values from your Algolia dashboard.
   [search.algolia]
     app_id = ""
@@ -226,10 +227,10 @@ plugins_js  = ["cypher.min"]
   # To show your address on a map in the Contact widget, enter your latitude and longitude (above)
   # and choose a map provider below.
   #
-  # To use Google Maps, set `engine` to 1 and enter your API key that can be obtained here:
+  # To use Google Maps, set `provider` to a name and enter your API key that can be obtained here:
   #   https://developers.google.com/maps/documentation/javascript/get-api-key
-  # To use OpenStreetMap tiles, set `engine` to 2.
-  # To use OpenStreetMap on a high traffic site, set `engine` to 3 and enter your API key that can be obtained here:
+  # To use OpenStreetMap tiles, set `provider` to 2.
+  # To use OpenStreetMap on a high traffic site, set `provider` to 3 and enter your API key that can be obtained here:
   #   https://www.mapbox.com/studio/account/tokens
   #
   # Map provider:
@@ -237,7 +238,7 @@ plugins_js  = ["cypher.min"]
   #   1: Google Maps
   #   2: OpenStreetMap (Mapnik)
   #   3: OpenStreetMap (Mapbox)
-  engine = 2
+  provider = "mapnik"
   api_key = ""
   zoom = 15
 
