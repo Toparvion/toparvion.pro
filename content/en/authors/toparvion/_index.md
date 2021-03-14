@@ -21,7 +21,7 @@ organizations:
 bio: "Favorite technology: common sense"
 
 interests:
-- Backend Development
+- Backend [Development](/en/background/#skills)
 - Open Source Software
 - Applied Cryptography
 
@@ -64,6 +64,6 @@ email: ""
 
 Passionate developer, research enthusiast, open source fan, happy father, amateur athlete – that's what describes me, your host on this another personal web page.
 
-Here I&nbsp;share my [experience](/en/background) in&nbsp;various professional fields that I discover in my&nbsp;job and hobby. For instance, there are several [helpful tools](/en/#projects) that I&nbsp;created for&nbsp;simplifying day-to-day work. There’re also a&nbsp;few [explanatory articles](/en/#posts) about different aspects of enterprise development in Java&trade;.
+Here I&nbsp;share my [experience](/en/background/#experience) in&nbsp;various professional fields that I discover in my&nbsp;job and hobby. For instance, there are several [helpful tools](/en/#projects) that I&nbsp;created for&nbsp;simplifying day-to-day work. There’re also a&nbsp;few [explanatory articles](/en/#posts) about different aspects of enterprise development in Java&trade;.
 
 As a&nbsp;citizen of&nbsp;West Siberia, I use [Russian](/ru) as my primary language so&nbsp;please be&nbsp;patient to my&nbsp;deficient English. Whichever language you speak, I’m&nbsp;pleased to&nbsp;meet you here! :slightly_smiling_face:

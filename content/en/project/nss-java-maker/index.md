@@ -1,6 +1,6 @@
 ---
 title: NSS Java Maker
-summary: A CLI utility for decrypting TLS traffic with JVM logs
+summary: A small CLI utility for decrypting TLS traffic with the help of JVM logs and Wireshark traffic dump
 tags:
 - cryptography
 -  debugging

@@ -53,7 +53,7 @@ image:
 url_code: "https://github.com/Toparvion/fat-jar-sample"
 url_pdf: ""
 url_slides: "https://speakerdeck.com/toparvion/spring-boot-fat-jar-tonkiie-chasti-tolstogho-artiefakta"
-url_video: ""
+url_video: "https://youtu.be/ib_yvGhuzDg?t=5095"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.

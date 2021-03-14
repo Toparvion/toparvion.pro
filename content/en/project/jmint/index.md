@@ -15,11 +15,11 @@ image:
   caption: ""
   focal_point: Smart
 
-links:
- - icon: github
-   icon_pack: fab
-   name: GitHub
-   url: https://github.com/Toparvion/jmint
+#links:
+# - icon: github
+#   icon_pack: fab
+#   name: GitHub
+#   url: https://github.com/Toparvion/jmint
 ---
 
 {{% callout info %}}
