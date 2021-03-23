@@ -52,7 +52,10 @@ subtitle = "Past & forthcoming"
 
 {{% callout info %}}
 
-Over the last few years I gave several talks on various Java-related events including [Joker](https://jokerconf.com/en/) and [JPoint](https://jpoint.ru/en/) conferences. Because all of them used Russian language, they are listed on the [corresponding page](/event).
+Over the last few years I delivered several talks on various Java-related events
+including [Joker](https://jokerconf.com/en/) and [JPoint](https://jpoint.ru/en/)
+conferences. Because all of them used Russian language, they are listed on the
+[corresponding page](/event).
 
 {{% /callout %}}
 
