@@ -16,7 +16,7 @@ image:
 links:
 - icon: github
   icon_pack: fab
-  name: Страница проекта
+  name: Проект на GitHub
   url: https://github.com/Toparvion/nss-java-maker
 # url_code: "https://github.com/Toparvion/nss-java-maker"
 ---

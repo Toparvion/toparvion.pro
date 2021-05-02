@@ -1,6 +1,6 @@
 ---
 title: jCuDoS
-summary: A toolkit for applying AppCDS to Spring Boot microservices *[WIP]*
+summary: A toolkit for applying AppCDS to Spring Boot microservices *[frozen]*
 tags:
 - performance
 - appcds
@@ -26,8 +26,8 @@ image:
 ---
 
 {{% callout info %}}
-The project is not finished yet.  
-Please [let me know](/en/#contact) if you want to try it and I'll help you.  
+The project is not completed and the work is discontinued.  
+Please [let me know](/en/#contact) if you want to try it out and I'll help you.  
 You can find its source code on the [project GitHub page](https://github.com/Toparvion/jcudos).
 
 {{% /callout %}}
