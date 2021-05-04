@@ -109,9 +109,6 @@ appointment_url = ""
 ## Social
 ############################
 
-# Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
-sharing_image = "avatar-4-sharing.jpg"
-
 # Twitter username (without @). Used when a visitor shares your site on Twitter.
 twitter = "toparvion"
 
@@ -186,8 +183,7 @@ plugins_js  = ["cypher.min"]
   #   ""
   #   Disqus (https://disqus.com)
   #   Commento (https://commento.io)
-  provider = ""
-  # provider = "disqus"   # disabled until Wowchemy 5.1 where this is fixed
+  provider = "disqus"
 
   # Which page types are commentable?
   commentable = {page = true, post = true, docs = true, project = true, publication = true, talk = true}
