@@ -3,7 +3,7 @@ title: "Инъекция тестовых поведений: как выйти 
 event: "ЮMoney Jam: митап для Java-разработчиков"
 event_url: https://events.yoomoney.ru/jam-20-05-2021
 
-location: Онлайн
+location: Санкт-Петербург (онлайн)
 # address:
   # street: ул. Пирогова 1
   # city: Санкт-Петербург
@@ -55,7 +55,8 @@ image:
 #   url: https://twitter.com/georgecushen
 url_code: "https://github.com/Toparvion/jmint"
 # url_pdf: ""
-url_slides: "https://speakerdeck.com/toparvion/iniektsiia-tiestovykh-poviedienii-kak-vyiti-sukhim-iz-vody"
+# url_slides: "https://speakerdeck.com/toparvion/iniektsiia-tiestovykh-poviedienii-kak-vyiti-sukhim-iz-vody"
+url_video: "https://youtu.be/2LFKpaZDW20"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
