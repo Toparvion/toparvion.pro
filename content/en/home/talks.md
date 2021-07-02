@@ -59,4 +59,4 @@ conferences. Because all of them used Russian language, they are listed on the
 
 {{% /callout %}}
 
-![On my talk, JPoint 2020 conference](/media/jpoint.jpg)
+{{< figure src="jpoint.jpg" >}}
