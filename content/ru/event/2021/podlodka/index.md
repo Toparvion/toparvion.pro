@@ -57,7 +57,7 @@ image:
 url_code: "https://github.com/Toparvion/jmint"
 # url_pdf: ""
 # url_slides: "https://speakerdeck.com/toparvion/iniektsiia-tiestovykh-poviedienii-kak-vyiti-sukhim-iz-vody"
-# url_video: "https://youtu.be/2LFKpaZDW20"
+url_video: "https://youtu.be/zzkKQztAzVM"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
