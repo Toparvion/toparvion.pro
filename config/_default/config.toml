@@ -108,4 +108,4 @@ highlight_superuser = false
 
 [module]
   [[module.imports]]
-    path = "github.com/wowchemy/wowchemy-hugo-modules/wowchemy"
+    path = "github.com/wowchemy/wowchemy-hugo-modules/wowchemy/v5"

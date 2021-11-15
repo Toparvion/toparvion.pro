@@ -123,7 +123,7 @@
 - id: 404_recommendations
   translation: Возможно, вы искали одну из этих страниц
 - id: cookie_message
-  translation: Для сбора статистики посещения на этом сайте используются куки (cookies).
+  translation: Для сбора анонимной статистики посещения на этом сайте используются куки (cookies).
 - id: cookie_dismiss
   translation: Понятно
 - id: cookie_learn

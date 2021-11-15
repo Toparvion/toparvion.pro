@@ -46,7 +46,7 @@ hero_media = "snow-one-logo.png"
   label = "Twitter"
 
 +++
-On behalf of the program commitee<br/>I'd like to thank everyone who joined us
-on&nbsp;**SnowOne 2021** &mdash; a Siberian community-driven Java conference!
+On behalf of the program commitee<br/>I'd like to invite you to&nbsp;
+**SnowOne 2022** &mdash; a&nbsp;Siberian community-driven Java conference!
 
-See you at SnowOne 2022 and JUGNsk community meetups! (hopefully offline :wink:)
+February 25-26th, 2022, Novosibirsk, Academgorodok (offline & online)
