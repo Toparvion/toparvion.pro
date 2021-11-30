@@ -31,7 +31,7 @@ removePathAccents = true  # Workaround for https://github.com/gohugoio/hugo/issu
 paginate = 10  # Number of items per page in paginated lists.
 enableEmoji = true
 footnotereturnlinkcontents = "<sup>^</sup>"
-ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "\\.xmind$", "\\.pdn$"]
+ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "\\.xmind$", "\\.pdn$", "transient/.*"]
 
 ############################
 ## New from Wowchemy 5.0   #
@@ -63,12 +63,12 @@ highlight_superuser = false
  ai = false  # Academicons icon pack https://jpswalsh.github.io/academicons/
 
  # Workaround Hugo publishing taxonomy URLs as plurals - consistently use singular across Wowchemy.
- [permalinks]
-   authors = "/author/:slug/"
-   tags = "/tag/:slug/"
-   categories = "/category/:slug/"
-   publication_types = "/publication-type/:slug/"
-   #event = "/talk/:slug/"
+[permalinks]
+  authors = "/author/:slug/"
+  tags = "/tag/:slug/"
+  categories = "/category/:slug/"
+  publication_types = "/publication-type/:slug/"
+  #event = "/talk/:slug/"
 
 # end of Wowchemy 5.0 news
 

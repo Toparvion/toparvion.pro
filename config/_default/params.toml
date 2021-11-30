@@ -53,7 +53,7 @@ description = "A software engineer's notes"		# overriden in languages.toml
 # Enable source code highlighting? true/false
 # Documentation: https://sourcethemes.com/academic/docs/writing-markdown-latex/#highlighting-options
 highlight = true
-highlight_languages = ["java"]  # Add support for highlighting additional languages
+highlight_languages = ["java", "groovy", "http"]  # Add support for highlighting additional languages
 # highlight_style = "github"  # For supported styles, see https://cdnjs.com/libraries/highlight.js/
 
 # Enable LaTeX math rendering? true/false
