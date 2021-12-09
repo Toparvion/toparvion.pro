@@ -46,6 +46,6 @@ hero_media = "snow-one-logo.png"
   label = "Twitter"
 
 +++
-От имени программного комитета я&nbsp;приглашаю вас на&nbsp;**SnowOne 2022** &mdash; третью сибирскую community-driven Java конференцию!
+От имени программного комитета я&nbsp;приглашаю вас на&nbsp;**SnowOne 2022** &mdash; третью&nbsp;сибирскую community-driven Java конференцию!
 
 25-26 февраля 2022, Новосибирск, Академгородок (онлайн & офлайн)

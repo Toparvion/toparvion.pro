@@ -68,6 +68,7 @@ highlight_superuser = false
   tags = "/tag/:slug/"
   categories = "/category/:slug/"
   publication_types = "/publication-type/:slug/"
+  series = "/series/:slug/"
   #event = "/talk/:slug/"
 
 # end of Wowchemy 5.0 news
@@ -105,6 +106,7 @@ highlight_superuser = false
   category = "categories"
   publication_type = "publication_types"
   author = "authors"
+  series = "series"
 
 [module]
   [[module.imports]]

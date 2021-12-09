@@ -129,8 +129,8 @@
 - id: cookie_learn
   translation: Узнать больше
 - id: theme_light
-  translation: Светлая
+  translation: День
 - id: theme_dark
-  translation: Тёмная
+  translation: Ночь
 - id: theme_auto
   translation: Авто
