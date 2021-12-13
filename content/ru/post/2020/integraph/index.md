@@ -13,7 +13,7 @@ categories:
   - Graphs
 date: 2020-04-14T08:31:05+07:00
 lastmod: 2020-045-16T07:32:05+07:00
-featured: false
+featured: true
 draft: false
 
 # Featured image

@@ -19,4 +19,4 @@ advanced:
   css_style: ''
   css_class: ''
 ---
-{{< icon name="info-circle" pack="fas" >}} *Публикации на других ресурсах приведены [здесь](/publication/).*
+{{< icon name="info-circle" pack="fas" >}} *Другие статьи приведены [здесь](/post/), а внешние публикации &mdash; [здесь](/publication/).*
