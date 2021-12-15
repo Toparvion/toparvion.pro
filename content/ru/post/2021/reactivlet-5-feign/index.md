@@ -54,7 +54,7 @@ projects: []
 
 > As the [OpenFeign project](https://github.com/OpenFeign/feign) does not currently support reactive clients, such as [Spring WebClient](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.html), neither does Spring Cloud OpenFeign.
 
-Другими словами, если в каком-то проекте используется высокоуровневый декларативный HTTP-клиент на основе библиотеки OpenFeign, то под его капотом не сможет работать соответствующий низкоуровневый реактивный HTTP-клиент. Это относится к Spring Cloud OpenFeign версии 3.0.5 и остаётся актуальным, как минимум, на 22.11.2021.
+Другими словами, если в каком-то проекте используется *высокоуровневый* декларативный HTTP-клиент на основе библиотеки OpenFeign, то под его капотом не сможет работать соответствующий *низкоуровневый* реактивный HTTP-клиент. Это относится к Spring Cloud OpenFeign версии 3.0.5 и остаётся актуальным, как минимум, на 22.11.2021.
 
 Сразу за этой констатацией идёт многообещающее:
 
@@ -153,9 +153,11 @@ BlockingLoadBalancerClientAutoConfiguration#blockingLoadBalancerClient
 
 Это решение годится лишь на крайний случай и при условии понимания того, как ведёт себя балансировщик для данного приложения.
 
+---
+
 ## Общее заключение
 
-В этой пространной заметке были рассмотрены несколько задач, с которыми может столкнуться прикладной разработчик при попытках подружить императивный код на сервлетном фреймворке Spring WebMVC с кодом на реактивном фреймворке Spring WebFlux:
+В этой пространной [серии]({{< relref "/series/reactivlet" >}}) заметок были рассмотрены несколько задач, с которыми может столкнуться прикладной разработчик при попытках подружить императивный код на сервлетном фреймворке Spring WebMVC с кодом на реактивном фреймворке Spring WebFlux:
 
 * Как разрулить зависимости и составить правильный classpath?
 * Как поддержать вывод MDC-меток в логах на реактивном стеке?
@@ -173,5 +175,5 @@ BlockingLoadBalancerClientAutoConfiguration#blockingLoadBalancerClient
 
 ###### О картинке
 <sup>
-[© РИА Новости / Вячеслав Рунов](https://ria.ru/docs/about/copyright.html) / [Перейти в фотобанк](http://visualrian.ru/images/item/455253)
+[&copy; РИА Новости / Вячеслав Рунов](https://ria.ru/docs/about/copyright.html) / [Перейти в фотобанк](http://visualrian.ru/images/item/455253)
 </sup>
