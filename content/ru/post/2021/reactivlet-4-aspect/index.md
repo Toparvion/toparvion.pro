@@ -34,6 +34,11 @@ links:
     icon_pack: fas
     name: Серия статей ReactivLet
     url: /series/reactivlet/
+  - icon: github
+    icon_pack: fab
+    name: Код примеров
+    url: https://github.com/Toparvion/reactivlet-sample
+
 # Projects (optional).
 #   Associate this post with one or more of your projects.
 #   Simply enter your project's folder or file name without extension.
@@ -43,8 +48,6 @@ projects: []
 ---
 
 {{< toc >}}
-
-## Вводная
 
 Ещё одна любопытная задачка, возникающая при внедрении реактивного стека в сервлетные приложения – это поддержка AOP-аспектов, оборачивающих тело целевого метода. Такие аспекты декларируются с аннотацией `org.aspectj.lang.annotation.Around` и имеют возможность повлиять как на аргументы перехватываемого метода, так и на его результат, вплоть до полной его замены. Например, вот так может выглядеть примитивный аспект, логирующий аргументы и результат любого метода, помеченного аннотацией `@GetMapping`:
 
@@ -133,7 +136,9 @@ public class LoggingAspect {
 * не обрабатывает исключения, летящие из жерла целевого метода;
 * декларирован как `@Around`, хотя далеко не всегда требуется именно двусторонняя обёртка (часто достаточно обойтись аннотациями `@Before` или `@After`).
 
-Однако в качестве отправной точки его должно быть достаточно. Полный исходный код аспекта можно посмотреть ==здесь==.
+Однако в качестве отправной точки его должно быть достаточно.
+
+Полный код аспекта можно найти в прилагаемом [демо-проекте](https://github.com/Toparvion/reactivlet-sample/blob/main/shared/src/main/java/pro/toparvion/sample/reactivlet/shared/LoggingAspect.java){{< icon name="github" pack="fab" >}}.
 
 ## Попутное резюме
 

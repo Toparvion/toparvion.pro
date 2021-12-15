@@ -34,6 +34,10 @@ links:
     icon_pack: fas
     name: Серия статей ReactivLet
     url: /series/reactivlet/
+  - icon: github
+    icon_pack: fab
+    name: Код примеров
+    url: https://github.com/Toparvion/reactivlet-sample
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -52,10 +56,6 @@ projects: []
 Это строковые диагностические метки, которые позволяют легко находить в логах записи, относящиеся к одному этапу/аспекту/модулю приложения. Хрестоматийный пример: идентификатор пользовательского запроса (request id, `rid`) – позволяет выявить в логе все записи, относящиеся к обработке каждого входящего запроса, из какой бы части приложения эти записи не были сделаны.
 
 {{< /spoiler >}}
-
-#### Короче (TL;DR)
-
-*Если не хочется/некогда вникать в эту проблему и стоящий за ней сдвиг понимания, можно сразу посмотреть [решение](https://gist.github.com/Toparvion/90ebbdef9d31185a785670d9c2a86762){{< icon name="github" pack="fab" >}}.*
 
 ## Проблема
 
@@ -95,6 +95,10 @@ private InheritableThreadLocal<Map<String, String>> inheritableThreadLocal
 Эрудированный читатель наверняка знает, что задаче проброса MDC-меток в документации на Project Reactor посвящен [отдельный пункт в FAQ](https://projectreactor.io/docs/core/release/reference/#faq.mdc). Почему бы просто не последовать ему? Потому что он предполагает написание **новой** логики в реактивном стиле, в то время как мы решаем задачу адаптации **существующей** (императивной) логики к работе в реактивном окружении.
 
 {{< /spoiler >}}
+
+#### Короче (TL;DR)
+
+Ради полноты понимания здесь будет изложен весь путь получения финального решения. Однако для страждущих результата “прям ща” предусмотрен короткий путь – [готовые классы](https://github.com/Toparvion/reactivlet-sample/tree/main/shared/src/main/java/pro/toparvion/sample/reactivlet/shared) в прилагаемом демо-проекте{{< icon name="github" pack="fab" >}}.
 
 ### Переход на WebFilter
 
@@ -251,6 +255,8 @@ public class ServletMdcFilter extends GenericFilterBean {   // [2]
 :two: `GenericFilterBean` – это Spring’овая адаптация упоминавшегося ранее интерфейса `javax.servlet.Filter`, просто она умеет чуть больше (имплементирует всего-то 7 интерфейсов).
 
 В таком виде в приложении появляется “подстилка” под оба режима работы – и сервлетный, и реактивный, но каждая “оживает” только в своём режиме и не мешается в другом.
+
+Полные тексты обоих фильтров приведены в пакете [shared](https://github.com/Toparvion/reactivlet-sample/tree/main/shared/src/main/java/pro/toparvion/sample/reactivlet/shared) прилагаемого демо-проекта{{< icon name="github" pack="fab" >}}.
 
 ## Попутное резюме
 

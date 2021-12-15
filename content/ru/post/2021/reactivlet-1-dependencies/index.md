@@ -33,7 +33,10 @@ links:
     icon_pack: fas
     name: Серия статей ReactivLet
     url: /series/reactivlet/
-
+  - icon: github
+    icon_pack: fab
+    name: Код примеров
+    url: https://github.com/Toparvion/reactivlet-sample
 # Projects (optional).
 #   Associate this post with one or more of your projects.
 #   Simply enter your project's folder or file name without extension.
@@ -177,6 +180,8 @@ dependencies {
  Задумка здесь в том, чтобы устранить WebMVC, но не настолько, чтобы в runtime утонуть в бесчисленных `NoClassDefFoundError`. Другими словами, мы не хотим поднимать полноценный сервлетный стек, но хотим, чтобы классы от Serlvet API остались в classpath.
 
 Разумеется, сам по себе последний вариант не позволит традиционному “сервлетному” коду работать на реактивном стеке. Но зато он наставит на истинный путь упомянутый выше метод `WebApplicationType#deduceFromClasspath`. Останется только починить всё то, что поотваливается ~~на фиг~~ от такого переключения.
+
+Относительно простой вариант распределения зависимостей по Gradle-модулям реализован в прилагаемом [демо-проекте](https://github.com/Toparvion/reactivlet-sample) {{< icon name="github" pack="fab" >}}.
 
 ## Попутное резюме
 

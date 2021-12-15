@@ -34,6 +34,10 @@ links:
     icon_pack: fas
     name: Серия статей ReactivLet
     url: /series/reactivlet/
+  - icon: github
+    icon_pack: fab
+    name: Код примеров
+    url: https://github.com/Toparvion/reactivlet-sample
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
@@ -109,7 +113,7 @@ if (Schedulers.isInNonBlockingThread()) {
 
 ### Решение 2
 
-Но что делать с этим нам, прикладным разработчикам? Первое решение – такое же, как для проблемы 1 – [оформлять](https://projectreactor.io/docs/core/release/reference/#faq.wrap-blocking) подобные вызовы в пул потоков, допускающих блокировку, например, `Schedulers.boundedElastic()`.
+Но что делать с этим нам, прикладным разработчикам? Первое решение – такое же, как для проблемы 1 – [оформлять](https://projectreactor.io/docs/core/release/reference/#faq.wrap-blocking) подобные вызовы в пул потоков, допускающих блокировку, например, `Schedulers.boundedElastic()`. Пример [прилагается](https://github.com/Toparvion/reactivlet-sample/blob/94eebf15d73761d3db102788d480ee4728be3e2b/webflux/src/main/java/pro/toparvion/sample/reactivlet/WebFluxApplication.java#L78){{< icon name="github" pack="fab" >}}.
 
 Но, увы, иногда так не получается. Например, если в рамках плавной миграции на реактивный стек обнаруживается инфраструктурный компонент (например, аспект), использующий OpenFeign-клиента, и этот компонент нельзя менять, потому что он обязан остаться рабочим в сервлетном окружении. Любые совпадения с реальными событиями случайны.
 
@@ -153,6 +157,8 @@ BlockingLoadBalancerClientAutoConfiguration#blockingLoadBalancerClient
 
 Это решение годится лишь на крайний случай и при условии понимания того, как ведёт себя балансировщик для данного приложения.
 
+Полный исходный код конфигурационного класса с бином-заплаткой приведён в прилагаемом [демо-проекте](https://github.com/Toparvion/reactivlet-sample/blob/main/webflux/src/main/java/pro/toparvion/sample/reactivlet/FeignClientConfig.java){{< icon name="github" pack="fab" >}}.
+
 ---
 
 ## Общее заключение
@@ -167,7 +173,9 @@ BlockingLoadBalancerClientAutoConfiguration#blockingLoadBalancerClient
 
 Ни весь этот список целиком, ни отдельные его пункты не претендуют на полноту раскрытия темы, поскольку класс таких задач весьма обширен. Однако приведенный материал должен помочь читателю ухватить основные идеи и принципы, чтобы решать подобные задачи гораздо быстрее, чем довелось автору этих строк.
 
-Насколько это (не)удалось, можно и нужно рассказывать в комментариях под этим текстом. Там же приветствуются ссылки на схожие источники информации по этой же теме.
+Насколько это (не)удалось, можно и нужно рассказывать в комментариях под этим текстом. Там же приветствуются ссылки на схожие источники информации по этой теме.
+
+Дабы не ранить тонкие чувства читателя, все вкрапления русского текста в приведенных примерах переведены на английский и [выложены](https://github.com/Toparvion/reactivlet-sample) в виде цельного проекта на GitHub{{< icon name="github" pack="fab" >}}.
 
 &nbsp;
 
