@@ -22,10 +22,10 @@ date_format = "2006"
   title = "Ведущий разработчик ПО"
   company = "Tibbo Systems"
   company_url = "https://aggregate.digital/ru/"
-  location = "Тверь, Россия"
+  location = "Тверь, Россия (удалённо)"
   date_start = "2021-11-22"
   date_end = ""
-  description = "Инструменты: JDK Core, JNA, Spring и другие"
+  description = "Инструменты: JDK Core, Cassandra, Spring и другие"
 
 [[experience]]
   title = "Главный инженер-программист"

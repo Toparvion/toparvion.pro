@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Владимир Плизга
+title: Владимир Плизгá
 
 # Username (this should match the folder name)
 authors:
@@ -10,12 +10,12 @@ authors:
 superuser: true
 
 # Role/position
-role: Инженер-программист
+role: Ведущий разработчик ПО
 
 # Organizations/Affiliations
 organizations:
-- name: ЦФТ
-  url: "http://www.cft.ru/"
+- name: Tibbo Systems
+  url: "https://aggregate.digital/ru/"
 
 # Short bio (displayed in user profile at end of posts)
 bio: "Любимая технология: здравый смысл"

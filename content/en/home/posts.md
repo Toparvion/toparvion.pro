@@ -60,7 +60,7 @@ subtitle = "Published on this site"
 
 [design.spacing]
   # Customize the section spacing. Order is top, right, bottom, left.
-  padding = ["110px", "0", "0", "0"]
+  padding = ["80px", "0", "40px", "0"]
 
 [advanced]
  # Custom CSS.

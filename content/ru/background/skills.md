@@ -16,18 +16,18 @@ subtitle = "Что составляет мою профессию сегодня
   icon = "java"
   icon_pack = "fab"
   name = "Java&trade;"
-  description = "Standard Edition (1.8, 11+)"
+  description = "Standard Edition"
 
 [[feature]]
   icon = "leaf"
   icon_pack = "fas"
   name = "Spring"
-  description = "Boot, Cloud, Integration"  
+  description = "Framework, Web, Security"
 
 [[feature]]
   icon = "microchip"
   icon_pack = "fas"
-  name = "Микросервисы"
-  description = "От идеи до релиза"
+  name = "IoT"
+  description = "Оснастка, интеграция, визуализация"
 
 +++

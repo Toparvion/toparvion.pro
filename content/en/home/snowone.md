@@ -47,6 +47,6 @@ hero_media = "snow-one-logo.png"
 
 +++
 On behalf of the program commitee<br/>I'd like to invite you to&nbsp;
-**SnowOne 2022** &mdash; Siberian community-driven Java conference!
+**SnowOne 2022** &mdash; Siberian&nbsp;community-driven Java conference!
 
 February 25-26th 2022, Novosibirsk, Academgorodok (offline & online)
