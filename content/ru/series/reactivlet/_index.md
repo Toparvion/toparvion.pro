@@ -9,8 +9,4 @@ summary: "Серия заметок о плавном внедрении реа�
 #   3 = Card
 view: 2
 
-content:
-  # Page order. Descending (desc) or ascending (asc) date.
-  order: desc
-
 ---

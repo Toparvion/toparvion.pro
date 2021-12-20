@@ -16,8 +16,8 @@ categories:
   - Performance
 series:
   - reactivlet
-date: 2021-12-11T08:31:05+07:00
-lastmod: 2021-12-11T07:32:05+07:00
+date: 2021-12-07T08:31:05+07:00
+# lastmod: 2021-12-11T07:32:05+07:00
 featured: false
 draft: false
 
@@ -183,5 +183,5 @@ BlockingLoadBalancerClientAutoConfiguration#blockingLoadBalancerClient
 
 ###### О картинке
 <sup>
-[&copy; РИА Новости / Вячеслав Рунов](https://ria.ru/docs/about/copyright.html) / [Перейти в фотобанк](http://visualrian.ru/images/item/455253)
+[&copy; РИА Новости &sol; Вячеслав Рунов](https://ria.ru/docs/about/copyright.html) / [Перейти в фотобанк](http://visualrian.ru/images/item/455253)
 </sup>

@@ -17,7 +17,7 @@ categories:
 series:
   - reactivlet
 date: 2021-12-09T08:31:05+07:00
-lastmod: 2021-12-09T07:32:05+07:00
+# lastmod: 2021-12-09T07:32:05+07:00
 featured: true
 draft: false
 
