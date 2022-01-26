@@ -227,10 +227,10 @@
 # Themes
 
 - id: theme_light
-  translation: Light
+  translation: Day
 
 - id: theme_dark
-  translation: Dark
+  translation: Night
 
 - id: theme_auto
   translation: Automatic

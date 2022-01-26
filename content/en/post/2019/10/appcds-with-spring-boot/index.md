@@ -10,6 +10,12 @@ lastmod: 2020-01-07T08:42:27+07:00
 featured: true
 draft: false
 
+links:
+  - icon: medium
+    icon_pack: fab
+    name: Read on Medium
+    url: https://medium.com/@toparvion/appcds-for-spring-boot-applications-first-contact-6216db6a4194
+
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 # Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.

@@ -16,18 +16,18 @@ subtitle = "What shapes my profession today"
   icon = "java"
   icon_pack = "fab"
   name = "Java&trade;"
-  description = "Standard Edition (1.8, 11+)"
+  description = "Standard Edition"
 
 [[feature]]
   icon = "leaf"
   icon_pack = "fas"
   name = "Spring"
-  description = "Boot, Cloud, Integration"  
+  description = "Framework, Web, Security"
 
 [[feature]]
   icon = "microchip"
   icon_pack = "fas"
-  name = "Microservices"
-  description = "From an idea to the release"
+  name = "IoT"
+  description = "Tooling, Integration, Visualization"
 
 +++

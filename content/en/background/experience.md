@@ -19,12 +19,21 @@ date_format = "2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
+  title = "Senior software engineer"
+  company = "Tibbo Systems"
+  company_url = "https://aggregate.digital"
+  location = "Tver, Russia (remote)"
+  date_start = "2021-11-22"
+  date_end = ""
+  description = "Tooling: JDK Core, Cassandra, Spring and others"
+
+[[experience]]
   title = "Principal software engineer (TechLead)"
   company = "CFT"
   company_url = "http://eng.cft.ru/"
   location = "Novosibirsk, Russia"
   date_start = "2016-08-23"
-  date_end = ""
+  date_end = "2021-11-12"
   description = "Tooling: Spring Boot, Spring Cloud, Docker&Kubernetes and others"
   # description = """
   # Области ответственности:

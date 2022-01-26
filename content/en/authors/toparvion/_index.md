@@ -1,6 +1,6 @@
 ---
 # Display name
-name: Vladimir Plizga
+title: Vladimir Plizga
 
 # Username (this should match the folder name)
 authors:
@@ -10,12 +10,12 @@ authors:
 superuser: true
 
 # Role/position
-role: Software Engineer
+role: Senior Software Engineer
 
 # Organizations/Affiliations
 organizations:
-- name: CFT
-  url: "http://eng.cft.ru/"
+- name: Tibbo Systems
+  url: "https://aggregate.digital"
 
 # Short bio (displayed in user profile at end of posts)
 bio: "Favorite technology: common sense"

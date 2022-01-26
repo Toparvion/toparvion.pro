@@ -18,4 +18,4 @@ autolink = false
 email_form = 0
 
 +++
-For notes & proposals about the site content (but not for vacancies):
+For notes & ideas about the site content (but not for job proposals please):
