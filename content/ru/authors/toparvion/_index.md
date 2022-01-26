@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Ведущий разработчик ПО
+role: Ведущий инженер
 
 # Organizations/Affiliations
 organizations:
