@@ -9,8 +9,8 @@
   weight = 10
 
 [[main]]
-  name = "Доклады"
-  url = "#featured"
+  name = "Выступления"
+  url = "#featured-talks"
   weight = 20
 
   [[main]]
