@@ -1,14 +1,10 @@
 ---
 title: "Экскурсия в бэкенд Интернета вещей"
 event: "Конференция TechRadar (ЦФТ)"
-#event_url: https://jugekb.ru/jug18
 
 location: Новосибирск, АкадемПарк
 address:
   street: ул. Николаева 12/1
-  # city: Екатеринбург
-  # region: CA
-  # postcode: '630090'
   country: Россия
 
 summary: Обзорный доклад о некоторых задачах вокруг IoT глазами бэкендера
@@ -31,7 +27,7 @@ authors:
 tags:
   - iot
   - java
-  - smart-farm
+  - iot-intro
   - cassandra
   - bacnet
   - lorawan
