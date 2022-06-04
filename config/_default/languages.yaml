@@ -1,0 +1,61 @@
+en:
+  languageCode: en-us
+  contentDir: content/en
+  params:
+    contact_links:
+      - icon: twitter
+        icon_pack: fab
+        name: Twitter feed
+        link: https://twitter.com/toparvion
+      - icon: github
+        icon_pack: fab
+        name: GitHub projects
+        link: https://github.com/Toparvion
+      - icon: linkedin
+        icon_pack: fab
+        name: LinkedIn profile
+        link: https://www.linkedin.com/in/toparvion/
+ru:
+  languageCode: ru-ru
+  contentDir: content/ru
+  params:
+    footer:
+      copyright:
+        notice: '&copy; Владимир Плизга {year}. Контент опубликован под лицензией {license}.'
+        license:
+          enable: true
+          allow_derivatives: false
+          share_alike: true
+          allow_commercial: false
+    description: Личная профессиональная страница
+    marketing:
+      seo:
+        site_type: Person
+        local_business_type: ''
+        org_name: ''
+        description: 'Личная профессиональная страница'
+        twitter: 'toparvion'
+      analytics:
+        google_analytics: 'UA-140449579-2'
+        baidu_tongji: ''
+      verification:
+        google: ''
+        baidu: ''    
+    locale:
+      date_format: '02.01.2006'
+      time_format: '15:04'
+      address_format: ru
+
+    contact_links:
+      - icon: twitter
+        icon_pack: fab
+        name: Лента в Twitter
+        link: https://twitter.com/toparvion
+      - icon: github
+        icon_pack: fab
+        name: Проекты на GitHub
+        link: https://github.com/Toparvion
+      - icon: linkedin
+        icon_pack: fab
+        name: Профиль в LinkedIn
+        link: https://www.linkedin.com/in/toparvion/

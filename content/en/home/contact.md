@@ -1,21 +1,46 @@
-+++
-# Contact widget.
-widget = "contact"  # See https://sourcethemes.com/academic/docs/page-builder/
-headless = true  # This file represents a page section.
-active = true  # Activate this widget? true/false
-weight = 90  # Order that this section will appear.
+---
+# An instance of the Contact widget.
+widget: contact
 
-title = "Contacts"
-# subtitle = ""
+# This file represents a page section.
+headless: true
 
-# Automatically link email and phone?
-autolink = false
+# Order that this section appears on the page.
+weight: 130
 
-# Email form provider
-#   0: Disable email form
-#   1: Netlify (requires that the site is hosted by Netlify)
-#   2: formspree.io
-email_form = 0
+title: Contacts
+subtitle:
 
-+++
-For notes & ideas about the site content (but not for job proposals please):
+content:
+  # Automatically link email and phone or display as text?
+  autolink: false
+
+  # Email form provider
+  # form:
+    # provider: netlify
+    # formspree:
+      # id:
+    # netlify:
+      # # Enable CAPTCHA challenge to reduce spam?
+      # captcha: false
+
+  #appointment_url: 'https://calendly.com'
+  contact_links:
+    - icon: twitter
+      icon_pack: fab
+      name: Twitter feed
+      link: https://twitter.com/toparvion
+    - icon: github
+      icon_pack: fab
+      name: GitHub projects
+      link: https://github.com/Toparvion
+    - icon: linkedin
+      icon_pack: fab
+      name: LinkedIn profile
+      link: https://www.linkedin.com/in/toparvion/
+
+design:
+  columns: '2'
+
+---
+For notes and ideas about the site content:

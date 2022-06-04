@@ -1,0 +1,136 @@
+############################
+## Theme
+############################
+
+appearance:
+  theme_day: forest
+  theme_night: forest
+  font: minimal
+  font_size: L
+
+############################
+## SEO
+############################
+
+# Website type
+#   Improve how search engines understand your site.
+#   For personal sites, choose "Person".
+#   For organizations and projects, choose from https://schema.org/Organization#subtypes
+#   E.g. Person, Organization, LocalBusiness, Project, EducationalOrganization
+
+marketing:
+  seo:
+    site_type: Person
+    local_business_type: ''
+    org_name: ''
+    description: "Personal professional web page"
+    twitter: 'toparvion'
+  analytics:
+    google_analytics: 'UA-140449579-2'
+    baidu_tongji: ''
+  verification:
+    google: ''
+    baidu: ''
+
+############################
+## Site Features
+############################
+
+features:
+  syntax_highlighter:
+    enable: true
+    extra_languages:
+      - java
+      - groovy
+      - http
+      - cypher
+  math:
+    enable: false
+  privacy_pack:
+    enable: true
+  repository:
+    url: 'https://github.com/toparvion/toparvion.pro'
+    content_dir: content
+    branch: master
+  # section_pager: true
+  avatar:
+    gravatar: false
+    shape: circle
+  comment:
+    provider: 'disqus'
+    disqus:
+      shortname: 'toparvion-pro'
+      show_count: true
+    commento:
+      url: ''
+  search:
+    provider: wowchemy
+    algolia:
+      app_id: ''
+      api_key: ''
+      index_name: ''
+      show_logo: false
+  map:
+    provider: 'mapnik'
+    api_key: ''
+    zoom: 15
+
+############################
+## Regional Settings
+############################
+
+locale:
+  date_format: 'Jan 2, 2006'
+  time_format: '3:04 PM'
+  address_format: en-us
+
+############################
+## Page Header
+############################
+
+header:
+  navbar:
+    enable: true
+    align: l
+    show_logo: true
+    show_language: false
+    show_day_night: true
+    show_search: true
+    highlight_active_link: true
+ 
+############################
+## Page Header
+############################
+ 
+footer:
+  copyright:
+    notice: '&copy; Vladimir Plizga {year}. This work is licensed under {license}'
+    license:
+      enable: true
+      allow_derivatives: false
+      share_alike: true
+      allow_commercial: false
+
+############################
+## What left from Wowchemy 5.4
+############################
+
+# Load JS plugins
+#   E.g. To load `/assets/js/custom.js`, set `plugins_js = ["custom"]`.
+plugins_js:
+  - cypher.min
+  
+publications:
+  date_format: 02.01.2006
+  citation_style: apa
+  
+projects:
+  # Views for associated content.
+  #   1: List
+  #   2: Compact
+  #   3: Card
+  #   4: Citation (publications only)
+  post_view: 2
+  publication_view: 2
+  talk_view: 2
+    
