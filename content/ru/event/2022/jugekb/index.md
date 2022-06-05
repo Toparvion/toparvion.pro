@@ -45,14 +45,14 @@ image:
   caption: ''
   focal_point: Smart
 
-# links:
-# - icon: twitter
-#   icon_pack: fab
-#   name: Подписаться
-#   url: https://twitter.com/georgecushen
+links:
+ - name: Выжимка
+   url: "https://jugekb.ru/tpost/a5htdtsva1-sammari-doklada-ekskursiya-v-bekend-inte"
+   # icon: book
+   # icon_pack: fas
 url_code: ""
 url_pdf: ""
-url_slides: ""
+url_slides: "https://speakerdeck.com/toparvion/ekskursiia-v-bekiend-intiernieta-vieshchiei"
 url_video: "https://youtu.be/CaTKHR-8FuM?t=4409"
 
 # Markdown Slides (optional).
