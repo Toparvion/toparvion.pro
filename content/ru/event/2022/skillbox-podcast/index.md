@@ -3,7 +3,7 @@ title: "Программирование как хобби программис�
 event: "Подкаст «Люди и код», выпуск №10"
 event_url: https://skillbox.ru/media/code/programmirovanie-kak-khobbi-programmista-mikroservisy-razrabotka-na-java-i-iot/
 
-location: Онлайн
+location: Подкаст (онлайн)
 # address:
   # street: ул. Пирогова 1
   # city: Санкт-Петербург
@@ -42,6 +42,7 @@ tags:
   - хобби
   - IoT
   - финтех
+  - подкаст
 
 # Is this a featured talk? (true/false)
 featured: false
@@ -50,15 +51,27 @@ image:
   caption: 'Polina Vari / Skillbox Media'
   focal_point: Smart
 
-# links:
-# - icon: twitter
-#   icon_pack: fab
-#   name: Подписаться
-#   url: https://twitter.com/georgecushen
-# url_code: "https://github.com/Toparvion/fat-jar-sample"
-# url_pdf: ""
-# url_slides: "https://speakerdeck.com/toparvion/spring-boot-fat-jar-tonkiie-chasti-tolstogho-artiefakta"
-# url_video: "https://youtu.be/ib_yvGhuzDg?t=5095"
+links:
+ - icon: yandex
+   icon_pack: fab
+   name: Яндекс.Музыка
+   url: https://music.yandex.ru/album/20602720/track/103266504
+ - icon: apple
+   icon_pack: fab
+   name: Apple Podcasts
+   url: https://apple.co/3tj9pYz
+ - icon: vk
+   icon_pack: fab
+   name: ВКонтакте
+   url: https://vk.com/podcast-203955765_456239026
+ - icon: spotify
+   icon_pack: fab
+   name: Spotify
+   url: https://spoti.fi/34MXBUK
+ - icon: youtube
+   icon_pack: fab
+   name: YouTube
+   url: https://youtu.be/mqLyAxtz_4Y
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
@@ -78,3 +91,5 @@ image:
 # Enable math on this page?
 math: false
 ---
+
+<iframe src="https://castbox.fm/app/castbox/player/id4744119/id476750846?v=8.22.11&autoplay=0" frameborder="0" width="100%" height="500"></iframe>
