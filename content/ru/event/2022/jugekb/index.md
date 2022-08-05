@@ -32,6 +32,7 @@ tags:
   - iot
   - java
   - smart-farm
+  - iot-intro  
   - cassandra
   - bacnet
   - lorawan

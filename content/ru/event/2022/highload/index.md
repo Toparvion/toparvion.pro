@@ -30,6 +30,7 @@ authors:
   - toparvion
 tags:
   - iot
+  - iot-intro  
   - java
   - smart-farm
   - ml
