@@ -38,7 +38,7 @@ featured: false
 
 links:
 - name: "Хабр"
-  url: "httpshttps://habr.com/ru/company/cft/blog/647479/"
+  url: "https://habr.com/ru/company/cft/blog/647479/"
 url_pdf: ''
 url_code: "https://github.com/Toparvion/reactivlet-sample"
 url_dataset: ''
