@@ -17,11 +17,11 @@ cta:
   icon_pack: far
   icon: snowflake
 cta_alt:
-  url: 'https://twitter.com/snowone_conf'
-  label: Twitter
+  url: 'https://youtube.com/playlist?list=PLecWId-JT7S5cblQfrp3JszbDWwTlxmM3'
+  label: Записи докладов
 ---
 8-9 апреля в Новосибирском Академгородке прошла 3-я сибирская community-driven Java-конференция **SnowOne**, в программном комитете которой я имею честь состоять.
 
 Спасибо всем спикерам и участникам!  
-До встречи на SnowOne 2023!<br/>
+До встречи на новых мероприятиях!<br/>
 &nbsp;

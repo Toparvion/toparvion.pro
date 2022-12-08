@@ -6,7 +6,7 @@ event_url: https://innopolis.timepad.ru/event/2245727/
 location: Иннополис
 address:
   street: Технопарк им. Лобачевского, коворкинг
-  country: Россия
+  country: Татарстан, Россия
 
 summary: Обзорный доклад о некоторых задачах вокруг IoT глазами бэкендера
 abstract: |
@@ -36,21 +36,25 @@ tags:
   - на-русском
 
 # Is this a featured talk? (true/false)
-featured: false
+featured: true
 
 image:
   caption: ''
   focal_point: Smart
 
-# links:
-# - icon: twitter
-#   icon_pack: fab
-#   name: Подписаться
-#   url: https://twitter.com/georgecushen
+links:
+ - name: Фото
+   url: "https://disk.yandex.ru/d/8ZnAAQIfjQIcNA"
+   # icon: book
+   # icon_pack: fas
+ - name: Демо-стенд
+   url: "https://demo.aggregate.digital/"
+   # icon: book
+   # icon_pack: fas
 url_code: ""
 url_pdf: ""
 url_slides: ""
-url_video: ""
+url_video: "https://www.youtube.com/watch?v=k-AQlEdRyO0&t=11482s"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
@@ -70,3 +74,6 @@ url_video: ""
 # Enable math on this page?
 math: false
 ---
+{{% callout note %}}
+Это частично обновлённая версия доклада с митапа [JUGNsk Meetup #20](/event/2022/jugnsk/).
+{{% /callout %}}
