@@ -5,7 +5,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 75  # Order that this section will appear.
 
-title = "SnowOne 2022"
+title = "SnowOne"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
 hero_media = "snow-one-logo.png"
@@ -46,6 +46,9 @@ hero_media = "snow-one-logo.png"
   label = "Twitter"
 
 +++
-On behalf of the program committee I'd like to thank all the speakers and attendies of **SnowOne** &mdash; a Siberian&nbsp;community-driven Java conference!
+This year the community-driven Java-conference SnowOne (in whose PC I have a honor to be) will take place in the form of 2 free events:
+* March 3 &mdash; student day
+* March 4 &mdash; big JUGNsk meetup
 
-See you at SnowOne 2023!
+Hope to see you there!<br/>
+&nbsp;
