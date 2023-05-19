@@ -16,14 +16,12 @@ cta:
   label: Сайт конференции
   icon_pack: far
   icon: snowflake
-cta_alt:
-  url: 'https://youtube.com/playlist?list=PLecWId-JT7S5cblQfrp3JszbDWwTlxmM3'
-  label: Записи докладов
+#cta_alt:
+#  url: 'https://youtube.com/playlist?list=PLecWId-JT7S5cblQfrp3JszbDWwTlxmM3'
+#  label: Записи докладов
 ---
-В 2020-22 годах я состоял в ПК сибирской community-driven Java-конференции SnowOne.<br/>
-В 2023 году вместо нее пройдет 2 бесплатных мероприятия:
-* **3 марта** &mdash; студенческий день
-* **4 марта** &mdash; большой митап JUGNsk
-
-До скорой встречи!<br/>
+3 и 4 марта 2023 г. состоялась 4-ая сибирская community-driven Java-конференция SnowOne, в программном комитете которой мне выпачала честь состоять.
+Спасибо всем участникам и спикерам! Материалы скоро будут опубликованы.<br/>
+<br/>
+До встречи на SnowOne 2024!<br/>
 &nbsp;

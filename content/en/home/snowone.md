@@ -46,9 +46,9 @@ hero_media = "snow-one-logo.png"
   label = "Twitter"
 
 +++
-This year the community-driven Java-conference SnowOne (in whose PC I have a honor to be) will take place in the form of 2 free events:
+This year the community-driven Java-conference SnowOne (in whose PC I have a honor to be) took place in the form of 2 events:
 * March 3 &mdash; student day
-* March 4 &mdash; big JUGNsk meetup
+* March 4 &mdash; SnowOne Lite conference
 
-Hope to see you there!<br/>
+Hope to see you on SnowOne 2024!<br/>
 &nbsp;

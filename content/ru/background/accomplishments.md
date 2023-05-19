@@ -19,6 +19,16 @@ date_format = "01.2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[item]]
+  organization = "АкадемПарк"
+  organization_url = "https://academpark.com/"
+  title = "Бизнес-акселератор А:Старт"
+  url = "https://astart.academpark.com/"
+  certificate_url = "/img/docs/ticket.jpg"
+  date_start = "2023-03-24"
+  date_end = "2023-04-20"
+  description = "Месячный интенсив по запуску технологических стартапов (проект [StegoText](https://academpark.com/media/news/26442/))"
+
+[[item]]
   organization = "Языковая школа SkyEng"
   organization_url = "https://skyeng.ru/"
   title = "English Upper-Intermediate Course"
