@@ -1,18 +1,21 @@
 ---
-widget: featured
+widget: collection
 headless: true
 active: true
 weight: 60
 title: Популярные доклады
 subtitle: По мнению моего эго
 content:
-  page_type: event
-  count: 0
-  order: desc
   filters:
+    folders:
+      - event
     tag: ''
     category: ''
     publication_type: ''
+    author: ''
+    featured_only: true
+  count: 0
+  order: desc
 design:
   view: 2
   background: {}
