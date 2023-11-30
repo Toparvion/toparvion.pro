@@ -39,9 +39,7 @@ image:
   caption: '© Фотоагенство Чайка'
   focal_point: Smart
 
-links:
- - name: Фото
-   url: "https://626920d73e8ab0-30123541.gallery.photo/gallery/java-talks/"
+# links:
    # icon: book
    # icon_pack: fas
    # icon: book

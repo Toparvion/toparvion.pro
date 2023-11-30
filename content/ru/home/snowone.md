@@ -13,15 +13,16 @@ design:
     text_color_light: true
 cta:
   url: 'https://snowone.ru/'
-  label: Сайт конференции
+  label: Зарегистрироваться
   icon_pack: far
   icon: snowflake
-#cta_alt:
-#  url: 'https://youtube.com/playlist?list=PLecWId-JT7S5cblQfrp3JszbDWwTlxmM3'
-#  label: Записи докладов
+cta_alt:
+  url: 'https://snowone.ru/cfp'
+  label: Подать доклад
 ---
-3 и 4 марта 2023 г. состоялась 4-ая сибирская community-driven Java-конференция SnowOne, в программном комитете которой мне выпачала честь состоять.
-Спасибо всем участникам и спикерам! Материалы скоро будут опубликованы.<br/>
+1 и 2 марта 2024 г. состоится 5-ая сибирская community-driven Java-конференция SnowOne, в программном комитете которой я состою.
 <br/>
-До встречи на SnowOne 2024!<br/>
+<br/>
+Посмотрите, какие доклады были [в прошлые разы](https://www.youtube.com/playlist?list=PLecWId-JT7S5ZHU65ivWoal29YfDT42Y7) и обязательно приходите на&nbsp;новые!
+<br/>
 &nbsp;

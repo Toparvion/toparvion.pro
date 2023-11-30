@@ -37,8 +37,8 @@ hero_media = "snow-one-logo.png"
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
 [cta]
-  url = "https://snowone.ru/en"
-  label = "Conference site"
+  url = "https://snowone.ru/"
+  label = "Conference site (RU)"
   icon_pack = "far"
   icon = "snowflake"
 [cta_alt]
@@ -46,9 +46,9 @@ hero_media = "snow-one-logo.png"
   label = "Twitter"
 
 +++
-This year the community-driven Java-conference SnowOne (in whose PC I have a honor to be) took place in the form of 2 events:
-* March 3 &mdash; student day
-* March 4 &mdash; SnowOne Lite conference
+On behalf of program commettee of SnowOne conference I invite you to become a part of this wonderful event at the following dates:
+* Mar 1, 2024 &mdash; student day
+* Mar 2, 2024 &mdash; main conference day
 
 Hope to see you on SnowOne 2024!<br/>
 &nbsp;
