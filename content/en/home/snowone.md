@@ -37,8 +37,8 @@ hero_media = "snow-one-logo.png"
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
 [cta]
-  url = "https://snowone.ru/"
-  label = "Conference site (RU)"
+  url = "https://www.youtube.com/@JUGNsk/playlists"
+  label = "Talk videos"
   icon_pack = "far"
   icon = "snowflake"
 [cta_alt]
@@ -46,9 +46,8 @@ hero_media = "snow-one-logo.png"
   label = "Twitter"
 
 +++
-On behalf of program commettee of SnowOne conference I invite you to become a part of this wonderful event at the following dates:
-* Mar 1, 2024 &mdash; student day
-* Mar 2, 2024 &mdash; main conference day
-
-Hope to see you on SnowOne 2024!<br/>
+On behalf of program commettee of SnowOne conference I invite you to become a part of this wonderful event next year.
+<br/>
+<br/>
+Hope to see you on SnowOne 2025!<br/>
 &nbsp;
