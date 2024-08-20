@@ -26,21 +26,29 @@ content:
 
   #appointment_url: 'https://calendly.com'
   contact_links:
-    - icon: twitter
+    - icon: telegram
       icon_pack: fab
-      name: Twitter feed
-      link: https://twitter.com/toparvion
+      name: Telegram channel (in Russian)
+      link: https://t.me/stopshelf
     - icon: github
       icon_pack: fab
       name: GitHub projects
       link: https://github.com/Toparvion
     - icon: linkedin
       icon_pack: fab
-      name: LinkedIn profile
+      name: LinkedIn profile (rarely checked)
       link: https://www.linkedin.com/in/toparvion/
+    - icon: twitter
+      icon_pack: fab
+      name: Twitter feed (rarely checked)
+      link: https://twitter.com/toparvion/
+    - icon: envelope
+      icon_pack: fas
+      name: Email box
+      link: mailto:toparvion@gmx.com
 
 design:
   columns: '2'
 
 ---
-For notes and ideas about the site content:
+For notes and ideas about the site content you can reach me via:

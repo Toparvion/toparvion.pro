@@ -14,7 +14,8 @@ content:
     tag: ''
     category: ''
     publication_type: ''
-    exclude_featured: false
+    # exclude_featured: false
+    featured_only: true
 design:
   view: 2
   background: {}

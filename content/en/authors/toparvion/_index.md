@@ -42,9 +42,9 @@ education:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-- icon: twitter
+- icon: telegram
   icon_pack: fab
-  link: https://twitter.com/toparvion
+  link: https://t.me/stopshelf
 - icon: envelope
   icon_pack: fas
   link: '/en/#contact'  # For a direct email link, use "mailto:test@example.org".

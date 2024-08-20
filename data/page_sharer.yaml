@@ -1,0 +1,77 @@
+buttons:
+  - id: vk
+    url: http://vk.com/share.php?url={url}&title={title}
+    title: VK
+    icon_pack: fab
+    icon: vk
+    enable: true
+
+  - id: ok
+    url: https://connect.ok.ru/offer?url={url}&title={title}
+    title: Odnoklassniki
+    icon_pack: fab
+    icon: square-odnoklassniki
+    enable: true
+
+  - id: twitter
+    url: https://twitter.com/intent/tweet?url={url}&text={title}
+    title: Twitter
+    icon_pack: fab
+    icon: twitter
+    enable: true
+
+  - id: facebook
+    url: https://www.facebook.com/sharer.php?u={url}&t={title}
+    title: Facebook
+    icon_pack: fab
+    icon: facebook
+    enable: false
+
+  - id: linkedin
+    url: https://www.linkedin.com/shareArticle?url={url}&title={title}
+    title: LinkedIn
+    icon_pack: fab
+    icon: linkedin-in
+    enable: true
+
+  - id: email
+    url: mailto:?subject={title}&body={url}
+    title: Email
+    icon_pack: fas
+    icon: envelope
+    enable: true
+
+  - id: reddit
+    url: https://reddit.com/submit?url={url}&title={title}
+    title: Reddit
+    icon_pack: fab
+    icon: reddit-alien
+    enable: false
+
+  - id: whatsapp
+    url: whatsapp://send?text={title}%20{url}
+    title: WhatsApp
+    icon_pack: fab
+    icon: square-whatsapp
+    enable: true
+
+  - id: telegram
+    url: https://t.me/share/url?url={url}&text={title}
+    title: Telegram
+    icon_pack: fab
+    icon: telegram
+    enable: true
+
+  - id: pinterest
+    url: https://pinterest.com/pin/create/link/?url={url}&description={title}
+    title: Pinterest
+    icon_pack: fab
+    icon: pinterest
+    enable: false
+ 
+  - id: tumblr
+    url: https://www.tumblr.com/widgets/share/tool?canonicalUrl={url}&title={title}
+    title: Tumblr
+    icon_pack: fab
+    icon: tumblr
+    enable: false

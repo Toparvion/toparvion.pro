@@ -10,12 +10,15 @@ main:
   - name: Выступления
     url: "#featured-talks"
     weight: 20
+  - name: Тренинги🆕
+    url: "#trainings"
+    weight: 30
   - name: Проекты
     url: "#projects"
-    weight: 30
+    weight: 40
   - name: Статьи
     url: "#posts"
-    weight: 40
+    weight: 50
   - name: Контакты
     url: "#contact"
-    weight: 50
+    weight: 60

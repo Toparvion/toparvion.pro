@@ -26,21 +26,29 @@ content:
 
   #appointment_url: 'https://calendly.com'
   contact_links:
-    - icon: twitter
+    - icon: telegram
       icon_pack: fab
-      name: Лента в Twitter
-      link: https://twitter.com/toparvion
+      name: Канал в Telegram
+      link: https://t.me/stopshelf
     - icon: github
       icon_pack: fab
       name: Проекты на GitHub
       link: https://github.com/Toparvion
     - icon: linkedin
       icon_pack: fab
-      name: Профиль в LinkedIn
+      name: Профиль в LinkedIn _(не активен)_
       link: https://www.linkedin.com/in/toparvion/
+    - icon: twitter
+      icon_pack: fab
+      name: Лента в Twitter _(не активна)_
+      link: https://twitter.com/toparvion/
+    - icon: envelope
+      icon_pack: fas
+      name: Ящик в почте
+      link: mailto:toparvion@gmx.com
 
 design:
   columns: '2'
 
 ---
-Для&nbsp;вопросов/предложений по&nbsp;материалам сайта и для&nbsp;сообщений о&nbsp;замеченных ошибках (но не&nbsp;для&nbsp;вакансий):
+Для&nbsp;вопросов/предложений по&nbsp;материалам сайта и для&nbsp;сообщений о&nbsp;замеченных ошибках (но не&nbsp;для&nbsp;вакансий) можно связаться со мной через:

@@ -32,9 +32,10 @@ permalinks:
   categories: '/category/:slug/'
   publication_types: '/publication-type/:slug/'
   series: '/series/:slug/'
+  trainings: '/trainings/:slug/'
 disableAliases: true
 outputs:
-  home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
+  home: [HTML, RSS, JSON, headers, redirects]
   #home: [HTML, RSS, JSON]
   section: [HTML, RSS]
 imaging:
@@ -48,6 +49,7 @@ taxonomies:
   publication_type: publication_types
   author: authors
   series: series
+  training: trainings
 markup:
   _merge: deep
 related:

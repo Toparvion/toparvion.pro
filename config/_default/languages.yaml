@@ -3,10 +3,10 @@ en:
   contentDir: content/en
   params:
     contact_links:
-      - icon: twitter
+      - icon: telegram
         icon_pack: fab
-        name: Twitter feed
-        link: https://twitter.com/toparvion
+        name: Telegram Channel
+        link: https://t.me/stopshelf
       - icon: github
         icon_pack: fab
         name: GitHub projects
@@ -21,7 +21,7 @@ ru:
   params:
     footer:
       copyright:
-        notice: '&copy; Владимир Плизга {year}. Контент опубликован под лицензией {license}.'
+        notice: '&copy; Владимир Плизгá {year}. Контент опубликован под лицензией {license}.'
         license:
           enable: true
           allow_derivatives: false
@@ -47,10 +47,10 @@ ru:
       address_format: ru
 
     contact_links:
-      - icon: twitter
+      - icon: telegram
         icon_pack: fab
-        name: Лента в Twitter
-        link: https://twitter.com/toparvion
+        name: Telegram канал
+        link: https://t.me/stopshelf
       - icon: github
         icon_pack: fab
         name: Проекты на GitHub

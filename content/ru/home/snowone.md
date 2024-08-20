@@ -2,7 +2,7 @@
 widget: hero
 headless: true
 active: true
-weight: 75
+weight: 50
 title: SnowOne
 hero_media: snow-one-logo.png
 design:

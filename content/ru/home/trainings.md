@@ -2,18 +2,18 @@
 widget: collection
 headless: true
 active: true
-weight: 30
-title: Популярные доклады
-subtitle: По мнению моего эго
+weight: 60
+title: Тренинги
+subtitle: 'Помогаю разработчикам<br/>строить крутой бэкенд<br/>([подробнее](/training/))'
 content:
   filters:
     folders:
-      - event
+      - training
     tag: ''
     category: ''
     publication_type: ''
     author: ''
-    featured_only: true
+    featured_only: false
   count: 0
   order: desc
 design:
