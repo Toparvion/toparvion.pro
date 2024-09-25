@@ -47,9 +47,9 @@ image:
   caption: '© Сергей Колесников'
   focal_point: Smart
 
-links:
- - name: Фото
-   url: "https://phkolesnikov.ru/disk/23-11-2023-tsft-86qxrq"
+#links:
+# - name: Фото
+#   url: "https://phkolesnikov.ru/disk/23-11-2023-tsft-86qxrq"
 # - icon: twitter
 #   icon_pack: fab
 #   name: Подписаться

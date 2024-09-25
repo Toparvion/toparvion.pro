@@ -55,7 +55,7 @@ image:
 url_code: ""
 url_pdf: ""
 url_slides: ""
-url_video: ""
+url_video: "https://www.youtube.com/live/L6u-ZEEYa0E?si=TmxO-hIncfmAroo1&t=9971"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
