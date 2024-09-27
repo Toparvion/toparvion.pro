@@ -5,6 +5,6 @@
 resources/
 public/
 .hugo_build.lock
-
+assets/jsconfig.json
 
 **/transient/
