@@ -47,8 +47,8 @@ links:
    url: "https://disk.yandex.ru/d/8ZnAAQIfjQIcNA"
    # icon: book
    # icon_pack: fas
- - name: Демо-стенд
-   url: "https://demo.aggregate.digital/"
+# - name: Демо-стенд
+#   url: "https://demo.aggregate.digital/"
    # icon: book
    # icon_pack: fas
 url_code: ""
