@@ -1,5 +1,5 @@
 ---
-title: "Путеводитель по анализу памяти приложений на JVM"
+title: "Путеводитель по анализу памяти JVM"
 event: "JUGNsk Meetup #24"
 event_url: https://jugnsk.timepad.ru/event/3036878/
 
@@ -22,8 +22,8 @@ abstract: |
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2024-09-26T20:15:00Z"
-date_end: "2024-09-26T21:15:00Z"
+date: "2024-09-26T20:00:00Z"
+date_end: "2024-09-26T21:05:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
@@ -40,7 +40,7 @@ tags:
   - на-русском
 
 # Is this a featured talk? (true/false)
-featured: false
+featured: true
 
 image:
   caption: ''
@@ -51,7 +51,7 @@ image:
 #   icon_pack: fab
 #   name: Подписаться
 #   url: https://twitter.com/georgecushen
-url_code: ""
+url_code: "https://github.com/Toparvion/spring-petclinic-rest"
 url_pdf: ""
 url_slides: ""
 url_video: ""
