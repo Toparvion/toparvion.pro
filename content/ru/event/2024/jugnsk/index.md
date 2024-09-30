@@ -53,7 +53,7 @@ image:
 #   url: https://twitter.com/georgecushen
 url_code: "https://github.com/Toparvion/spring-petclinic-rest"
 url_pdf: ""
-url_slides: ""
+url_slides: "https://speakerdeck.com/toparvion/putievoditiel-po-analizu-pamiati-jvm"
 url_video: ""
 
 # Markdown Slides (optional).
