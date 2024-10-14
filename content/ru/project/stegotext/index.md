@@ -2,9 +2,9 @@
 title: 🪡 StegoText
 summary: Сервис для внедрения прозрачных метаданных в текст
 tags:
-  - безопасность
-date: "2023-03-01T00:00:00Z"
-weight: 90
+  - криптография
+date: "2015-09-01T00:00:00Z"
+weight: 30
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""
