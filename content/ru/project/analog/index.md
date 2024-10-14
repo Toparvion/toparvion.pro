@@ -1,11 +1,11 @@
 ---
-title: AnaLog
+title: 🔍 AnaLog
 summary: Веб-приложение для просмотра различных логов в реальном времени
 tags:
 - тестирование
 - логи
-date: "2017-12-22T00:00:00Z"
-weight: 10
+date: "2021-12-22T00:00:00Z"
+weight: 15
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""

@@ -1,6 +1,6 @@
 ---
-title: Spring Boot JShell Helper
-summary: Скриптик для запуска JShell на "fat" JAR от Spring Boot
+title: 📦 SB + JShell
+summary: Скриптик для запуска JShell на "толстых" JAR от Spring Boot
 tags:
 - отладка
 - jshell
