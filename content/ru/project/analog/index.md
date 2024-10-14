@@ -5,7 +5,7 @@ tags:
 - тестирование
 - логи
 date: "2021-12-22T00:00:00Z"
-weight: 15
+weight: 40
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""

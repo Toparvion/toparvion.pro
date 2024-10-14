@@ -5,7 +5,7 @@ tags:
 - тестирование
 - производительность
 date: "2024-10-01T00:00:00Z"
-weight: 15
+weight: 20
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""

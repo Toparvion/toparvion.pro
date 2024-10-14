@@ -6,7 +6,7 @@ tags:
 - отладка
 - байткод
 date: "2016-08-01T00:00:00Z"
-weight: 20
+weight: 50
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""

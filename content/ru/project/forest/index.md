@@ -4,7 +4,7 @@ summary: Поточная реализация схемы разделения �
 tags:
 - криптография
 date: "2015-10-15T00:00:00Z"
-weight: 60
+weight: 100
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""

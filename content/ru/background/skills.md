@@ -16,7 +16,7 @@ subtitle = "Что составляет мою профессию сегодня
   icon = "java"
   icon_pack = "fab"
   name = "Java&trade;"
-  description = "Standard Edition"
+  description = "И частично Kotlin"
 
 [[feature]]
   icon = "leaf"
@@ -27,7 +27,7 @@ subtitle = "Что составляет мою профессию сегодня
 [[feature]]
   icon = "microchip"
   icon_pack = "fas"
-  name = "IoT"
+  name = "IIoT"
   description = "Оснастка, интеграция, визуализация"
 
 +++

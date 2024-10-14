@@ -6,7 +6,7 @@ tags:
 - appcds
 - spring-boot
 date: "2019-11-08T00:00:00Z"
-weight: 30
+weight: 60
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""

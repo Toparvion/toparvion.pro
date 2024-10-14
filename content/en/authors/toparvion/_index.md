@@ -22,7 +22,7 @@ bio: "Favorite technology: common sense"
 
 interests:
 - Backend [Development](/en/background/#skills)
-- Open Source Software
+- Performance Optimization
 - Applied Cryptography
 
 education:

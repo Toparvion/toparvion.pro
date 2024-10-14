@@ -16,7 +16,7 @@ subtitle = "What shapes my profession today"
   icon = "java"
   icon_pack = "fab"
   name = "Java&trade;"
-  description = "Standard Edition"
+  description = "And partly Kotlin"
 
 [[feature]]
   icon = "leaf"
@@ -27,7 +27,7 @@ subtitle = "What shapes my profession today"
 [[feature]]
   icon = "microchip"
   icon_pack = "fas"
-  name = "IoT"
+  name = "IIoT"
   description = "Tooling, Integration, Visualization"
 
 +++

@@ -6,7 +6,7 @@ tags:
 - jshell
 - shebang-java
 date: "2019-04-02T00:00:00Z"
-weight: 40
+weight: 70
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""
