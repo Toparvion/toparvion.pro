@@ -37,6 +37,7 @@ tags:
   - oom
   - gc
   - mat
+  - visualvm
   - на-русском
 
 # Is this a featured talk? (true/false)
@@ -74,3 +75,7 @@ projects:
 # Enable math on this page?
 math: false
 ---
+
+{{% callout note %}}
+Это сокращённая и обновлённая версия доклада, представленного на митапе [JUGNsk #24](/event/2024/jugnsk/).
+{{% /callout %}}

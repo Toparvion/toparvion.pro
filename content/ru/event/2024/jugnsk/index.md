@@ -74,3 +74,7 @@ url_video: ""
 # Enable math on this page?
 math: false
 ---
+
+{{% callout note %}}
+Этот доклад был позднее представлен в сокращённом и обновлённом виде на конференции [Joker 2024](/event/2024/joker/).
+{{% /callout %}}
