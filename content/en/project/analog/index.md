@@ -1,12 +1,12 @@
 ---
-title: AnaLog
-summary: A web application for viewing various logs in real time
+title: 🔍 AnaLog
+summary: A web application for viewing logs in real time both locally and remotely
 tags:
 - testing
 - logs
 - spring-integration
 - spring-boot
-date: "2017-12-22T00:00:00Z"
+date: "2022-12-22T00:00:00Z"
 weight: 10
 
 # Optional external URL for project (replaces project detail page).

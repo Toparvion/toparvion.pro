@@ -1,5 +1,5 @@
 ---
-title: Spring Boot JShell Helper
+title: 📦 SB + JShell
 summary: A script for launching JShell against Spring Boot "fat" JARs
 tags:
 - debugging

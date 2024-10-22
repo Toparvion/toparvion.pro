@@ -1,5 +1,5 @@
 ---
-title: ForesT
+title: 🌲 ForesT
 summary: A streaming Java implementation of Shamir's secret sharing scheme *[frozen]*
 tags:
 - cryptography

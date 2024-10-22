@@ -1,13 +1,11 @@
 ---
-title: jCuDoS
+title: 🚅 jCuDoS
 summary: A toolkit for applying AppCDS to Spring Boot microservices *[frozen]*
 tags:
 - performance
 - appcds
 - spring-boot
 - microservices
-categories:
-  - Performance
 date: "2019-11-08T00:00:00Z"
 weight: 30
 

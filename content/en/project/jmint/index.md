@@ -1,6 +1,6 @@
 ---
-title: jMint
-summary:  A Java agent for injecting test behaviors into applications
+title: 🌿 jMint
+summary:  A Java agent for injecting test behaviors into applications without affecting source code
 tags:
 - testing
 - debugging
