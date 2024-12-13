@@ -55,7 +55,7 @@ image:
 url_code: "https://github.com/Toparvion/spring-petclinic-rest"
 url_pdf: ""
 url_slides: ""
-url_video: ""
+url_video: "https://vkvideo.ru/video-796_456240545"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
