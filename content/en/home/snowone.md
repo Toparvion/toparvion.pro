@@ -46,8 +46,8 @@ hero_media = "snow-one-logo.png"
   label = "Twitter"
 
 +++
-On behalf of program commettee of SnowOne conference I invite you to become a part of this wonderful event next year.
+On behalf of&nbsp;the program commettee of&nbsp;SnowOne conference I invite you to&nbsp;become a&nbsp;part of&nbsp;this wonderful event next year.
 <br/>
 <br/>
-Hope to see you on SnowOne 2025!<br/>
+Hope to see you on SnowOne 2026!<br/>
 &nbsp;
