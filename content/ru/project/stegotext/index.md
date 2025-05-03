@@ -14,10 +14,10 @@ image:
   focal_point: Smart
 
 links:
-  - icon: github
-    icon_pack: fab
-    name: Страница сервиса
-    url: https://stegotext.ru
+#  - icon: github
+#    icon_pack: fab
+#    name: Страница сервиса
+#    url: https://stegotext.ru
   - icon: telegram
     icon_pack: fab
     name: Telegram канал
