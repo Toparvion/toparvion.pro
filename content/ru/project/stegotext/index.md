@@ -42,7 +42,7 @@ links:
 
 ![Компоненты StegoText](components.png)
 
-Из них на момент написания этих строк (14.10.24) в публичном доступе есть только [бот](https://t.me/StegoTextBot) в Telegram, своя [страница](https://stegotext.ru) и HTTP (REST) API.
+Из них на момент написания этих строк (14.10.24) в публичном доступе есть только [бот](https://t.me/StegoTextBot) в Telegram и HTTP (REST) API.
 
 #### Принцип действия
 
