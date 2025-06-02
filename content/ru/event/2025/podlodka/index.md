@@ -16,7 +16,7 @@ abstract: |
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
 date: "2025-05-27T14:00:00Z"
-date_end: "2025-05-27T14:45:00Z"
+date_end: "2025-05-27T15:00:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
@@ -43,7 +43,7 @@ image:
   caption: ''
   focal_point: Smart
 
-# links:
+links:
 # - icon: twitter
 #   icon_pack: fab
 #   name: Подписаться
@@ -51,7 +51,7 @@ image:
 url_code: ""
 url_pdf: ""
 url_slides: ""
-url_video: ""
+url_video: "https://youtu.be/TAts7OI5hl8?si=_j9pygtn0FwQpROL"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
