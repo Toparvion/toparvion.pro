@@ -38,6 +38,7 @@ tags:
   - gc
   - mat
   - visualvm
+  - performance
   - на-русском
 
 # Is this a featured talk? (true/false)

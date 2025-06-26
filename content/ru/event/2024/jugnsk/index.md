@@ -37,6 +37,7 @@ tags:
   - oom
   - gc
   - mat
+  - performance
   - на-русском
 
 # Is this a featured talk? (true/false)

@@ -33,6 +33,7 @@ tags:
   - async-profiler
   - yourkit
   - jfr
+  - performance
   - на-русском
   - онлайн
 

@@ -1,6 +1,6 @@
 ---
 title: "Как сделать исполнение low-code прозрачным: опыт большой IoT-платформы"
-event: "Saint HighLoad++"
+event: "Saint HighLoad++ 2025"
 event_url: https://highload.ru/spb/2025/abstracts/15366
 
 location:  Санкт-Петербург, DESIGN DISTRICT DAA
@@ -32,6 +32,7 @@ tags:
   - caching
   - architecture
   - language
+  - performance
   - на-русском
 
 # Is this a featured talk? (true/false)
