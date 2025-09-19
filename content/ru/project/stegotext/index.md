@@ -18,10 +18,10 @@ links:
 #    icon_pack: fab
 #    name: Страница сервиса
 #    url: https://stegotext.ru
-  - icon: telegram
-    icon_pack: fab
-    name: Telegram канал
-    url: https://t.me/StegoTrend
+#  - icon: telegram
+#    icon_pack: fab
+#    name: Telegram канал
+#    url: https://t.me/StegoTrend
   - icon: telegram
     icon_pack: fab
     name: Telegram бот
