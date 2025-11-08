@@ -15,8 +15,7 @@ abstract: |
   Лекции охватывали следующие темы:
   - [Основы модели OSI и стека TCP/IP](tcpip.pdf)
   - [HTTP и другие протоколы прикладного уровня](http.pdf)
-
-  Также планируется проведение третьей лекции по основам прикладной криптографии и протоколу TLS.
+  - [Основы прикладной криптографии и TLS](crypto.pdf)
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
@@ -34,6 +33,9 @@ tags:
   - tcp-ip
   - osi
   - http
+  - tls
+  - aes
+  - криптография
   - на-русском
 
 # Is this a featured talk? (true/false)
@@ -48,6 +50,8 @@ links:
   url: tcpip.pdf
 - name: 2 Протокол HTTP
   url: http.pdf
+- name: 3 Прикладная криптография
+  url: crypto.pdf
 url_code: ""
 url_pdf: ""
 url_slides: ""

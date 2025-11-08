@@ -10,7 +10,7 @@ main:
   - name: Выступления
     url: "#featured-talks"
     weight: 20
-  - name: Тренинги🆕
+  - name: Тренинги
     url: "#trainings"
     weight: 30
   - name: Проекты

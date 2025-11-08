@@ -15,7 +15,7 @@ categories:
 trainings:
   - performance
 date: 2024-06-20
-# lastmod: 2021-12-11T07:32:05+07:00
+lastmod: 2025-11-08T07:32:05+07:00
 featured: false
 draft: false
 pager: true
@@ -51,7 +51,7 @@ gallery_item:
   caption: Цитата из блога А. Шипилёва о размерах объкетов в куче
 - album: examples/training/memory
   image: sample-slide-4.png
-  caption: Различия размеров объктов
+  caption: Различия размеров объектов
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.

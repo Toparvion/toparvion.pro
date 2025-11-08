@@ -16,7 +16,7 @@ categories:
 trainings:
   - performance
 date: 2024-06-30
-# lastmod: 2021-12-11T07:32:05+07:00
+lastmod: 2025-11-08T07:32:05+07:00
 featured: false
 draft: false
 pager: true
