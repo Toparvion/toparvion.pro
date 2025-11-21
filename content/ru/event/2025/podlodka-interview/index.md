@@ -1,6 +1,6 @@
 ---
-title: "Профилирование Java-приложений: подходы и инструменты"
-event: "Podlodka Java Crew #6"
+title: "Интервью: Эволюция инструментов диагностики в Java"
+event: "Podlodka Java Crew #7"
 event_url: https://podlodka.io/javacrew
 
 location: онлайн
@@ -8,30 +8,26 @@ location: онлайн
 #  street: Краснопресненская наб., 12
 #  country: Россия
 
-summary: Базовый конспект инженера по профилированию программ на JVM
+summary: Диалог об арсенале performance-инженера в 2025 году
 abstract: |
-  В этом докладе-конспекте разберемся с подходами к профилированию, выясним их слабые и сильные стороны, поймём области применения.
-  А затем, опираясь на полученные знания, рассмотрим несколько популярных профайлеров, реализующих эти подходы и позволяющих анализировать производительность в самых разных ситуациях.
+  В формате интервью поговорим с Владимиром про различные способы диагностики проблем производительности в Java, такие как JFR, NMT, Heap и Thread дампы, профилирование. Обсудим новшества в этой области, а также то, какие проблемы и тренды есть сейчас.
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2025-05-27T14:00:00Z"
-date_end: "2025-05-27T15:00:00Z"
+date: "2025-11-19T14:00:00Z"
+date_end: "2025-11-19T15:00:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2025-05-03T00:00:00Z"
+publishDate: "2025-11-21T00:00:00Z"
 
 authors:
   - toparvion
 tags:
   - jvm
   - profiling
-  - sampling
-  - tracing
-  - cpu
   - async-profiler
-  - yourkit
+  - nmt
   - jfr
   - performance
   - на-русском
@@ -52,7 +48,7 @@ links:
 url_code: ""
 url_pdf: ""
 url_slides: ""
-url_video: "https://youtu.be/TAts7OI5hl8?si=_j9pygtn0FwQpROL"
+url_video: "https://www.youtube.com/watch?v=7-FUyOZjV_A"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
@@ -71,6 +67,3 @@ projects: []
 # Enable math on this page?
 math: false
 ---
-{{% callout note %}}
-Это слегка переработанная версия доклада о&nbsp;профилировании, представленного на&nbsp;конференции [JPoint&nbsp;2025](/event/2025/jpoint/).
-{{% /callout %}}
