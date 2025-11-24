@@ -41,6 +41,8 @@ image:
   focal_point: Smart
 
 links:
+- name: Благодарственное письмо
+  url: thanking-letter.png
 # - icon: twitter
 #   icon_pack: fab
 #   name: Подписаться
