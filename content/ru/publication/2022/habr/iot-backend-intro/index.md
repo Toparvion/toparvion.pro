@@ -22,7 +22,6 @@ abstract: |
 summary: Текстовая версия доклада о некоторых задачах вокруг IoT глазами бэкендера
 
 tags:
-tags:
   - iot
   - java
   - iot-intro
